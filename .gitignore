@@ -8,6 +8,7 @@ node_modules/
 npm-debug.*
 package-lock.json
 README.md
+readme.txt
 
 # Ignoring directories
 dist/

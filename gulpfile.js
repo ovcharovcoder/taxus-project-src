@@ -1,158 +1,175 @@
-const { src, dest, watch, parallel, series } = require("gulp");
+const gulp = require('gulp');
+const { src, dest, watch, parallel, series } = gulp;
+const plugins = {
+	scss: require('gulp-sass')(require('sass')),
+	concat: require('gulp-concat'),
+	uglify: require('gulp-uglify-es').default,
+	browserSync: require('browser-sync').create(),
+	autoprefixer: require('gulp-autoprefixer'),
+	clean: require('gulp-clean'),
+	webp: require('gulp-webp'),
+	imagemin: require('gulp-imagemin'),
+	newer: require('gulp-newer'),
+	fonter: require('gulp-fonter'),
+	ttf2woff2: require('gulp-ttf2woff2'),
+	include: require('gulp-file-include'),
+	sourcemaps: require('gulp-sourcemaps'),
+	notify: require('gulp-notify'),
+	csslint: require('gulp-csslint'),
+	replace: require('gulp-replace'),
+};
 
-const scss = require("gulp-sass")(require("sass"));
-const concat = require("gulp-concat");
-const uglify = require("gulp-uglify-es").default;
-const browserSync = require("browser-sync").create();
-const autoprefixer = require("gulp-autoprefixer");
-const clean = require("gulp-clean");
-const avif = require("gulp-avif");
-const webp = require("gulp-webp");
-const imagemin = require("gulp-imagemin");
-const newer = require("gulp-newer");
-const fonter = require("gulp-fonter");
-const ttf2woff2 = require("gulp-ttf2woff2");
-const include = require("gulp-include");
-const sourcemaps = require('gulp-sourcemaps');
-const notify = require("gulp-notify");
-const csslint = require('gulp-csslint');
-
-// Include pages html
+// Include pages html with components
 function pages() {
-  return src("app/pages/*.html").pipe(
-    include({
-      includePaths: "app/components"
-    }))
-  .pipe(dest("app"))
-  .pipe(browserSync.stream())
+	return src('app/pages/*.html')
+		.pipe(
+			plugins.include({
+				prefix: '@@',
+				basepath: 'app/components/',
+			})
+		)
+		.pipe(
+			plugins.replace(/<title>.*<\/title>/, (match, filePath) => {
+				if (match) {
+					return match;
+				}
+				const pageName = filePath.split('/').pop().replace('.html', '');
+				return `<title>Taxus - ${
+					pageName.charAt(0).toUpperCase() + pageName.slice(1)
+				}</title>`;
+			})
+		)
+		.pipe(
+			plugins.replace('@@header', () => {
+				return '<!-- Вставляємо header.html -->';
+			})
+		)
+		.pipe(
+			plugins.replace('@@footer', () => {
+				return '<!-- Вставляємо footer.html -->';
+			})
+		)
+		.pipe(dest('app'))
+		.pipe(plugins.browserSync.stream());
 }
 
 // Fonts optimization
 function fonts() {
-  return src("app/fonts/src/*.*")
-    .pipe(
-      fonter({
-        formats: ["woff", "ttf"],
-      })
-    )
-    .pipe(src("app/fonts/*.ttf"))
-    .pipe(ttf2woff2())
-    .pipe(dest("app/fonts"));
+	return src('app/fonts/src/*.*')
+		.pipe(
+			plugins.fonter({
+				formats: ['woff', 'ttf'],
+			})
+		)
+		.pipe(src('app/fonts/*.ttf'))
+		.pipe(plugins.ttf2woff2())
+		.pipe(dest('app/fonts'));
 }
 
-// Convert images
+// Convert images (jpg, png to webp)
 function images() {
-  return src(["app/images/src/*.*", "!app/images/src/*.svg"])
-    .pipe(newer("app/images"))
-    .pipe(avif({ quality: 50 }))
-    .pipe(src("app/images/src/*.*"))
-    .pipe(newer("app/images"))
-    .pipe(webp())
-    .pipe(src("app/images/src/*.*"))
-    .pipe(newer("app/images"))
-    .pipe(imagemin())
-    .pipe(dest("app/images"));
-}
-
-// Clean image cache
-function cleanImages() {
-  return src("app/images/**/*", { read: false })
-    .pipe(clean());
+	return src(['app/images/src/*.{jpg,png}'])
+		.pipe(plugins.newer('app/images'))
+		.pipe(plugins.webp().on('error', console.log))
+		.pipe(dest('app/images'))
+		.pipe(src('app/images/src/*.webp'))
+		.pipe(dest('app/images'));
 }
 
 // Optimize SVG files
 function svgImages() {
-  return src("app/images/src/*.svg")
-    .pipe(imagemin([
-      imagemin.svgo({
-        plugins: [
-          { removeViewBox: false },
-          { cleanupIDs: false }
-        ]
-      })
-    ]))
-    .pipe(dest("app/images"));
+	return src('app/images/src/*.svg')
+		.pipe(
+			plugins.imagemin([
+				plugins.imagemin.svgo({
+					plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
+				}),
+			])
+		)
+		.pipe(dest('app/images'));
 }
 
 // Scripts
 function scripts() {
-  return src(["app/js/main.js"])
-    .pipe(sourcemaps.init())
-    .pipe(concat("main.min.js"))
-    .pipe(uglify())
-    .pipe(sourcemaps.write("."))
-    .pipe(dest("app/js"))
-    .pipe(browserSync.stream());
+	return src(['app/js/main.js'])
+		.pipe(plugins.sourcemaps.init())
+		.pipe(plugins.concat('main.min.js'))
+		.pipe(plugins.uglify())
+		.pipe(plugins.sourcemaps.write('.'))
+		.pipe(dest('app/js'))
+		.pipe(plugins.browserSync.stream());
 }
 
-// Styles with sourcemaps and error notifications
+// Styles
 function styles() {
-  return src("app/scss/style.scss")
-    .pipe(sourcemaps.init())
-    .pipe(scss({ outputStyle: "compressed" }).on("error", notify.onError())) // Notify on error
-    .pipe(autoprefixer({ overrideBrowserslist: ["last 10 versions"] }))
-    .pipe(concat("style.min.css"))
-    .pipe(sourcemaps.write("."))
-    .pipe(dest("app/css"))
-    .pipe(browserSync.stream());
+	return src('app/scss/style.scss')
+		.pipe(plugins.sourcemaps.init())
+		.pipe(
+			plugins
+				.scss({ outputStyle: 'compressed' })
+				.on('error', plugins.notify.onError())
+		)
+		.pipe(plugins.autoprefixer({ overrideBrowserslist: ['last 10 versions'] }))
+		.pipe(plugins.concat('style.min.css'))
+		.pipe(plugins.sourcemaps.write('.'))
+		.pipe(dest('app/css'))
+		.pipe(plugins.browserSync.stream());
 }
 
-// CSS Lint
-function lintCss() {
-  return src("app/css/style.min.css")
-    .pipe(csslint())
-    .pipe(csslint.formatter());
-}
-
-// Watching and Browsersync with cache disabled
+// Watching and Browsersync
 function watching() {
-  browserSync.init({
-    server: {
-      baseDir: "app/",
-    },
-    cache: false, // Disable caching
-  });
-  watch(["app/scss/*.scss"], styles);
-  watch(["app/images/src"], series(cleanImages, images));
-  watch(["app/images/src/*.svg"], svgImages); // Added SVG watcher
-  watch(["app/js/main.js"], scripts);
-  watch(["app/components/*", "app/pages/*"], pages);
-  watch(["app/*.html"]).on("change", browserSync.reload);
+	plugins.browserSync.init({
+		server: {
+			baseDir: 'app/',
+		},
+		cache: false,
+	});
+	watch(
+		['app/scss/**/*.scss', 'app/components/*', 'app/pages/*'],
+		parallel(styles, pages)
+	);
+	watch('app/js/*.js', scripts);
+	watch(['app/images/src/*.{jpg,png,svg}'], series(images, svgImages));
 }
 
 // Clean
 function cleanDist() {
-  return src("dist").pipe(clean());
+	return src('dist', { allowEmpty: true }) // Додаємо allowEmpty: true
+		.pipe(plugins.clean());
 }
 
-// Building (with added SVG files)
+// Building
 function building() {
-  return src(
-    [
-      "app/css/style.min.css",
-      "app/images/*.*",
-      "app/images/icons/*.*",
-      "app/images/*.svg", // Added SVG files to build
-      "app/fonts/*.*",
-      "app/js/main.min.js",
-      "app/*.html",
-    ],
-    {
-      base: "app",
-    }
-  ).pipe(dest("dist"));
+	return src(
+		[
+			'app/css/style.min.css',
+			'app/images/*.*',
+			'app/images/icons/*.*',
+			'app/images/*.svg',
+			'app/fonts/*.*',
+			'app/js/main.min.js',
+			'app/*.html',
+		],
+		{
+			base: 'app',
+		}
+	).pipe(dest('dist'));
 }
 
 exports.styles = styles;
 exports.images = images;
-exports.cleanImages = cleanImages; // Exporting the cleanImages function
-exports.svgImages = svgImages; // Exporting the new svgImages function
+exports.svgImages = svgImages;
 exports.fonts = fonts;
 exports.pages = pages;
-exports.building = building;
 exports.scripts = scripts;
-exports.lintCss = lintCss; // Exporting CSS lint function
 exports.watching = watching;
-
 exports.build = series(cleanDist, building);
-exports.default = parallel(styles, fonts, images, svgImages, scripts, pages, watching); // Added svgImages to default task
+exports.default = parallel(
+	styles,
+	fonts,
+	images,
+	svgImages,
+	scripts,
+	pages,
+	watching
+);

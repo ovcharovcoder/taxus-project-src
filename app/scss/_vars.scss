@@ -1,41 +1,66 @@
-// SCSS variables
-
-/*
 // Colors
-$accent: #fe3e57;
-$title: #29282d;
-$default: #8d8d8d;
-$bg: #f6f6f6;
-$border: #ececec;
+$accent: #c94d00;
 
-// Fonts 
-// @include opensans-400
-@mixin opensans-400 {
-  font-family: "OpenSans-Regular", sans-serif;
-  font-style: normal;
+$white: #ffffff;
+$default: #1a1a1a;
+$grey: #6b6b6b;
+$light-grey: #ebebeb;
+$medium-grey: #808080;
+$dark-brown: #2c1a0e;
+$dark-brown-bg: #3b3b3b;
+
+// Fonts
+@mixin mont-400 {
+	font-family: 'Montserrat', serif;
+	font-weight: 400;
+	font-optical-sizing: auto;
+	font-style: normal;
 }
 
-@mixin opensans-400-it {
-  font-family: "OpenSans-LightItalic", sans-serif;
-  font-style: italic;
+@mixin mont-500 {
+	font-family: 'Montserrat', serif;
+	font-weight: 500;
+	font-optical-sizing: auto;
+	font-style: normal;
 }
 
-@mixin opensans-600 {
-  font-family: "OpenSans-Bold", sans-serif;
-  font-style: normal;
-}  
-
-// Button
-@mixin readmore-btn {
-  border: none;
-  @include opensans-400;
-  font-size: 15px;
-  text-transform: uppercase;
-  background-color: $accent;
-  color: $default;
-  padding: 10px 16px;
-  border-radius: 25px;
-  cursor: pointer;
+@mixin mont-600 {
+	font-family: 'Montserrat', serif;
+	font-weight: 600;
+	font-optical-sizing: auto;
+	font-style: normal;
 }
 
-*/
+@mixin mont-700 {
+	font-family: 'Montserrat', serif;
+	font-weight: 700;
+	font-optical-sizing: auto;
+	font-style: normal;
+}
+
+@mixin mont-700 {
+	font-family: 'Montserrat', serif;
+	font-weight: 800;
+	font-optical-sizing: auto;
+	font-style: normal;
+}
+
+@mixin prata-400 {
+	font-family: 'Prata', serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@mixin rlw-400 {
+	font-family: 'Raleway', serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@mixin rlw-700 {
+	font-family: 'Raleway', serif;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	font-style: normal;
+}

@@ -1,38 +1,100 @@
-// Global styles */
+@use 'vars' as *;
 
-/*
+// Global styles
+
 // Glue footer to the bottom
 html,
 body {
-  height: 100%;
+	height: 100%;
 }
 
 .wrapper {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 .main {
-  flex-grow: 1;
+	flex-grow: 1;
 }
+
 // END/ Glue footer to the bottom
 
+body {
+	@include mont-400;
+	font-size: 1rem; // 16px
+	color: $default;
+	display: flex;
+	flex-direction: column;
+}
 
- body {
-     @include opensans-400;
-     font-size: 1rem;   // 16px
-     color: $default;
-     display: flex;
-     flex-direction: column;
- }
+.container {
+	max-width: 1210px;
+	margin: 0 auto;
+	padding: 0 0.9375rem; // 0 15px
+}
 
- .container {
-     max-width: 1230px;
-     margin: 0 auto;
-     padding: 0 .9375rem; // 0 15px
- }
+// Button
+.btn {
+	border: none;
+	@include mont-400;
+	font-size: 1rem;
+	background-color: $accent;
+	color: $white;
+	padding: 15px 40px;
+	border-radius: 5px;
+	cursor: pointer;
+}
 
-*/
+.arrow-btn-black,
+.arrow-btn-white {
+	@include mont-400;
+	border: 1px solid $default;
+	font-size: 1rem;
+	padding: 10px 50px 10px 15px;
+	background-color: transparent;
+	color: $default;
+	border-radius: 25px;
+	cursor: pointer;
+	position: relative;
+	&::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: 18px;
+		transform: translateY(-50%);
+		width: 24px;
+		height: 13px;
+		background: url('../images/arrow-right-black.svg') no-repeat;
+		background-size: cover;
+	}
+}
 
+.arrow-btn-white {
+	border: 1px solid $white;
+	color: $white;
+	&::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: 18px;
+		transform: translateY(-50%);
+		width: 24px;
+		height: 25px;
+		background: url('../images/arrow-right-white.svg') no-repeat;
+		background-size: cover;
+	}
+}
 
+.promo {
+	position: relative;
+	height: 100vh;
+	background-size: cover;
+	background-position: top center;
+	background-repeat: no-repeat;
+	z-index: 1;
+}
+
+.ml {
+	margin-right: 20px;
+}
