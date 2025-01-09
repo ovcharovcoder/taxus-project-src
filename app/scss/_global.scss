@@ -90,8 +90,8 @@ body {
 	position: relative;
 	height: 100vh;
 	background-size: cover;
-	background-position: top center;
-	background-repeat: no-repeat;
+	background-position: center;
+	background-repeat: no-repeat !important;
 	z-index: 1;
 }
 
