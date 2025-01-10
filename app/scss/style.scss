@@ -101,7 +101,7 @@
 	&__content {
 		padding-top: 100px;
 	}
-	&__content__inner {
+	&__content-inner {
 		display: flex;
 	}
 	&__content-header {
@@ -169,7 +169,7 @@
 // Services
 .services {
 	padding: 30px 10px;
-	background-color: $dark-brown-bg;
+	background-color: $brown-bg;
 	color: $white;
 	&-list {
 		font-size: 18px;
@@ -194,3 +194,49 @@
 	}
 }
 
+// Expertise
+.expertise {
+	background-color: $dark-brown-bg;
+	padding: 100px 0;
+	&__header {
+		text-align: center;
+	}
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-top: 80px;
+		gap: 0 20px;
+	}
+	&__item {
+		padding: 10px;
+		flex-basis: 280px;
+	}
+	&__item-img {
+		max-width: 60px;
+		width: 100%;
+		height: auto;
+	}
+	&__header-subtitle,
+	&__item-title {
+		color: $white;
+	}
+	&__header-subtitle {
+		@include mont-600;
+		font-size: 24px;
+	}
+	&__header-title {
+		margin-top: 16px;
+	}
+	&__item-title {
+		@include mont-800;
+		font-size: 32px;
+		line-height: 1.2;
+		max-width: 230px;
+		padding-top: 30px;
+	}
+	&__item-text {
+		color: $grey;
+		padding-top: 30px;
+	}
+}
