@@ -218,9 +218,6 @@
 	&__item-title {
 		color: $white;
 	}
-	&__header-title {
-		margin-top: 16px;
-	}
 	&__item-title {
 		@include mont-800;
 		font-size: 32px;
@@ -252,24 +249,6 @@
 		max-width: 480px;
 		width: 100%;
 	}
-	&__list-item + &__list-item {
-		margin-top: 20px;
-	}
-	&__list-item {
-		position: relative;
-		padding-left: 24px;
-	}
-	&__list-item::before {
-		content: '';
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		left: 0;
-		width: 8px;
-		height: 8px;
-		background: url('../images/icons/orange-rhombus.svg') no-repeat;
-		background-size: cover;
-	}
 	&__item {
 		display: flex;
 		flex-direction: column;
@@ -285,9 +264,6 @@
 // Services
 .services {
 	padding: 100px 0;
-	&__title {
-		margin-top: 16px;
-	}
 	&__inner {
 		margin-top: 112px;
 		display: grid;
@@ -338,5 +314,22 @@
 	}
 	&__cta-item-text {
 		padding-top: 30px;
+	}
+}
+
+// Banking
+.banking {
+	padding: 100px 0;
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0 50px;
+	}
+	&__list {
+		margin-top: 40px;
+	}
+	&__btn {
+		margin-top: 50px;
 	}
 }

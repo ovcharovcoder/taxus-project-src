@@ -114,6 +114,7 @@ body {
 	font-size: 46px;
 	color: $accent;
 	line-height: 1.4;
+	margin-top: 16px;
 }
 
 .subtitle {
@@ -136,6 +137,27 @@ body {
 .cta-black-bg {
 	background-color: $default;
 	color: $white;
+}
+
+// Orange rhombus icon item
+.orange-rhombus-item {
+	position: relative;
+	padding-left: 24px;
+}
+.orange-rhombus-item::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	width: 8px;
+	height: 8px;
+	background: url('../images/icons/orange-rhombus.svg') no-repeat;
+	background-size: cover;
+}
+
+.orange-rhombus-item + .orange-rhombus-item {
+	margin-top: 20px;
 }
 
 // Animate button
