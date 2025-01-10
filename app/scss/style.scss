@@ -256,7 +256,7 @@
 	}
 	&__btn {
 		display: block;
-		max-width: 168px;
+		max-width: 170px;
 		text-align: center;
 	}
 }
@@ -296,6 +296,9 @@
 		grid-column: span 1;
 		justify-self: start;
 	}
+	&__item-text {
+		color: $grey;
+	}
 	&__item-text,
 	&__item-btn {
 		margin-top: 30px;
@@ -331,5 +334,99 @@
 	}
 	&__btn {
 		margin-top: 50px;
+	}
+	&__img {
+		max-width: 646px;
+		width: 100%;
+	}
+}
+
+// Platform
+.platform {
+	padding: 100px 0;
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		gap: 0 125px;
+		align-items: center;
+	}
+	&__subtitle {
+		color: $white;
+	}
+	&__text {
+		color: $white;
+		margin-top: 60px;
+	}
+	&__btn {
+		margin-top: 40px;
+	}
+	&__img {
+		max-width: 536px;
+		width: 100%;
+	}
+}
+
+// Process
+.process {
+	padding: 100px 0;
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		gap: 0 100px;
+	}
+	&__item {
+		flex: 1;
+	}
+	&__img {
+		max-width: 480px;
+		width: 100%;
+		margin-top: 50px;
+	}
+	&__list-item + &__list-item {
+		margin-top: 40px;
+	}
+	&__list-item-title {
+		@include mont-800;
+		font-size: 24px;
+	}
+	&__list-item-text {
+		margin-top: 16px;
+	}
+}
+
+// Benefits
+.benefits {
+	background-color: $dark-brown-bg;
+	padding: 100px 0;
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-top: 80px;
+		gap: 0 20px;
+	}
+	&__item {
+		padding: 10px;
+		flex-basis: 280px;
+	}
+	&__item-img {
+		max-width: 60px;
+		width: 100%;
+		height: auto;
+	}
+	&__header-subtitle,
+	&__item-title {
+		color: $white;
+	}
+	&__item-title {
+		@include mont-800;
+		font-size: 32px;
+		line-height: 1.2;
+		max-width: 250px;
+		padding-top: 30px;
+	}
+	&__item-text {
+		color: $grey;
+		padding-top: 30px;
 	}
 }

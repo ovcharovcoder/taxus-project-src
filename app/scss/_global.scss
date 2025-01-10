@@ -37,7 +37,7 @@ body {
 // Button
 .btn {
 	border: none;
-	@include mont-400;
+	@include mont-500;
 	font-size: 1rem;
 	background-color: $accent;
 	color: $white;
@@ -48,7 +48,7 @@ body {
 
 .arrow-btn-black,
 .arrow-btn-white {
-	@include mont-400;
+	@include mont-500;
 	border: 1px solid $default;
 	font-size: 1rem;
 	padding: 10px 50px 10px 15px;
@@ -158,6 +158,52 @@ body {
 
 .orange-rhombus-item + .orange-rhombus-item {
 	margin-top: 20px;
+}
+
+// List with number
+.number-list {
+	counter-reset: list-counter;
+	padding-left: 0;
+}
+
+.number-list-item {
+	position: relative;
+	padding-left: 100px;
+}
+
+.number-list-item::before {
+	content: counter(list-counter);
+	counter-increment: list-counter;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 66px;
+	height: 66px;
+	background-color: $default;
+	color: white;
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	@include mont-400;
+	z-index: 100;
+}
+
+.number-list-item::after {
+	content: '';
+	position: absolute;
+	left: 33px;
+	top: 50%;
+	transform: translateX(-50%);
+	width: 2px;
+	height: calc(100% + 30px);
+	background-color: $default;
+}
+
+.number-list-item:last-child::after {
+	display: none;
 }
 
 // Animate button
