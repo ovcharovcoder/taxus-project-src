@@ -128,7 +128,7 @@
 		left: 0;
 		width: 53px;
 		height: 55px;
-		background: url('../images/span-decore.svg') no-repeat;
+		background: url('../images/icons/span-decore.svg') no-repeat;
 		background-size: cover;
 	}
 	&__content-text {
@@ -189,7 +189,7 @@
 		left: -44px;
 		width: 3px;
 		height: 3px;
-		background: url('../images/ellipse.svg') no-repeat;
+		background: url('../images/icons/ellipse.svg') no-repeat;
 		background-size: cover;
 	}
 }
@@ -198,9 +198,6 @@
 .expertise {
 	background-color: $dark-brown-bg;
 	padding: 100px 0;
-	&__header {
-		text-align: center;
-	}
 	&__inner {
 		display: flex;
 		flex-wrap: wrap;
@@ -221,10 +218,6 @@
 	&__item-title {
 		color: $white;
 	}
-	&__header-subtitle {
-		@include mont-600;
-		font-size: 24px;
-	}
 	&__header-title {
 		margin-top: 16px;
 	}
@@ -237,6 +230,113 @@
 	}
 	&__item-text {
 		color: $grey;
+		padding-top: 30px;
+	}
+}
+
+// Who we serve
+.who-we-serve {
+	padding: 100px 0;
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__item {
+		flex-basis: 544px;
+	}
+	&__subtitle {
+		margin-top: 16px;
+	}
+	&__img {
+		margin-top: 56px;
+		max-width: 480px;
+		width: 100%;
+	}
+	&__list-item + &__list-item {
+		margin-top: 20px;
+	}
+	&__list-item {
+		position: relative;
+		padding-left: 24px;
+	}
+	&__list-item::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 0;
+		width: 8px;
+		height: 8px;
+		background: url('../images/icons/orange-rhombus.svg') no-repeat;
+		background-size: cover;
+	}
+	&__item {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	&__btn {
+		display: block;
+		max-width: 168px;
+		text-align: center;
+	}
+}
+
+// Services
+.services {
+	padding: 100px 0;
+	&__title {
+		margin-top: 16px;
+	}
+	&__inner {
+		margin-top: 112px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 100px 70px;
+	}
+	&__item {
+		flex-basis: 380px;
+		padding: 10px;
+	}
+	&__item-title {
+		@include mont-800;
+		font-size: 32px;
+		line-height: 1.2;
+		max-width: 230px;
+		position: relative;
+		margin-bottom: 10px;
+	}
+	&__item-title::after {
+		content: '';
+		display: block;
+		width: 50px;
+		height: 2px;
+		background-color: $accent;
+		margin-top: 30px;
+	}
+
+	&__item:nth-last-child(2),
+	&__item:nth-last-child(1) {
+		grid-column: span 1;
+		justify-self: start;
+	}
+	&__item-text,
+	&__item-btn {
+		margin-top: 30px;
+	}
+	&__cta {
+		margin-top: 100px;
+	}
+	&__cta-item-title {
+		@include mont-800;
+		font-size: 32px;
+		line-height: 1.2;
+	}
+	&__cta-item {
+		max-width: 700px;
+		width: 100%;
+	}
+	&__cta-item-text {
 		padding-top: 30px;
 	}
 }

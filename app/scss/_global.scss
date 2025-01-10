@@ -65,7 +65,7 @@ body {
 		transform: translateY(-50%);
 		width: 24px;
 		height: 13px;
-		background: url('../images/arrow-right-black.svg') no-repeat;
+		background: url('../images/icons/arrow-right-black.svg') no-repeat;
 		background-size: cover;
 	}
 }
@@ -81,18 +81,28 @@ body {
 		transform: translateY(-50%);
 		width: 24px;
 		height: 25px;
-		background: url('../images/arrow-right-white.svg') no-repeat;
+		background: url('../images/icons/arrow-right-white.svg') no-repeat;
 		background-size: cover;
 	}
 }
 
-.promo {
+.promo,
+.section-bg {
 	position: relative;
-	height: 100vh;
-	background-size: cover;
-	background-position: center;
+	background-size: cover !important;
+	background-position: center !important;
 	background-repeat: no-repeat !important;
+}
+
+.promo {
+	height: 100vh;
 	z-index: 1;
+}
+
+.section-header {
+	text-align: center;
+	max-width: 880px;
+	margin: 0 auto;
 }
 
 .mr-20 {
@@ -104,4 +114,58 @@ body {
 	font-size: 46px;
 	color: $accent;
 	line-height: 1.4;
+}
+
+.subtitle {
+	@include mont-600;
+	font-size: 24px;
+	line-height: 1.4;
+}
+
+.cta-white-bg,
+.cta-black-bg {
+	padding: 80px;
+	background-color: $white;
+	border-radius: 20px;
+	display: flex;
+	justify-content: space-between;
+	color: $default;
+	align-items: center;
+}
+
+.cta-black-bg {
+	background-color: $default;
+	color: $white;
+}
+
+// Animate button
+.btn-zoom {
+	display: inline-block;
+	transition: transform 0.3s ease;
+}
+
+.btn-zoom:hover {
+	transform: scale(1.1);
+}
+
+.btn-pulse {
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
+}
+
+.btn-pulse:hover {
+	transform: scale(1.1);
+	animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 5px rgba(230, 57, 70, 0.7);
+	}
+	50% {
+		box-shadow: 0 0 20px rgba(230, 57, 70, 0.9);
+	}
+	100% {
+		box-shadow: 0 0 5px rgba(230, 57, 70, 0.7);
+	}
 }
