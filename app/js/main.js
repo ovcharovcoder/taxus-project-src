@@ -1,4 +1,4 @@
-// Scripts are indicated there
+// Testimonials slider
 const swiper = new Swiper('.reviews__testimonials-swiper', {
 	slidesPerView: 3,
 	spaceBetween: 20,
