@@ -29,47 +29,49 @@
 							</a>
 						</div>
 						<div class="header__navmenu">
-							<nav class="header__nav">
-								<ul class="header__nav-list">
-									<li class="header__nav-item">
-										<a class="header__nav-link dropdown mr-20" href="#"
-											>Services</a
-										>
-									</li>
-									<li class="header__nav-item">
-										<a class="header__nav-link" href="#">Banking</a>
-									</li>
-									<li class="header__nav-item">
-										<a class="header__nav-link dropdown mr-20" href="#"
-											>About Us</a
-										>
-									</li>
-									<li class="header__nav-item">
-										<a class="header__nav-link" href="#">Blog</a>
-									</li>
-									<li class="header__nav-item">
-										<a class="header__nav-link ml" href="#">Contact Us</a>
-									</li>
-								</ul>
-							</nav>
-							<div class="header__user-nav">
-								<div class="header__search">
-									<a class="header__search-link" href="#">
-										<img
-											class="header__search-img"
-											src="images/icons/search.svg"
-											alt="Search"
-										/>
-									</a>
-								</div>
-								<div class="header__login">
-									<a class="header__login-btn" href="#"> Log in </a>
-								</div>
-								<div class="header__lang">
-									<a class="header__lang-link dropdown" href="#">EN</a>
-								</div>
-							</div>
-						</div>
+    <nav class="header__nav">
+        <ul class="header__nav-list">
+            <li class="header__nav-item header__dropdown">
+                <a class="header__nav-link dropdown mr-20" href="#">Services</a>
+                <ul class="header__dropdown-menu">
+                    <li><a href="services/web-development.html">Web Development</a></li>
+                    <li><a href="services/seo.html">SEO Optimization</a></li>
+                    <li><a href="services/marketing.html">Digital Marketing</a></li>
+                </ul>
+            </li>
+            <li class="header__nav-item">
+                <a class="header__nav-link" href="#">Banking</a>
+            </li>
+            <li class="header__nav-item header__dropdown">
+                <a class="header__nav-link dropdown mr-20" href="about.html">About Us</a>
+                <ul class="header__dropdown-menu">
+                    <li><a href="about/team.html">About Us</a></li>
+                    <li><a href="about/mission.html">Our Team</a></li>
+                    <li><a href="about/history.html">Company History</a></li>
+                </ul>
+            </li>
+            <li class="header__nav-item">
+                <a class="header__nav-link" href="#">Blog</a>
+            </li>
+            <li class="header__nav-item">
+                <a class="header__nav-link ml" href="#">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="header__user-nav">
+        <div class="header__search">
+            <a class="header__search-link" href="#">
+                <img class="header__search-img" src="images/icons/search.svg" alt="Search"/>
+            </a>
+        </div>
+        <div class="header__login">
+            <a class="header__login-btn" href="#"> Log in </a>
+        </div>
+        <div class="header__lang">
+            <a class="header__lang-link dropdown" href="#">EN</a>
+        </div>
+    </div>
+</div>
 					</div>
 				</div>
 			</header>
@@ -245,6 +247,7 @@
 					<img
 						class="who-we-serve__img"
 						src="images/who-we-serve-img.webp"
+						loading="lazy"
 						alt="People in the office"
 					/>
 				</div>
@@ -428,7 +431,12 @@
 	>
 		<div class="container">
 			<div class="banking__inner">
-				<img class="banking__img" src="images/banking-img.webp" alt="image" />
+				<img
+					class="banking__img"
+					src="images/banking-img.webp"
+					loading="lazy"
+					alt="image"
+				/>
 				<div class="banking__item">
 					<div class="banking__header">
 						<h3 class="banking__subtitle subtitle">Taxus Banking</h3>
@@ -487,7 +495,12 @@
 						>
 					</div>
 				</div>
-				<img class="platform__img" src="images/platform-img.webp" alt="img" />
+				<img
+					class="platform__img"
+					src="images/platform-img.webp"
+					loading="lazy"
+					alt="img"
+				/>
 			</div>
 		</div>
 	</section>
@@ -501,7 +514,12 @@
 					<div class="process_header">
 						<h3 class="process__subtitle subtitle">Process</h3>
 						<h2 class="process__title title">How our process works</h2>
-						<img class="process__img" src="images/process-img.webp" alt="img" />
+						<img
+							class="process__img"
+							src="images/process-img.webp"
+							loading="lazy"
+							alt="img"
+						/>
 					</div>
 				</div>
 				<div class="process__item">
@@ -671,6 +689,7 @@
 										<img
 											class="reviews__testimonials-avatar"
 											src="images/avatar-client-1.webp"
+											loading="lazy"
 											alt="avatar"
 										/>
 										<p class="reviews__testimonials-name">
@@ -696,6 +715,7 @@
 										<img
 											class="reviews__testimonials-avatar"
 											src="images/avatar-client-2.webp"
+											loading="lazy"
 											alt="avatar"
 										/>
 										<p class="reviews__testimonials-name">
@@ -721,6 +741,7 @@
 										<img
 											class="reviews__testimonials-avatar"
 											src="images/avatar-client-3.webp"
+											loading="lazy"
 											alt="avatar"
 										/>
 										<p class="reviews__testimonials-name">
@@ -746,6 +767,7 @@
 										<img
 											class="reviews__testimonials-avatar"
 											src="images/avatar-client-4.webp"
+											loading="lazy"
 											alt="avatar"
 										/>
 										<p class="reviews__testimonials-name">
@@ -771,6 +793,7 @@
 										<img
 											class="reviews__testimonials-avatar"
 											src="images/avatar-client-5.webp"
+											loading="lazy"
 											alt="avatar"
 										/>
 										<p class="reviews__testimonials-name">
@@ -796,6 +819,7 @@
 										<img
 											class="reviews__testimonials-avatar"
 											src="images/avatar-client-6.webp"
+											loading="lazy"
 											alt="avatar"
 										/>
 										<p class="reviews__testimonials-name">
@@ -874,22 +898,22 @@
               London, UK, WC2H 9JQ</span>
           <ul class="footer__top-item-social-list">
             <li class="footer__top-item-social-item">
-              <a class="footer__top-item-social-link btn-zoom" href="#">
+              <a class="footer__top-item-social-link btn-zoom" href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                 <img class="footer__social-img" src="images/icons/instagram.svg" alt="Instagram">
               </a>
             </li>
             <li class="footer__top-item-social-item">
-              <a class="footer__top-item-social-link btn-zoom" href="#">
+              <a class="footer__top-item-social-link btn-zoom" href="#" aria-label="Linkedin" target="_blank" rel="noopener noreferrer">
                 <img class="footer__social-img" src="images/icons/in.svg" alt="Linkedin">
               </a>
             </li>
             <li class="footer__top-item-social-item">
-              <a class="footer__top-item-social-link btn-zoom" href="#">
+              <a class="footer__top-item-social-link btn-zoom" href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                 <img class="footer__social-img" src="images/icons/fb.svg" alt="Facebook">
               </a>
             </li>
             <li class="footer__top-item-social-item">
-              <a class="footer__top-item-social-link btn-zoom" href="#">
+              <a class="footer__top-item-social-link btn-zoom" href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
                 <img class="footer__social-img" src="images/icons/youtube.svg" alt="YouTube">
               </a>
             </li>
