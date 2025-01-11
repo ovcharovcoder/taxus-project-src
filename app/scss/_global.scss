@@ -123,6 +123,7 @@ body {
 	line-height: 1.4;
 }
 
+// Call to actions
 .cta-white-bg,
 .cta-black-bg {
 	padding: 80px;
@@ -137,6 +138,19 @@ body {
 .cta-black-bg {
 	background-color: $default;
 	color: $white;
+}
+
+.cta-item {
+	max-width: 700px;
+	width: 100%;
+}
+.cta-item-title {
+	@include mont-800;
+	font-size: 32px;
+	line-height: 1.2;
+}
+.cta-item-text {
+	padding-top: 30px;
 }
 
 // Orange rhombus icon item
@@ -204,6 +218,16 @@ body {
 
 .number-list-item:last-child::after {
 	display: none;
+}
+
+// Bread crumbs
+.bread-crumbs__list {
+	display: flex;
+	gap: 0 10px;
+}
+
+.bread-crumbs--active {
+	font-weight: 700;
 }
 
 // Animate button
