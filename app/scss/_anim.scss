@@ -1,0 +1,77 @@
+/* 
+* Use class 'animate-slide-in-left' for block appearance animation on the left
+* Use class 'animate-slide-in-right' for block appearance animation on the right
+* Use class 'animate-slide-up' for block appearance animation on the upper
+* Use the 'btn-zoom' class to animate the button to zoom in on hover
+* Use the 'btn-pulse' class to animate the button to pulse on hover
+*/
+
+// Block appearance animation on the left
+.animate-slide-in-left {
+	opacity: 0;
+	transform: translateX(-50px);
+	transition: opacity 0.6s ease, transform 0.6s ease;
+	will-change: transform, opacity;
+}
+
+.animate-slide-in-left.visible {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+// Block appearance animation on the right
+.animate-slide-in-right {
+	opacity: 0;
+	transform: translateX(50px);
+	transition: opacity 0.6s ease, transform 0.6s ease;
+	will-change: transform, opacity;
+}
+
+.animate-slide-in-right.visible {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+// Block appearance animation on the up
+.animate-slide-up {
+	opacity: 0;
+	transform: translateY(50px);
+	transition: all 0.6s ease-out;
+}
+
+.animate-slide-up.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+// Animation button
+.btn-zoom {
+	display: inline-block;
+	transition: transform 0.3s ease;
+}
+
+.btn-zoom:hover {
+	transform: scale(1.1);
+}
+
+.btn-pulse {
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
+}
+
+.btn-pulse:hover {
+	transform: scale(1.1);
+	animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 5px rgba(230, 57, 70, 0.7);
+	}
+	50% {
+		box-shadow: 0 0 20px rgba(230, 57, 70, 0.9);
+	}
+	100% {
+		box-shadow: 0 0 5px rgba(230, 57, 70, 0.7);
+	}
+}
