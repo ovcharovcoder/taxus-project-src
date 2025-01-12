@@ -667,29 +667,139 @@
 	padding: 100px 0;
 	background-color: $light-grey;
 	position: relative;
+
 	&__inner {
 		display: flex;
 		justify-content: space-between;
 		gap: 0 120px;
 	}
+
 	&__item {
 		flex-basis: 480px;
 	}
+
 	&__text {
 		margin-top: 30px;
 	}
+
 	&__cta-item-btn {
 		margin-top: 100px;
 	}
+
 	&__list-item + &__list-item {
 		margin-top: 50px;
 	}
+
 	&__list-item-title {
 		font-size: 32px;
 		font-weight: 800;
 	}
+
 	&__list-item-text {
 		padding-top: 20px;
+	}
+}
+
+// Awards
+.awards {
+	background-color: $dark-brown-bg;
+	padding: 100px 0;
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__subtitle {
+		color: $white;
+	}
+
+	&__item {
+		flex-basis: 480px;
+	}
+
+	&__item-gallery {
+		flex-basis: 580px;
+		display: grid;
+		gap: 10px;
+		grid-template-columns: repeat(3, 1fr);
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__item-img {
+		max-width: 170px;
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+		aspect-ratio: 1/1;
+	}
+}
+
+// History
+.history {
+	padding: 100px 0 500px;
+	&__top-subtitle {
+		color: $white;
+	}
+	&__top-content {
+		margin-top: 50px;
+	}
+	&__top-text {
+		color: $white;
+		text-align: left;
+		padding-top: 20px;
+		line-height: 1.6;
+	}
+	&__bottom {
+		padding-top: 200px;
+	}
+}
+
+// Benefits
+.benefits-about {
+	background-color: $dark-brown-bg;
+	padding: 100px 0;
+
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-top: 80px;
+		gap: 0 20px;
+	}
+
+	&__item {
+		padding: 10px;
+		flex-basis: 280px;
+	}
+
+	&__item-img {
+		max-width: 60px;
+		width: 100%;
+		height: auto;
+	}
+
+	&__header-subtitle,
+	&__item-title {
+		color: $white;
+	}
+
+	&__item-title {
+		@include mont-800;
+		font-size: 32px;
+		line-height: 1.2;
+		max-width: 260px;
+		padding-top: 30px;
+	}
+
+	&__item-text {
+		color: $grey;
+		padding-top: 30px;
+	}
+	&__cta-item-btn {
+		margin-top: 50px;
+		text-align: center;
 	}
 }
 
