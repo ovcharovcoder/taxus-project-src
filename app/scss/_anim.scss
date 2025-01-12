@@ -3,6 +3,7 @@
 * Use class 'animate-slide-in-right' for block appearance animation on the right
 * Use class 'animate-slide-up' for block appearance animation on the upper
 * Use the 'animate-rotate' class to animate the appearance of the block to stretch from the center to the edges
+* Use btn-pulse if you need to rotate an object by 3 degrees.
 * Use the 'btn-zoom' class to animate the button to zoom in on hover
 * Use the 'btn-pulse' class to animate the button to pulse on hover
 */
@@ -66,6 +67,15 @@
 
 .btn-zoom:hover {
 	transform: scale(1.1);
+}
+
+// Rotate 3 degrees to the right
+.tilt-hover {
+	transition: transform 0.5s ease; // Плавний перехід
+
+	&:hover {
+		transform: rotate(3deg); // Поворот на 10 градусів праворуч
+	}
 }
 
 // Pulse on hover
