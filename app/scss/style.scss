@@ -157,6 +157,7 @@
 	}
 }
 
+// --- Home page ---
 // Promo
 .promo-home {
 	padding: 100px 0;
@@ -360,34 +361,6 @@
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 100px 70px;
-	}
-
-	&__item {
-		flex-basis: 380px;
-		padding: 10px;
-	}
-
-	&__subtitle {
-		color: $white;
-	}
-
-	&__item-title {
-		@include mont-800;
-		font-size: 32px;
-		line-height: 1.2;
-		max-width: 230px;
-		position: relative;
-		margin-bottom: 10px;
-		color: $white;
-	}
-
-	&__item-title::after {
-		content: '';
-		display: block;
-		width: 50px;
-		height: 2px;
-		background-color: $accent;
-		margin-top: 30px;
 	}
 
 	&__item:nth-last-child(2),
@@ -637,6 +610,87 @@
 
 .swiper-button-next {
 	right: -80px;
+}
+
+// --- About page ---
+// Promo
+.promo-about {
+	padding: 200px 0 100px;
+	position: relative;
+
+	&__top {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0 125px;
+	}
+
+	&__top-subtitle {
+		color: $white;
+	}
+
+	&__top-text {
+		color: $grey;
+		padding-top: 32px;
+	}
+
+	&__top-item {
+		flex-basis: 550px;
+	}
+
+	&__top-item-img {
+		flex-basis: 500px;
+	}
+
+	&__top-img {
+		width: 100%;
+		object-fit: cover;
+	}
+
+	&__item-title {
+		max-width: 245px;
+	}
+
+	&__items {
+		display: flex;
+		justify-content: space-around;
+		gap: 0 80px;
+		margin-top: 100px;
+	}
+	&__cta {
+		margin-top: 80px;
+	}
+}
+
+// Industries
+.industries {
+	padding: 100px 0;
+	background-color: $light-grey;
+	position: relative;
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		gap: 0 120px;
+	}
+	&__item {
+		flex-basis: 480px;
+	}
+	&__text {
+		margin-top: 30px;
+	}
+	&__cta-item-btn {
+		margin-top: 100px;
+	}
+	&__list-item + &__list-item {
+		margin-top: 50px;
+	}
+	&__list-item-title {
+		font-size: 32px;
+		font-weight: 800;
+	}
+	&__list-item-text {
+		padding-top: 20px;
+	}
 }
 
 // Footer

@@ -117,10 +117,39 @@ body {
 	margin-top: 16px;
 }
 
+// Block witch orange line
 .subtitle {
 	@include mont-600;
 	font-size: 24px;
 	line-height: 1.4;
+}
+
+.services__item {
+	flex-basis: 380px;
+	padding: 10px;
+}
+
+.services__subtitle {
+	color: $white;
+}
+
+.services__item-title {
+	@include mont-800;
+	font-size: 32px;
+	line-height: 1.2;
+	max-width: 230px;
+	position: relative;
+	margin-bottom: 10px;
+	color: $white;
+}
+
+.services__item-title::after {
+	content: '';
+	display: block;
+	width: 50px;
+	height: 2px;
+	background-color: $accent;
+	margin-top: 30px;
 }
 
 // Call to actions

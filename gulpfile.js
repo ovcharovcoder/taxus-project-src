@@ -15,7 +15,6 @@ const plugins = {
 	include: require('gulp-file-include'),
 	sourcemaps: require('gulp-sourcemaps'),
 	notify: require('gulp-notify'),
-	csslint: require('gulp-csslint'),
 	replace: require('gulp-replace'),
 };
 
@@ -28,27 +27,6 @@ function pages() {
 				basepath: 'app/components/',
 			})
 		)
-		.pipe(
-			plugins.replace(/<title>.*<\/title>/, (match, filePath) => {
-				if (match) {
-					return match;
-				}
-				const pageName = filePath.split('/').pop().replace('.html', '');
-				return `<title>Taxus - ${
-					pageName.charAt(0).toUpperCase() + pageName.slice(1)
-				}</title>`;
-			})
-		)
-		.pipe(
-			plugins.replace('@@header', () => {
-				return '<!-- Вставляємо header.html -->';
-			})
-		)
-		.pipe(
-			plugins.replace('@@footer', () => {
-				return '<!-- Вставляємо footer.html -->';
-			})
-		)
 		.pipe(dest('app'))
 		.pipe(plugins.browserSync.stream());
 }
@@ -56,21 +34,17 @@ function pages() {
 // Fonts optimization
 function fonts() {
 	return src('app/fonts/src/*.*')
-		.pipe(
-			plugins.fonter({
-				formats: ['woff', 'ttf'],
-			})
-		)
-		.pipe(src('app/fonts/*.ttf'))
+		.pipe(plugins.fonter({ formats: ['woff', 'ttf'] }))
+		.pipe(dest('app/fonts'))
 		.pipe(plugins.ttf2woff2())
 		.pipe(dest('app/fonts'));
 }
 
-// Convert images (jpg, png to webp)
+// Convert images
 function images() {
 	return src(['app/images/src/*.{jpg,png}'])
 		.pipe(plugins.newer('app/images'))
-		.pipe(plugins.webp().on('error', console.log))
+		.pipe(plugins.webp())
 		.pipe(dest('app/images'))
 		.pipe(src('app/images/src/*.webp'))
 		.pipe(dest('app/images'));
@@ -91,7 +65,12 @@ function svgImages() {
 
 // Scripts
 function scripts() {
-	return src(['app/js/main.js'])
+	return src([
+		'app/js/main.js',
+		'app/js/animation.js',
+		'app/js/slider.js',
+		'app/js/menu.js',
+	])
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.concat('main.min.js'))
 		.pipe(plugins.uglify())
@@ -118,12 +97,7 @@ function styles() {
 
 // Watching and Browsersync
 function watching() {
-	plugins.browserSync.init({
-		server: {
-			baseDir: 'app/',
-		},
-		cache: false,
-	});
+	plugins.browserSync.init({ server: { baseDir: 'app/' }, cache: false });
 	watch(
 		['app/scss/**/*.scss', 'app/components/*', 'app/pages/*'],
 		parallel(styles, pages)
@@ -134,8 +108,7 @@ function watching() {
 
 // Clean
 function cleanDist() {
-	return src('dist', { allowEmpty: true }) // Додаємо allowEmpty: true
-		.pipe(plugins.clean());
+	return src('dist', { allowEmpty: true }).pipe(plugins.clean());
 }
 
 // Building
@@ -150,9 +123,7 @@ function building() {
 			'app/js/main.min.js',
 			'app/*.html',
 		],
-		{
-			base: 'app',
-		}
+		{ base: 'app' }
 	).pipe(dest('dist'));
 }
 
@@ -163,6 +134,7 @@ exports.fonts = fonts;
 exports.pages = pages;
 exports.scripts = scripts;
 exports.watching = watching;
+exports.cleanDist = cleanDist;
 exports.build = series(cleanDist, building);
 exports.default = parallel(
 	styles,
