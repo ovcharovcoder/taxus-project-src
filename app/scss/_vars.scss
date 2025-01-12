@@ -10,6 +10,12 @@ $medium-grey: #808080;
 $dark-brown: #2c1a0e;
 $dark-brown-bg: #191919;
 $brown-bg: #321c0d;
+$brown-gradient: linear-gradient(
+	to bottom,
+	#321c0d 0%,
+	#25150a 50%,
+	#191919 100%
+);
 
 // Fonts
 @mixin mont-400 {
