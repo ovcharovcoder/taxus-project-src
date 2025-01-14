@@ -46,6 +46,10 @@ body {
 	cursor: pointer;
 }
 
+.color-grey {
+	color: $grey !important;
+}
+
 .arrow-btn-black,
 .arrow-btn-white {
 	@include mont-500;
@@ -218,8 +222,7 @@ body {
 	counter-increment: list-counter;
 	position: absolute;
 	left: 0;
-	top: 50%;
-	transform: translateY(-50%);
+	top: 0;
 	width: 66px;
 	height: 66px;
 	background-color: $default;
@@ -237,7 +240,7 @@ body {
 	content: '';
 	position: absolute;
 	left: 33px;
-	top: 50%;
+	top: 40%;
 	transform: translateX(-50%);
 	width: 2px;
 	height: calc(100% + 30px);
