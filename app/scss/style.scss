@@ -517,7 +517,7 @@
 .reviews {
 	background-color: $light-grey;
 	position: relative;
-	padding: 450px 0 8px;
+	padding: 450px 0 100px;
 
 	&__wrapper {
 		position: absolute;
@@ -801,6 +801,10 @@
 		margin-top: 50px;
 		text-align: center;
 	}
+}
+
+.about-reviews {
+	padding: 450px 0 10px;
 }
 
 // --- About team page ---
@@ -1544,6 +1548,9 @@ th:not(:first-child) {
 		z-index: 100;
 		position: relative;
 	}
+	&__list {
+		padding-top: 20px;
+	}
 	&__list-title {
 		font-weight: 700;
 		font-size: 18px;
@@ -1658,6 +1665,273 @@ th:not(:first-child) {
 	background-color: $light-grey;
 	&__cta {
 		margin-top: 100px;
+	}
+}
+
+// --- Payment Solution page ---
+// Promo
+.promo-pay-sol {
+	padding: 100px 0 250px;
+	background-color: $dark-brown-bg;
+	overflow: hidden;
+	z-index: 10;
+	&__decore {
+		position: relative;
+	}
+	&__decore-img {
+		position: absolute;
+	}
+	// Elipse
+	&__decore-img-1 {
+		top: -200px;
+		left: 0;
+	}
+	// Rhombus
+	&__decore-img-2 {
+		top: -300px;
+		right: -18%;
+		max-width: 1066px;
+		width: 100%;
+	}
+	&__top-inner {
+		padding-top: 100px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__top-item:first-child {
+		flex-basis: 708px;
+	}
+	&__top-item:last-child {
+		position: relative;
+		flex-basis: 708px;
+		height: auto;
+	}
+	&__top-img {
+		max-width: 100%;
+		position: absolute;
+		height: auto;
+		top: -250px;
+		right: -200px;
+	}
+
+	&__top-title {
+		font-size: 48px;
+		font-weight: 700;
+		color: $white;
+		line-height: 1.4;
+	}
+	&__top-boxtext {
+		color: $grey;
+		padding-top: 40px;
+	}
+	&__top-text {
+		padding-bottom: 25px;
+	}
+	&__top-btn {
+		position: relative;
+		margin-top: 40px;
+		z-index: 100;
+	}
+}
+
+// Logos of partner companies
+.partners {
+	padding: 100px 0 25px;
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	&__top {
+		position: relative;
+		padding-top: 70px;
+	}
+	&__top-items {
+		display: flex;
+		justify-content: center;
+		gap: 0 20px;
+		position: absolute;
+		top: -250px;
+		left: 0;
+		right: 0;
+		z-index: 100;
+	}
+	&__top-item {
+		flex-basis: 280px;
+		text-align: center;
+		padding: 40px 30px;
+		background-color: $white;
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 20px 0;
+		z-index: 100;
+	}
+	&__top-title {
+		font-size: 32px;
+		font-weight: 800;
+		line-height: 1.2;
+	}
+	&__top-text {
+		padding-top: 20px;
+	}
+}
+
+// Business account
+.business-account {
+	padding: 100px 0;
+	background-color: $light-grey;
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		gap: 0 100px;
+	}
+	&__item:first-child {
+		flex-basis: 480px;
+	}
+	&__text {
+		padding-bottom: 25px;
+	}
+	&__img {
+		max-width: 100%;
+		margin-top: 50px;
+	}
+	&__item-text {
+		flex-basis: 580px;
+	}
+	&__top-btn {
+		margin-top: 66px;
+	}
+}
+
+// Merchant account
+.merchant-account {
+	padding: 100px 0;
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		gap: 0 100px;
+	}
+	&__item:first-child {
+		flex-basis: 480px;
+	}
+	&__text {
+		padding-bottom: 25px;
+	}
+	&__img {
+		max-width: 100%;
+		margin-top: 50px;
+	}
+	&__item-text {
+		flex-basis: 580px;
+	}
+	&__top-btn {
+		margin-top: 66px;
+	}
+}
+
+// APM
+.apm {
+	padding: 100px 0;
+	background-color: $dark-brown-bg;
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__item:first-child {
+		flex-basis: 576px;
+	}
+	&__item:last-child {
+		flex-basis: 480px;
+	}
+	&__header-subtitle {
+		color: $white;
+	}
+	&__item-text {
+		color: $white;
+		padding-bottom: 29px;
+	}
+	&__item-img {
+		max-width: 100%;
+	}
+	&__item-text-box {
+		margin-top: 40px;
+	}
+	&__cta {
+		margin-top: 100px;
+	}
+}
+
+.pay-sol-benefits {
+	padding: 100px 0;
+	overflow: hidden;
+	background-color: $dark-brown-bg;
+	&__inner {
+		margin-top: 112px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0 80px;
+	}
+	&__item-title {
+		font-size: 32px;
+		font-weight: 800;
+		color: $white;
+		padding-top: 30px;
+	}
+	&__item-text {
+		color: $grey;
+		padding-top: 30px;
+	}
+	&__btn {
+		margin-top: 100px;
+		text-align: center;
+	}
+	&__header-subtitle {
+		color: $white;
+	}
+	&__decore {
+		position: relative;
+	}
+	&__decore-img {
+		position: absolute;
+	}
+	// Elipse
+	&__decore-img-1 {
+		top: -500px;
+		left: 0;
+	}
+	// Rhombus
+	&__decore-img-2 {
+		top: -500px;
+		right: -18%;
+		max-width: 1066px;
+		width: 100%;
+	}
+	&__btn {
+		margin-top: 80px;
+	}
+}
+
+// Process
+.pay-sol-process {
+	padding: 100px 0 10px;
+	&__list-item {
+		margin-top: 40px;
+	}
+
+	// Line
+	&__list-item::after {
+		content: '';
+		position: absolute;
+		left: 33px;
+		top: 27%;
+		transform: translateX(-50%);
+		width: 2px;
+		height: calc(100% + 30px);
+		background-color: $default;
 	}
 }
 

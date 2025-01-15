@@ -1,5 +1,4 @@
 // Toggle tables visibility using button on 'Clients Fees' section 'banking.html' page
-
 function showContent(tableId, buttonElement) {
 	document.querySelectorAll('.fees__content').forEach(content => {
 		content.classList.remove('active');
