@@ -1865,6 +1865,7 @@ th:not(:first-child) {
 	}
 }
 
+// Benefits
 .pay-sol-benefits {
 	padding: 100px 0;
 	overflow: hidden;
@@ -1933,6 +1934,281 @@ th:not(:first-child) {
 		height: calc(100% + 30px);
 		background-color: $default;
 	}
+}
+
+// --- Gambling business page ---
+// Promo
+.gam-bus-promo {
+	padding: 100px 0;
+	background-color: $dark-brown-bg;
+	overflow: hidden;
+	z-index: 10;
+	&__decore {
+		position: relative;
+		z-index: 0;
+	}
+
+	&__decore-img {
+		position: absolute;
+	}
+
+	// Elipse
+	&__decore-img-1 {
+		top: -200px;
+		left: 0;
+	}
+
+	// Rhombus
+	&__decore-img-2 {
+		top: -300px;
+		right: -18%;
+		max-width: 1200px;
+		width: 100%;
+	}
+
+	&__top-inner {
+		padding-top: 100px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__top-item:first-child {
+		flex-basis: 525px;
+	}
+
+	&__top-item:last-child {
+		position: relative;
+		flex-basis: 708px;
+		height: auto;
+	}
+
+	&__top-img {
+		max-width: 100%;
+		position: absolute;
+		height: auto;
+		top: -250px;
+		right: -200px;
+	}
+
+	&__top-title {
+		font-size: 48px;
+		font-weight: 700;
+		color: $white;
+		line-height: 1.4;
+	}
+
+	&__top-boxtext {
+		color: $grey;
+		padding-top: 40px;
+	}
+
+	&__top-text {
+		padding-bottom: 25px;
+	}
+
+	&__top-btn {
+		position: relative;
+		margin-top: 50px;
+		z-index: 100;
+	}
+}
+
+.get-starter {
+	margin-top: 200px;
+}
+
+.license {
+	margin-top: 100px;
+}
+
+.license,
+.get-starter {
+	color: $white;
+
+	&__item-text {
+		color: $grey;
+		padding-top: 30px;
+		max-width: 480px;
+	}
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		gap: 0 50px;
+	}
+
+	&__item {
+		flex-basis: 570px;
+	}
+	&__list {
+		padding-top: 20px;
+	}
+	&__list-text {
+		padding-bottom: 20px;
+	}
+}
+
+// Laws and rules
+.laws-rules {
+	padding: 100px 0;
+	background-color: $light-grey;
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		gap: 0 100px;
+		margin-top: 80px;
+	}
+	&__item:first-child {
+		flex-basis: 480px;
+	}
+	&__text {
+		padding-bottom: 25px;
+	}
+	&__img {
+		max-width: 100%;
+		margin-top: 50px;
+	}
+	&__item-text {
+		flex-basis: 580px;
+	}
+	&__top-btn {
+		margin-top: 66px;
+	}
+}
+
+// License selectors
+.lic-selectors {
+	padding: 100px 0;
+	background-color: $dark-brown-bg;
+	overflow: hidden;
+	&__subtitle {
+		color: $white;
+	}
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		z-index: 100;
+		gap: 0 150px;
+	}
+	&__item:last-child {
+		flex-basis: 680px;
+	}
+	&__list {
+		color: $white;
+		padding-top: 20px;
+	}
+	&__list-item + &__list-item {
+		margin-top: 40px;
+	}
+	&__list-link {
+		position: relative;
+		font-size: 32px;
+		font-weight: 800;
+		padding-left: 70px;
+	}
+	&__list-link::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 40px;
+		height: 40px;
+		background-size: contain !important;
+	}
+	&__list-link.active {
+		color: $accent;
+	}
+	&__item-content {
+		display: none;
+		opacity: 0;
+		transition: opacity 0.5s ease-in-out;
+	}
+	&__item-content.active {
+		display: block;
+		opacity: 1;
+	}
+	&__item-content {
+		position: relative;
+		background-color: $white;
+		padding: 45px;
+		border-radius: 10px;
+	}
+	&__item-content-list {
+		list-style: inherit;
+		margin-left: 30px;
+	}
+	&__item-content-title {
+		font-size: 24px;
+		font-weight: 700;
+		padding-bottom: 30px;
+	}
+	&__item-content-text {
+		padding-bottom: 16px;
+	}
+
+	&__item-content::before {
+		content: '';
+		position: absolute;
+		left: -15px; /* Відступ зліва для розташування трикутника */
+		width: 0;
+		height: 0;
+		border-left: 15px solid $white; /* Білий трикутник */
+		border-top: 15px solid transparent;
+		border-bottom: 15px solid transparent;
+		transform: translateY(-50%) rotate(180deg);
+	}
+	// Content item 1
+	&__item-content:first-child::before {
+		top: 10%; /* Вирівнювання по вертикалі */
+	}
+	// Content item 2
+	&__item-content:nth-child(2)::before {
+		top: 30%; /* Вирівнювання по вертикалі */
+	}
+	// Content item 3
+	&__item-content:nth-child(3)::before {
+		top: 50%; /* Вирівнювання по вертикалі */
+	}
+	// Content item 4
+	&__item-content:last-child::before {
+		top: 70%; /* Вирівнювання по вертикалі */
+	}
+}
+
+// Requirements and Pricing
+.requirements-pricing {
+	padding: 100px 0;
+	&__cta {
+		background-color: $default;
+		margin-top: 100px;
+		color: $white;
+	}
+}
+.requirements,
+.pricing {
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		gap: 0 50px;
+	}
+	&__item {
+		flex-basis: 570px;
+	}
+	&__list {
+		padding-top: 20px;
+	}
+	&__text {
+		padding-top: 20px;
+		color: $grey;
+		max-width: 480px;
+	}
+}
+
+.pricing {
+	margin-top: 100px;
 }
 
 // Footer

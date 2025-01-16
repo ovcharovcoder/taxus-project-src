@@ -10,3 +10,21 @@ function showContent(tableId, buttonElement) {
 	});
 	buttonElement.classList.add('active');
 }
+
+// Content Switcher
+document.querySelectorAll('.lic-selectors__list-link').forEach(link => {
+	link.addEventListener('click', function (event) {
+		event.preventDefault();
+		document.querySelectorAll('.lic-selectors__list-link').forEach(link => {
+			link.classList.remove('active');
+		});
+		this.classList.add('active');
+		document
+			.querySelectorAll('.lic-selectors__item-content')
+			.forEach(content => {
+				content.classList.remove('active');
+			});
+		const targetId = this.getAttribute('data-content');
+		document.getElementById(targetId).classList.add('active');
+	});
+});
