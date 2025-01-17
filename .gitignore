@@ -1,0 +1,31 @@
+# Ignore Mac OS files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Ignore gulp folders and files
+node_modules/ 
+npm-debug.*
+package-lock.json
+README.md
+readme.txt
+
+# Ignoring directories
+dist/
+app/css/*
+
+# Ignoring logs
+logs 
+*.log 
+
+# Ignoring a file containing environment variables
+.env 
+
+#Ignoring editor and IDE specific files
+.idea/
+.idea/*
+.webstorm/
+.phpstorm/
+.vscode/ 
+*.sw*
+*.sublime*
