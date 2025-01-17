@@ -1,4 +1,28 @@
-// Dropdown header menu
+// Utility function to close all dropdown menus
+function closeAllDropdownMenus() {
+	document.querySelectorAll('.header__dropdown-menu').forEach(menu => {
+		menu.style.maxHeight = '0px';
+		menu.closest('.header__dropdown')?.classList.remove('open');
+	});
+}
+
+// Toggle dropdown menu visibility
+function toggleDropdownMenu(item) {
+	const menu = item.nextElementSibling;
+	const dropdown =
+		item.closest('.header__dropdown') || item.closest('.header__lang');
+
+	if (menu.style.maxHeight === '0px' || menu.style.maxHeight === '') {
+		closeAllDropdownMenus();
+		menu.style.maxHeight = menu.scrollHeight + 'px';
+		dropdown.classList.add('open');
+	} else {
+		menu.style.maxHeight = '0px';
+		dropdown.classList.remove('open');
+	}
+}
+
+// Event listeners for header dropdown menus
 document
 	.querySelectorAll(
 		'.header__dropdown > .header__nav-link, .header__lang > .header__nav-link'
@@ -6,39 +30,9 @@ document
 	.forEach(item => {
 		item.addEventListener('click', function (event) {
 			event.preventDefault();
-			const menu = this.nextElementSibling;
-			const dropdown =
-				this.closest('.header__dropdown') || this.closest('.header__lang');
-			const otherMenus = document.querySelectorAll('.header__dropdown-menu');
-
-			otherMenus.forEach(otherMenu => {
-				if (otherMenu !== menu) {
-					otherMenu.style.maxHeight = '0px';
-					otherMenu.closest('.header__dropdown')?.classList.remove('open');
-				}
-			});
-
-			if (menu.style.maxHeight === '0px' || menu.style.maxHeight === '') {
-				menu.style.maxHeight = menu.scrollHeight + 'px';
-				if (dropdown) dropdown.classList.add('open');
-			} else {
-				menu.style.maxHeight = '0px';
-				if (dropdown) dropdown.classList.remove('open');
-			}
-
+			toggleDropdownMenu(this);
 			event.stopPropagation();
 		});
 	});
 
-document.addEventListener('click', function (event) {
-	const dropdowns = document.querySelectorAll('.header__dropdown-menu');
-	dropdowns.forEach(menu => {
-		if (
-			!menu.contains(event.target) &&
-			!menu.previousElementSibling.contains(event.target)
-		) {
-			menu.style.maxHeight = '0px';
-			menu.closest('.header__dropdown')?.classList.remove('open');
-		}
-	});
-});
+document.addEventListener('click', closeAllDropdownMenus);

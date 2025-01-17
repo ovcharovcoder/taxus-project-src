@@ -159,13 +159,11 @@ body {
 // Call to actions
 .cta-white-bg,
 .cta-black-bg {
+	@include flex-layout(center, space-between);
 	padding: 80px;
 	background-color: $white;
 	border-radius: 20px;
-	display: flex;
-	justify-content: space-between;
 	color: $default;
-	align-items: center;
 }
 
 .cta-black-bg {
@@ -228,9 +226,7 @@ body {
 	background-color: $default;
 	color: white;
 	font-size: 30px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include flex-layout(center, center);
 	border-radius: 10px;
 	@include mont-400;
 	z-index: 100;

@@ -35,23 +35,18 @@
 
 	&__inner {
 		position: relative;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include flex-layout(center, space-between);
 		margin-top: 26px;
 		color: $white;
 	}
 
 	&__nav-menu {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include flex-layout(center, space-between);
 	}
 
 	&__nav-list {
-		display: flex;
+		@include flex-layout(center, space-between);
 		gap: 30px;
-		align-items: center;
 	}
 
 	&__nav-link,
@@ -134,10 +129,8 @@
 	}
 
 	&__user-nav {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(center, space-between);
 		margin-left: 5px;
-		align-items: center;
 	}
 
 	&__search,
@@ -167,7 +160,7 @@
 	}
 
 	&__content-inner {
-		display: flex;
+		@include flex-layout(flex-start, space-between);
 	}
 
 	&__content-header {
@@ -213,14 +206,11 @@
 	}
 
 	&__stats-inner {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include flex-layout(center, space-between);
 	}
 
 	&__stats-items {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 		margin-right: 50px;
 		gap: 0 80px;
 	}
@@ -250,9 +240,8 @@
 
 	&__list {
 		font-size: 18px;
-		display: flex;
+		@include flex-layout(flex-start, space-between);
 		flex-wrap: wrap;
-		justify-content: space-between;
 		gap: 0 74px;
 	}
 
@@ -279,9 +268,8 @@
 	padding: 100px 0;
 
 	&__inner {
-		display: flex;
+		@include flex-layout(flex-start, space-between);
 		flex-wrap: wrap;
-		justify-content: space-between;
 		margin-top: 80px;
 		gap: 0 20px;
 	}
@@ -321,12 +309,15 @@
 	padding: 100px 0;
 
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 	}
 
 	&__item {
 		flex-basis: 544px;
+	}
+	&__item {
+		@include flex-layout(flex-start, space-between);
+		flex-direction: column;
 	}
 
 	&__subtitle {
@@ -340,15 +331,15 @@
 	}
 
 	&__item {
-		display: flex;
+		@include flex-layout(flex-start, space-between);
 		flex-direction: column;
-		justify-content: space-between;
 	}
 
 	&__btn {
 		display: block;
 		max-width: 170px;
 		text-align: center;
+		margin-top: 120px;
 	}
 }
 
@@ -387,9 +378,7 @@
 .banking {
 	padding: 100px 0;
 	&__inner {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include flex-layout(center, space-between);
 		gap: 0 50px;
 	}
 
@@ -412,10 +401,8 @@
 	padding: 100px 0;
 
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(center, space-between);
 		gap: 0 125px;
-		align-items: center;
 	}
 
 	&__subtitle {
@@ -442,8 +429,7 @@
 	padding: 100px 0;
 
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 		gap: 0 100px;
 	}
 
@@ -464,6 +450,7 @@
 	&__list-item-title {
 		@include mont-800;
 		font-size: 24px;
+		line-height: 1.2;
 	}
 
 	&__list-item-text {
@@ -476,9 +463,8 @@
 	padding: 100px 0 430px;
 
 	&__inner {
-		display: flex;
+		@include flex-layout(flex-start, space-between);
 		flex-wrap: wrap;
-		justify-content: space-between;
 		margin-top: 80px;
 		gap: 0 20px;
 	}
@@ -539,9 +525,8 @@
 		background-color: $white;
 		border-radius: 5px;
 		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-		display: flex;
+		@include flex-layout(flex-start, space-between);
 		flex-direction: column;
-		justify-content: space-between;
 		height: 100%;
 	}
 
@@ -556,10 +541,9 @@
 	}
 
 	&__testimonials-user {
+		@include flex-layout(center, space-between);
 		margin-top: 20px;
-		display: flex;
 		gap: 0 20px;
-		align-items: center;
 	}
 
 	&__testimonials-avatar {
@@ -619,9 +603,7 @@
 	position: relative;
 
 	&__top {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include flex-layout(center, space-between);
 		gap: 0 125px;
 	}
 
@@ -652,8 +634,7 @@
 	}
 
 	&__items {
-		display: flex;
-		justify-content: space-around;
+		@include flex-layout(flex-start, space-between);
 		gap: 0 80px;
 		margin-top: 100px;
 	}
@@ -669,8 +650,7 @@
 	position: relative;
 
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 		gap: 0 120px;
 	}
 
@@ -706,8 +686,7 @@
 	padding: 100px 0;
 
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 	}
 
 	&__subtitle {
@@ -722,9 +701,7 @@
 		flex-basis: 580px;
 		display: grid;
 		gap: 10px;
-		grid-template-columns: repeat(3, 1fr);
-		justify-content: center;
-		align-items: center;
+		@include grid-layout(3, center, center);
 	}
 
 	&__item-img {
@@ -762,9 +739,8 @@
 	padding: 100px 0;
 
 	&__inner {
-		display: flex;
+		@include flex-layout(flex-start, space-between);
 		flex-wrap: wrap;
-		justify-content: space-between;
 		margin-top: 80px;
 		gap: 0 20px;
 	}
@@ -813,9 +789,7 @@
 	padding: 200px 0 10px;
 	position: relative;
 	&__inner {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include flex-layout(center, space-between);
 	}
 	&__item-header {
 		flex-basis: 590px;
@@ -910,8 +884,7 @@
 		top: 200px;
 	}
 	&__inner {
-		display: flex;
-		justify-content: flex-start;
+		@include flex-layout(flex-start, flex-start);
 		gap: 0 80px;
 	}
 	&__about {
@@ -934,7 +907,7 @@
 	&__social-list {
 		margin-top: 50px;
 		margin-left: -15px;
-		display: flex;
+		@include flex-layout(flex-start, flex-start);
 		gap: 20px 30px;
 	}
 }
@@ -944,8 +917,7 @@
 	background-color: $white;
 	padding: 80px 0 100px;
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 	}
 	&__item {
 		flex-basis: 780px;
@@ -998,9 +970,8 @@
 	padding: 100px 0 10px;
 	background: $brown-gradient;
 	&__inner {
+		@include flex-layout(flex-start, space-between);
 		margin: 30px 0 100px;
-		display: flex;
-		justify-content: space-between;
 		gap: 0 20px;
 	}
 	&__title {
@@ -1020,8 +991,7 @@
 		border-bottom-right-radius: 10px;
 	}
 	&__item-top {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 	}
 	&__item-content {
 		padding: 20px;
@@ -1083,8 +1053,7 @@
 	padding: 100px 0 230px;
 	position: relative;
 	&__top-inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 		padding-top: 100px;
 	}
 	&__top-item:first-child {
@@ -1116,8 +1085,7 @@
 		position: relative;
 	}
 	&__bottom-items {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(stretch, space-between);
 		gap: 0 20px;
 		position: absolute;
 		top: 50px;
@@ -1125,15 +1093,14 @@
 		right: 0;
 	}
 	&__bottom-item {
+		@include flex-layout(center, space-between);
 		flex-basis: 280px;
 		text-align: center;
 		padding: 40px 30px;
 		background-color: $white;
 		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 		border-radius: 10px;
-		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
 		gap: 20px 0;
 		z-index: 100;
 	}
@@ -1151,8 +1118,7 @@
 .acc-pay {
 	padding: 300px 0 100px;
 	&__items {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 	}
 	&__item:first-child {
 		flex-basis: 480px;
@@ -1194,8 +1160,7 @@
 	padding: 100px 0;
 	background-color: $light-grey;
 	&__items {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 	}
 	&__item:first-child {
 		flex-basis: 480px;
@@ -1256,23 +1221,21 @@
 		padding-top: 30px;
 	}
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(stretch, space-between);
 		gap: 0 20px;
 		max-width: 880px;
 		margin: 0 auto;
 		margin-top: 100px;
 	}
 	&__item {
+		@include flex-layout(center, space-between);
 		flex-basis: 280px;
 		text-align: center;
 		padding: 40px 30px;
 		background-color: $white;
 		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 		border-radius: 10px;
-		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
 		gap: 20px 0;
 		z-index: 100;
 	}
@@ -1303,8 +1266,7 @@
 	padding: 100px 0;
 	background-color: $light-grey;
 	&__items {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 	}
 	&__item:first-child {
 		flex-basis: 480px;
@@ -1353,8 +1315,7 @@
 	overflow: hidden;
 
 	&__header-inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 	}
 
 	&__header-item:first-child {
@@ -1426,8 +1387,8 @@
 		left: -50vw;
 		right: -50vw;
 		width: auto;
-		height: 2px;
-		background-color: $light-grey;
+		height: 1px;
+		background-color: $grey;
 	}
 }
 
@@ -1471,9 +1432,7 @@ th:not(:first-child) {
 	position: relative;
 
 	&__top {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include flex-layout(center, space-between);
 		gap: 0 80px;
 	}
 
@@ -1506,8 +1465,7 @@ th:not(:first-child) {
 	}
 
 	&__items {
-		display: flex;
-		justify-content: space-around;
+		@include flex-layout(flex-start, space-around);
 		gap: 0 50px;
 		margin-top: 100px;
 	}
@@ -1542,8 +1500,7 @@ th:not(:first-child) {
 	background-color: $light-grey;
 	overflow: hidden;
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 		margin-top: 100px;
 		z-index: 100;
 		position: relative;
@@ -1570,8 +1527,7 @@ th:not(:first-child) {
 .maintenance {
 	padding: 100px 0;
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 		gap: 0 50px;
 	}
 	&__item {
@@ -1598,8 +1554,7 @@ th:not(:first-child) {
 	position: relative;
 	overflow: hidden;
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 	}
 	&__item {
 		flex-basis: 580px;
@@ -1693,10 +1648,8 @@ th:not(:first-child) {
 		width: 100%;
 	}
 	&__top-inner {
+		@include flex-layout(center, space-between);
 		padding-top: 100px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
 	}
 	&__top-item:first-child {
 		flex-basis: 708px;
@@ -1738,8 +1691,7 @@ th:not(:first-child) {
 .partners {
 	padding: 100px 0 25px;
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(stretch, space-between);
 		flex-wrap: wrap;
 	}
 	&__top {
@@ -1763,9 +1715,8 @@ th:not(:first-child) {
 		background-color: $white;
 		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 		border-radius: 10px;
-		display: flex;
+		@include flex-layout(center, space-between);
 		flex-direction: column;
-		justify-content: space-between;
 		gap: 20px 0;
 		z-index: 100;
 	}
@@ -1784,8 +1735,7 @@ th:not(:first-child) {
 	padding: 100px 0;
 	background-color: $light-grey;
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 		gap: 0 100px;
 	}
 	&__item:first-child {
@@ -1810,8 +1760,7 @@ th:not(:first-child) {
 .merchant-account {
 	padding: 100px 0;
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 		gap: 0 100px;
 	}
 	&__item:first-child {
@@ -1837,8 +1786,7 @@ th:not(:first-child) {
 	padding: 100px 0;
 	background-color: $dark-brown-bg;
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 	}
 	&__item:first-child {
 		flex-basis: 576px;
@@ -1967,9 +1915,7 @@ th:not(:first-child) {
 
 	&__top-inner {
 		padding-top: 100px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include flex-layout(center, space-between);
 	}
 
 	&__top-item:first-child {
@@ -2032,8 +1978,7 @@ th:not(:first-child) {
 	}
 
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 		gap: 0 50px;
 	}
 
@@ -2053,8 +1998,7 @@ th:not(:first-child) {
 	padding: 100px 0;
 	background-color: $light-grey;
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 		gap: 0 100px;
 		margin-top: 80px;
 	}
@@ -2085,8 +2029,7 @@ th:not(:first-child) {
 		color: $white;
 	}
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 		position: relative;
 		z-index: 100;
 		gap: 0 150px;
@@ -2189,8 +2132,7 @@ th:not(:first-child) {
 .requirements,
 .pricing {
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 		gap: 0 50px;
 	}
 	&__item {
@@ -2210,7 +2152,7 @@ th:not(:first-child) {
 }
 
 // Countries
-.countries {
+.countries-lic {
 	padding: 100px 0;
 	background-color: $dark-brown-bg;
 	&__header-subtitle,
@@ -2221,9 +2163,7 @@ th:not(:first-child) {
 		margin-top: 100px;
 	}
 	&__content-inner {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include flex-layout(center, space-between);
 		gap: 0 20px;
 	}
 	&__content-item:first-child {
@@ -2258,8 +2198,7 @@ th:not(:first-child) {
 	background-color: $light-grey;
 
 	&__inner {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 		gap: 0 100px;
 	}
 
@@ -2350,6 +2289,333 @@ th:not(:first-child) {
 	}
 }
 
+// --- Contract Drafting page ---
+.contract-draft-promo {
+	padding: 100px 0;
+	background-color: $dark-brown-bg;
+	overflow: hidden;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		margin-top: 100px;
+	}
+	&__item {
+		position: relative;
+		z-index: 100;
+	}
+	&__item:first-child {
+		flex-basis: 600px;
+	}
+	&__item:last-child {
+		flex-basis: 492px;
+	}
+	&__text-box {
+		margin-top: 40px;
+	}
+	&__text {
+		color: $white;
+		padding-bottom: 20px;
+	}
+	&__title {
+		font-size: 48px;
+		color: $white;
+		line-height: 1.4;
+		font-weight: 700;
+	}
+}
+
+.contract-drart-services {
+	margin-top: 100px;
+	&__inner {
+		margin-top: 80px;
+		@include flex-layout(flex-start, space-between);
+		gap: 0 20px;
+	}
+	&__subtitle {
+		color: $white;
+	}
+	&__btn {
+		text-align: center;
+		margin-top: 80px;
+	}
+}
+
+// Types of contracts we draft
+.contracts-draft {
+	padding: 100px 0;
+	background-color: $light-grey;
+	&__inner {
+		margin-top: 60px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 40px 100px;
+	}
+
+	&__item:nth-last-child(2),
+	&__item:nth-last-child(1) {
+		grid-column: span 1;
+		justify-self: start;
+	}
+	&__list {
+		margin-top: 20px;
+	}
+}
+
+// Benefits
+.cont-draft-benefits {
+	&__inner {
+		gap: 70px 50px;
+	}
+	&__decore-img-2 {
+		top: 100px;
+		right: -25%;
+		max-width: 1200px;
+		width: 100%;
+	}
+}
+
+// --- Team registration page ---
+// Promo
+.tm-reg-promo {
+	padding: 100px 0;
+	background-color: $dark-brown-bg;
+	overflow: hidden;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		margin-top: 100px;
+	}
+	&__item {
+		position: relative;
+		z-index: 100;
+	}
+	&__item:first-child {
+		flex-basis: 600px;
+		margin-top: 30px;
+	}
+	&__item:last-child {
+		flex-basis: 492px;
+	}
+	&__text-box {
+		margin-top: 40px;
+	}
+	&__text {
+		color: $grey;
+		padding-bottom: 20px;
+	}
+	&__title {
+		font-size: 48px;
+		color: $white;
+		line-height: 1.4;
+		font-weight: 700;
+	}
+	&__btn {
+		margin-top: 50px;
+	}
+}
+
+// Servises for Team registration page
+.tm-reg-services {
+	&__inner {
+		margin-top: 80px;
+		@include flex-layout(flex-start, space-between);
+		gap: 0 20px;
+	}
+	&__subtitle {
+		color: $white;
+	}
+	&__btn {
+		text-align: center;
+		margin-top: 80px;
+	}
+	&__item-title {
+		max-width: 250px;
+	}
+}
+
+// IP protection
+.ip-protection {
+	padding: 100px 0;
+
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+	}
+
+	&__item {
+		flex-basis: 544px;
+	}
+	&__item {
+		@include flex-layout(flex-start, space-between);
+		flex-direction: column;
+	}
+
+	&__subtitle {
+		margin-top: 16px;
+	}
+
+	&__img {
+		margin-top: 56px;
+		max-width: 480px;
+		width: 100%;
+	}
+	&__item {
+		@include flex-layout(flex-start, space-between);
+		flex-direction: column;
+	}
+	&__item-text,
+	&__list-title {
+		padding-bottom: 20px;
+	}
+	&__btn {
+		display: block;
+		max-width: 170px;
+		text-align: center;
+		margin-top: 60px;
+	}
+}
+
+// Benefits for Team registration page
+.tm-reg-benefits {
+	padding: 100px 0;
+	overflow: hidden;
+	background-color: $dark-brown-bg;
+	&__inner {
+		margin-top: 112px;
+		@include flex-layout(flex-start, space-between);
+		gap: 0 60px;
+	}
+	&__item {
+		flex-basis: 280px;
+	}
+	&__item-title {
+		font-size: 32px;
+		font-weight: 800;
+		color: $white;
+		padding-top: 30px;
+	}
+	&__item-text {
+		color: $grey;
+		padding-top: 30px;
+	}
+	&__btn {
+		margin-top: 100px;
+		text-align: center;
+	}
+	&__header-subtitle {
+		color: $white;
+	}
+	&__decore {
+		position: relative;
+	}
+	&__decore-img {
+		position: absolute;
+	}
+	// Elipse
+	&__decore-img-1 {
+		top: -500px;
+		left: 0;
+	}
+	// Rhombus
+	&__decore-img-2 {
+		top: -500px;
+		right: -18%;
+		max-width: 1066px;
+		width: 100%;
+	}
+	&__btn {
+		margin-top: 80px;
+	}
+}
+
+// Process for Team registration page
+.tm-reg-process {
+	padding-bottom: 10px;
+	background-color: $light-grey;
+}
+
+// --- Blog page ---
+// Promo
+.blog-promo {
+	padding: 100px 0 50px;
+	&__inner {
+		@include flex-layout(center, space-between);
+	}
+	&__subtitle {
+		color: $white;
+	}
+	&__text {
+		text-align: right;
+		color: $grey;
+	}
+}
+
+// Blog categories
+.blog-categories {
+	padding: 70px 0 10px;
+	background-color: $light-grey;
+	&__inner {
+		@include grid-layout(3, start, center);
+		gap: 30px;
+		margin-top: 50px;
+	}
+	&__item {
+		color: $default;
+	}
+	&__bread-crumbs {
+		margin-top: 100px;
+	}
+	&__filter-inner {
+		@include flex-layout(center, flex-start);
+		gap: 0 10px;
+		margin-top: 20px;
+	}
+	&__top {
+		@include flex-layout(flex-end, space-between);
+	}
+}
+
+// Filter categories
+.filter-btn {
+	padding: 5px 10px;
+	background-color: $white;
+	border-radius: 5px;
+}
+.filter-btn.active {
+	background-color: $default;
+	color: white;
+}
+
+// Search Form
+.search-form {
+	@include flex-layout(center, space-between);
+}
+.search-form__btn {
+	background-color: $accent;
+	color: $white;
+	padding: 6px 20px;
+	border-radius: 5px;
+	margin-left: 10px;
+}
+.search-container {
+	position: relative;
+	width: 300px;
+}
+.search-input {
+	width: 100%;
+	padding: 0 10px;
+	height: 30px;
+	border: 1px solid $grey;
+	background-color: $white;
+	border-radius: 5px;
+	font-size: 14px;
+}
+.search-label {
+	position: absolute;
+	left: 5px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 12px;
+	color: $grey;
+}
+
 // Footer
 .footer {
 	background-color: $default;
@@ -2358,8 +2624,7 @@ th:not(:first-child) {
 
 	&__top-inner,
 	&__menu {
-		display: flex;
-		justify-content: space-between;
+		@include flex-layout(flex-start, space-between);
 	}
 
 	&__menu {
@@ -2391,7 +2656,7 @@ th:not(:first-child) {
 	&__top-item-social-list {
 		margin-top: 20px;
 		margin-left: -15px;
-		display: flex;
+		@include flex-layout(flex-start, flex-start);
 		gap: 20px 30px;
 	}
 
