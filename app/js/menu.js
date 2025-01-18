@@ -1,3 +1,19 @@
+// Hamburger menu
+document.addEventListener('DOMContentLoaded', () => {
+	const burger = document.querySelector('.header__burger');
+	const navMenu = document.querySelector('.header__nav');
+
+	burger.addEventListener('click', () => {
+		navMenu.classList.toggle('active');
+	});
+
+	document.addEventListener('click', e => {
+		if (!burger.contains(e.target) && !navMenu.contains(e.target)) {
+			navMenu.classList.remove('active');
+		}
+	});
+});
+
 // Utility function to close all dropdown menus
 function closeAllDropdownMenus() {
 	document.querySelectorAll('.header__dropdown-menu').forEach(menu => {
