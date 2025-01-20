@@ -28,6 +28,7 @@
 	left: 0;
 	width: 100%;
 	z-index: 1000;
+	padding-right: 10px;
 
 	&__logo-img {
 		width: 160px;
@@ -38,6 +39,7 @@
 		@include flex-layout(center, space-between);
 		margin-top: 26px;
 		color: $white;
+		flex-wrap: wrap;
 	}
 
 	&__nav-menu {
@@ -232,12 +234,14 @@
 
 	&__stats-inner {
 		@include flex-layout(center, space-between);
+		flex-wrap: wrap;
 	}
 
 	&__stats-items {
 		@include flex-layout(flex-start, space-between);
 		margin-right: 50px;
-		gap: 0 80px;
+		gap: 20px 80px;
+		flex-wrap: wrap;
 	}
 
 	&__stats-item {
@@ -264,7 +268,7 @@
 	color: $white;
 
 	&__list {
-		font-size: 18px;
+		font-size: 16px;
 		@include flex-layout(flex-start, space-between);
 		flex-wrap: wrap;
 		gap: 0 74px;
@@ -335,6 +339,7 @@
 
 	&__inner {
 		@include flex-layout(flex-start, space-between);
+		flex-wrap: wrap;
 	}
 
 	&__item {
@@ -407,6 +412,14 @@
 		gap: 0 50px;
 	}
 
+	&__item:first-child {
+		flex-basis: 646px;
+	}
+
+	&__title {
+		max-width: 660px;
+	}
+
 	&__list {
 		margin-top: 40px;
 	}
@@ -416,8 +429,7 @@
 	}
 
 	&__img {
-		max-width: 646px;
-		width: 100%;
+		max-width: 100%;
 	}
 }
 
@@ -428,6 +440,14 @@
 	&__inner {
 		@include flex-layout(center, space-between);
 		gap: 0 125px;
+	}
+
+	&__item:first-child {
+		flex-basis: 580px;
+	}
+
+	&__item:last-child {
+		flex-basis: 536px;
 	}
 
 	&__subtitle {
@@ -444,8 +464,7 @@
 	}
 
 	&__img {
-		max-width: 536px;
-		width: 100%;
+		max-width: 100%;
 	}
 }
 
@@ -545,14 +564,16 @@
 	}
 
 	&__testimonials-item {
-		width: 300px !important;
+		max-width: 300px !important;
+		width: 100%;
 		padding: 40px;
-		background-color: $white;
+		background-color: #fff;
 		border-radius: 5px;
 		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-		@include flex-layout(flex-start, space-between);
+		display: flex;
 		flex-direction: column;
 		height: 100%;
+		margin-right: 20px;
 	}
 
 	&__testimonials-quotes-img {
@@ -566,7 +587,7 @@
 	}
 
 	&__testimonials-user {
-		@include flex-layout(center, space-between);
+		@include flex-layout(center, flex-start);
 		margin-top: 20px;
 		gap: 0 20px;
 	}
@@ -588,8 +609,9 @@
 	}
 
 	&__testimonials-wrapper {
-		max-width: 1180px;
+		max-width: 1110px;
 		position: relative;
+		width: 100%;
 	}
 
 	&__bread-crumbs {
@@ -2729,6 +2751,7 @@ th:not(:first-child) {
 	&__top-inner,
 	&__menu {
 		@include flex-layout(flex-start, space-between);
+		flex-wrap: wrap;
 	}
 
 	&__menu {
@@ -2804,6 +2827,11 @@ th:not(:first-child) {
 }
 
 // ---- Styles for adaptive ---
+
+// .footer {
+// 	display: none;
+// }
+
 /* Min width: 950px */
 @media (min-width: 950px) {
 	.header__nav {
@@ -2819,11 +2847,52 @@ th:not(:first-child) {
 	}
 }
 
+@media (max-width: 1350px) {
+	.reviews__testimonials-wrapper {
+		max-width: 999px;
+	}
+	.reviews__wrapper {
+		left: 10%;
+		right: 10%;
+	}
+	.reviews__testimonials-wrapper {
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 1280px) {
+	.platform__inner {
+		gap: 0 50px;
+	}
+	.process__inner {
+		gap: 0 50px;
+	}
+}
+
+@media (max-width: 1120px) {
+	.platform__inner {
+		flex-wrap: wrap;
+	}
+	.platform__item:last-child {
+		order: -1;
+	}
+	.platform__item:first-child {
+		margin-top: 30px;
+		flex-basis: 100%;
+	}
+	.process__inner {
+		flex-direction: column;
+	}
+	.process__item:last-child {
+		margin-top: 30px;
+	}
+}
+
 /* Max width: 950px */
 @media (max-width: 950px) {
 	.header {
 		&__nav {
-			background-color: $dark-brown-bg;
+			background-color: rgba(25, 25, 25, 0.98);
 			width: 100%;
 			align-items: flex-start;
 			padding-left: 30px;
@@ -2842,10 +2911,292 @@ th:not(:first-child) {
 		}
 		&__dropdown-menu {
 			left: 130px;
-			top: -10px;
+			top: -9px;
+		}
+		&__dropdown-lang-menu {
+			top: 60px;
+			left: inherit;
 		}
 		&__dropdown.open > .header__nav-link::after {
 			transform: translateY(-50%) rotate(270deg);
 		}
+	}
+	.promo {
+		height: inherit;
+	}
+	.promo-home {
+		&__title {
+			font-size: 48px;
+		}
+		&__span {
+			font-size: 55px;
+			padding-left: 70px;
+		}
+		&__span::after {
+			width: 45px;
+			height: 43px;
+		}
+		&__stats-items {
+			margin-right: 0;
+			margin-top: 30px;
+		}
+	}
+	.services-panel__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.section-bg,
+	.expertise,
+	.who-we-serve,
+	.banking,
+	.process {
+		padding: 40px 0;
+	}
+	.reviews {
+		padding-bottom: 40px;
+	}
+	.footer {
+		padding-top: 40px;
+	}
+	.services__cta {
+		margin-top: 50px;
+	}
+
+	.who-we-serve {
+		&__list {
+			margin-top: 20px;
+		}
+		&__btn {
+			display: block;
+			max-width: 170px;
+			text-align: center;
+			margin-top: 50px;
+		}
+	}
+	.services__inner {
+		gap: 40px;
+		margin-top: 50px;
+	}
+	.reviews__wrapper {
+		position: absolute;
+		top: -300px;
+	}
+	.reviews__testimonials {
+		margin-top: 40px;
+	}
+	.benefits {
+		padding-bottom: 400px;
+	}
+	.reviews {
+		padding-top: 400px;
+	}
+	.swiper-button-next {
+		right: -70px;
+	}
+	.swiper-button-prev {
+		left: -70px;
+	}
+}
+
+@media (max-width: 800px) {
+	.services__inner {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.services__cta,
+	.reviews__cta {
+		padding: 40px 20px;
+	}
+	.banking__inner {
+		flex-wrap: wrap;
+	}
+	.banking__item:first-child {
+		flex-basis: 500px;
+	}
+	.banking__item:last-child {
+		margin-top: 40px;
+	}
+	.footer__top {
+		text-align: center;
+	}
+	.footer__top-inner {
+		justify-content: center;
+	}
+
+	.footer__top-item-social-list {
+		justify-content: center;
+	}
+	.footer__menu {
+		margin-top: 40px;
+		gap: 40px;
+	}
+}
+
+@media (max-width: 690px) {
+	.promo-home {
+		&__stats-items {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	.services-panel__list {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 620px) {
+	img {
+		margin: 0 auto;
+	}
+	.title,
+	.subtitle {
+		line-height: 1.2;
+		text-align: center;
+	}
+	.expertise {
+		&__inner {
+			margin-top: 40px;
+		}
+		&__item {
+			flex-basis: 100%;
+			text-align: center;
+		}
+		&__item + &__item {
+			margin-top: 30px;
+		}
+		&__item-title {
+			max-width: 100%;
+			padding-top: 10px;
+		}
+	}
+	.who-we-serve__btn {
+		margin: 0 auto;
+		margin-top: 50px;
+	}
+	.swiper-button-prev,
+	.swiper-button-next {
+		top: inherit;
+		bottom: -90px;
+	}
+	.swiper-button-prev {
+		left: 20px;
+	}
+	.swiper-button-next {
+		right: 20px;
+	}
+}
+
+@media (max-width: 560px) {
+	.promo-home__stats-inner {
+		justify-content: center;
+	}
+	.services__inner {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.services__item-title {
+		max-width: 100%;
+	}
+	.services__cta,
+	.reviews__cta {
+		text-align: center;
+	}
+	.services__cta-item-btn {
+		margin: 0 auto;
+	}
+	.banking__btn,
+	.platform__btn,
+	.services__item-btn {
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		max-width: 180px;
+		margin-top: 30px;
+	}
+
+	.services__item-btn {
+		max-width: 120px;
+	}
+
+	.cta-item-title {
+		font-size: 28px;
+	}
+	.process {
+		&__list-item + &__list-item {
+			margin-top: 20px;
+		}
+	}
+	.benefits__inner {
+		margin-top: 40px;
+		justify-content: center;
+		text-align: center;
+	}
+	.benefits__item {
+		flex-basis: 100%;
+	}
+	.benefits__item-title {
+		font-size: 25px;
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 500px) {
+	.title {
+		font-size: 30px;
+	}
+	.subtitle {
+		font-size: 20px;
+	}
+	.expertise__item-title,
+	.services__item-title {
+		font-size: 25px;
+	}
+	.services__item-title {
+		max-width: 100%;
+	}
+	.header {
+		&__inner {
+			justify-content: center;
+			margin-top: 20px;
+		}
+		&__nav-menu {
+			margin-top: 10px;
+		}
+		&__dropdown-menu {
+			top: -9px;
+		}
+		&__dropdown-lang-menu {
+			top: 120px;
+		}
+	}
+	.promo-home {
+		&__stats-inner {
+			justify-content: center;
+		}
+		&__content-text {
+			font-size: 1rem;
+		}
+		&__stats-inner {
+			margin-top: 20px;
+		}
+	}
+}
+
+@media (max-width: 450px) {
+	.promo-home {
+		&__stats-inner {
+			flex-direction: column;
+		}
+		&__stats-items {
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+	.services-panel__list {
+		grid-template-columns: repeat(1, 1fr);
+		text-align: center;
+	}
+	.footer__menu {
+		flex-direction: column;
+		align-items: center;
 	}
 }
