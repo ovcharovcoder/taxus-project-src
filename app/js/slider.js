@@ -4,7 +4,7 @@ const swiper = new Swiper('.reviews__testimonials-swiper', {
 	spaceBetween: 30,
 	freeMode: true,
 	breakpoints: {
-		1450: {
+		950: {
 			slidesPerView: 2,
 		},
 		300: {
