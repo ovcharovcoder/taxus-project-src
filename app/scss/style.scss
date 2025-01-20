@@ -2828,7 +2828,7 @@ th:not(:first-child) {
 
 // ---- Styles for adaptive ---
 
-// .footer {
+// .about-reviews {
 // 	display: none;
 // }
 
@@ -2848,43 +2848,49 @@ th:not(:first-child) {
 }
 
 @media (max-width: 1350px) {
-	.reviews__testimonials-wrapper {
-		max-width: 999px;
-	}
-	.reviews__wrapper {
-		left: 10%;
-		right: 10%;
-	}
-	.reviews__testimonials-wrapper {
-		max-width: 100%;
+	.reviews {
+		&__testimonials-wrapper {
+			max-width: 999px;
+		}
+		&__wrapper {
+			left: 10%;
+			right: 10%;
+		}
+		&__testimonials-wrapper {
+			max-width: 100%;
+		}
 	}
 }
 
 @media (max-width: 1280px) {
-	.platform__inner {
-		gap: 0 50px;
-	}
-	.process__inner {
-		gap: 0 50px;
+	.platform,
+	.process {
+		&__inner {
+			gap: 0 50px;
+		}
 	}
 }
 
 @media (max-width: 1120px) {
-	.platform__inner {
-		flex-wrap: wrap;
+	.platform {
+		&__inner {
+			flex-wrap: wrap;
+		}
+		&__item:last-child {
+			order: -1;
+		}
+		&__item:first-child {
+			margin-top: 30px;
+			flex-basis: 100%;
+		}
 	}
-	.platform__item:last-child {
-		order: -1;
-	}
-	.platform__item:first-child {
-		margin-top: 30px;
-		flex-basis: 100%;
-	}
-	.process__inner {
-		flex-direction: column;
-	}
-	.process__item:last-child {
-		margin-top: 30px;
+	.process {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item:last-child {
+			margin-top: 30px;
+		}
 	}
 }
 
@@ -2949,16 +2955,22 @@ th:not(:first-child) {
 	.expertise,
 	.who-we-serve,
 	.banking,
-	.process {
+	.process,
+	.industries,
+	.awards {
 		padding: 40px 0;
 	}
 	.reviews {
 		padding-bottom: 40px;
 	}
+	.industries {
+		padding-top: 0;
+	}
 	.footer {
 		padding-top: 40px;
 	}
-	.services__cta {
+	.services__cta,
+	.promo-about__cta {
 		margin-top: 50px;
 	}
 
@@ -2977,57 +2989,149 @@ th:not(:first-child) {
 		gap: 40px;
 		margin-top: 50px;
 	}
-	.reviews__wrapper {
-		position: absolute;
-		top: -300px;
+	.reviews {
+		padding-top: 400px;
+		&__wrapper {
+			position: absolute;
+			top: -300px;
+		}
+		&__testimonials {
+			margin-top: 40px;
+		}
+		&__bread-crumbs {
+			margin-top: 50px;
+		}
 	}
-	.reviews__testimonials {
-		margin-top: 40px;
-	}
+
 	.benefits {
 		padding-bottom: 400px;
 	}
-	.reviews {
-		padding-top: 400px;
+
+	.swiper {
+		&-button-next {
+			right: -70px;
+		}
+		&-button-prev {
+			left: -70px;
+		}
 	}
-	.swiper-button-next {
-		right: -70px;
+
+	.promo-about {
+		&__top {
+			flex-direction: column;
+			margin-top: 140px;
+		}
+		&__top-item-img {
+			order: -1;
+		}
+		&__top-item-img {
+			max-width: 400px;
+		}
+		&__top-header {
+			margin-top: 30px;
+		}
 	}
-	.swiper-button-prev {
-		left: -70px;
+	.industries__inner {
+		gap: 0 40px;
+	}
+
+	.awards {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item {
+			flex-basis: 150px;
+		}
+		&__item-gallery {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		&__item-gallery {
+			margin: 0 auto;
+		}
+	}
+
+	.history {
+		padding-bottom: 360px;
+		&__bottom {
+			padding-top: 50px;
+		}
 	}
 }
 
 @media (max-width: 800px) {
-	.services__inner {
-		grid-template-columns: repeat(2, 1fr);
-	}
-	.services__cta,
-	.reviews__cta {
-		padding: 40px 20px;
-	}
-	.banking__inner {
-		flex-wrap: wrap;
-	}
-	.banking__item:first-child {
-		flex-basis: 500px;
-	}
-	.banking__item:last-child {
-		margin-top: 40px;
-	}
-	.footer__top {
-		text-align: center;
-	}
-	.footer__top-inner {
-		justify-content: center;
+	.services {
+		&__inner {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		&__item {
+			flex-basis: 230px;
+			padding: 10px;
+		}
 	}
 
-	.footer__top-item-social-list {
-		justify-content: center;
+	.services__cta,
+	.reviews__cta,
+	.promo-about__cta {
+		padding: 40px 20px;
 	}
-	.footer__menu {
-		margin-top: 40px;
-		gap: 40px;
+
+	.banking {
+		&__inner {
+			flex-wrap: wrap;
+		}
+		&__item:first-child {
+			flex-basis: 500px;
+		}
+		&__item:last-child {
+			margin-top: 40px;
+		}
+	}
+
+	.promo-about {
+		&__items {
+			gap: 0 40px;
+			margin-top: 10px;
+			flex-direction: column;
+		}
+		&__top-item {
+			flex-basis: 490px;
+		}
+	}
+
+	.footer {
+		&__top {
+			text-align: center;
+		}
+		&__top-inner {
+			justify-content: center;
+		}
+
+		&__top-item-social-list {
+			justify-content: center;
+		}
+		&__menu {
+			margin-top: 40px;
+			gap: 40px;
+		}
+	}
+
+	.industries {
+		&__inner {
+			flex-wrap: wrap;
+		}
+		&__cta-item-btn {
+			margin-top: 10px;
+		}
+		&__item {
+			flex-basis: 100%;
+			margin-top: 30px;
+		}
+		&__list-item-text {
+			padding-top: 10px;
+		}
+		&__list-item + &__list-item {
+			margin-top: 20px;
+		}
 	}
 }
 
@@ -3046,6 +3150,9 @@ th:not(:first-child) {
 @media (max-width: 620px) {
 	img {
 		margin: 0 auto;
+	}
+	.reviews__testimonials-avatar {
+		margin: inherit;
 	}
 	.title,
 	.subtitle {
@@ -3089,19 +3196,26 @@ th:not(:first-child) {
 	.promo-home__stats-inner {
 		justify-content: center;
 	}
-	.services__inner {
-		grid-template-columns: repeat(1, 1fr);
+	.services {
+		&__inner {
+			grid-template-columns: repeat(1, 1fr);
+		}
+		&__item-title {
+			max-width: 100%;
+		}
+		&__cta-item-btn {
+			margin: 0 auto;
+		}
+		&__item-btn {
+			max-width: 120px;
+		}
 	}
-	.services__item-title {
-		max-width: 100%;
-	}
+
 	.services__cta,
 	.reviews__cta {
 		text-align: center;
 	}
-	.services__cta-item-btn {
-		margin: 0 auto;
-	}
+
 	.banking__btn,
 	.platform__btn,
 	.services__item-btn {
@@ -3112,10 +3226,6 @@ th:not(:first-child) {
 		margin-top: 30px;
 	}
 
-	.services__item-btn {
-		max-width: 120px;
-	}
-
 	.cta-item-title {
 		font-size: 28px;
 	}
@@ -3124,17 +3234,47 @@ th:not(:first-child) {
 			margin-top: 20px;
 		}
 	}
-	.benefits__inner {
-		margin-top: 40px;
-		justify-content: center;
+
+	.benefits {
+		&__inner {
+			margin-top: 40px;
+			justify-content: center;
+			text-align: center;
+		}
+		&__item {
+			flex-basis: 100%;
+		}
+		&__item + &__item {
+			margin-top: 20px;
+		}
+		&__item-title {
+			font-size: 25px;
+			max-width: 100%;
+			padding-top: 10px;
+		}
+	}
+
+	.benefits-about {
+		&__item {
+			flex-basis: 100%;
+			text-align: center;
+		}
+		&__item + .benefits-about__item {
+			margin-top: 30px;
+		}
+		&__item-title {
+			max-width: 100%;
+		}
+		&__item-title {
+			margin-top: -20px;
+		}
+		&__inner {
+			margin-top: 40px;
+		}
+	}
+
+	.industries__cta-item-btn {
 		text-align: center;
-	}
-	.benefits__item {
-		flex-basis: 100%;
-	}
-	.benefits__item-title {
-		font-size: 25px;
-		max-width: 100%;
 	}
 }
 
@@ -3146,7 +3286,9 @@ th:not(:first-child) {
 		font-size: 20px;
 	}
 	.expertise__item-title,
-	.services__item-title {
+	.services__item-title,
+	.industries__list-item-title,
+	.benefits-about__item-title {
 		font-size: 25px;
 	}
 	.services__item-title {
@@ -3176,6 +3318,25 @@ th:not(:first-child) {
 		}
 		&__stats-inner {
 			margin-top: 20px;
+		}
+	}
+	.promo-about .services__item {
+		flex-basis: 180px;
+	}
+	.promo-about {
+		&__top-item {
+			flex-basis: 300px;
+		}
+		&__cta {
+			margin-top: 20px;
+		}
+	}
+	.history {
+		&__top-content {
+			margin-top: 20px;
+		}
+		&__top-text {
+			padding-top: 0;
 		}
 	}
 }
