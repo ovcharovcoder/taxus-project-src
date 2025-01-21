@@ -1,9 +1,20 @@
 // Testimonials slider
 const swiper = new Swiper('.reviews__testimonials-swiper', {
 	slidesPerView: 3,
-	spaceBetween: 20,
+	spaceBetween: 30,
 	freeMode: true,
-	freeModeSticky: true,
+	breakpoints: {
+		950: {
+			slidesPerView: 2,
+		},
+		300: {
+			slidesPerView: 1,
+			autoplay: {
+				delay: 2500,
+				disableOnInteraction: false,
+			},
+		},
+	},
 	// Navigation arrows
 	navigation: {
 		nextEl: '.swiper-button-next',

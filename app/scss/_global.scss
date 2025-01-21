@@ -44,6 +44,7 @@ body {
 	padding: 15px 40px;
 	border-radius: 5px;
 	cursor: pointer;
+	margin-top: 20px;
 }
 
 .color-grey {
@@ -164,6 +165,7 @@ body {
 	background-color: $white;
 	border-radius: 20px;
 	color: $default;
+	flex-wrap: wrap;
 }
 
 .cta-black-bg {
