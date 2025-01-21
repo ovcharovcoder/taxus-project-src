@@ -29,11 +29,9 @@
 	width: 100%;
 	z-index: 1000;
 	padding-right: 10px;
-
 	&__logo-img {
 		width: 160px;
 	}
-
 	&__inner {
 		position: relative;
 		@include flex-layout(center, space-between);
@@ -41,11 +39,9 @@
 		color: $white;
 		flex-wrap: wrap;
 	}
-
 	&__nav-menu {
 		@include flex-layout(center, space-between);
 	}
-
 	&__nav {
 		position: fixed;
 		top: 0;
@@ -62,27 +58,22 @@
 		justify-content: center;
 		align-items: center;
 	}
-
 	&__nav.active {
 		transform: translateX(0);
 	}
-
 	&__burger {
 		display: none;
 	}
-
 	&__nav-list {
 		@include flex-layout(center, space-between);
 		gap: 30px;
 	}
-
 	&__nav-link,
 	&__dropdown-menu li {
 		position: relative;
 		padding: 0;
 		transition: color 0.3s ease;
 	}
-
 	&__dropdown-menu {
 		max-height: 0;
 		overflow: hidden;
@@ -99,30 +90,25 @@
 		margin: 0;
 		list-style: none;
 	}
-
 	&__dropdown-menu li {
 		margin: 5px 0;
 		border: none;
 		background-color: transparent;
 		font-size: 14px;
 	}
-
 	&__dropdown-menu a {
 		text-decoration: none;
 		color: $white;
 		padding: 5px;
 		display: block;
 	}
-
 	&__nav-item {
 		position: relative;
 	}
-
 	&__nav-link {
 		display: block;
 		text-decoration: none;
 	}
-
 	&__dropdown > .header__nav-link:focus {
 		outline: none;
 	}
@@ -139,37 +125,30 @@
 		background-color: $accent;
 		transition: width 0.3s ease;
 	}
-
 	&__nav-link:hover::before,
 	&__dropdown-menu li:hover::before {
 		width: 100%;
 	}
-
 	&__dropdown.open > .header__nav-link::after {
 		transform: translateY(-50%) rotate(180deg);
 		transition: transform 0.3s ease;
 	}
-
 	&__lang:hover .header__dropdown-menu {
 		display: block;
 		max-height: 500px;
 	}
-
 	&__user-nav {
 		@include flex-layout(center, space-between);
 		margin-left: 5px;
 	}
-
 	&__search,
 	&__login,
 	&__lang {
 		margin-left: 30px;
 	}
-
 	&__search {
 		margin-right: 10px;
 	}
-
 	&__login-btn {
 		border: 1px solid $white;
 		border-radius: 5px;
@@ -181,27 +160,22 @@
 // Promo
 .promo-home {
 	padding: 100px 0;
-
 	&__content {
 		padding-top: 100px;
 	}
-
 	&__content-inner {
 		@include flex-layout(flex-start, space-between);
 	}
-
 	&__content-header {
 		max-width: 585px;
 		margin: 0;
 		text-align: left;
 	}
-
 	&__title {
 		@include prata-400;
 		font-size: 56px;
 		color: $accent;
 	}
-
 	&__span {
 		position: relative;
 		@include mont-700;
@@ -209,7 +183,6 @@
 		font-size: 68px;
 		padding-left: 100px;
 	}
-
 	&__span::after {
 		content: '';
 		position: absolute;
@@ -220,41 +193,34 @@
 		background: url('../images/icons/span-decore.svg') no-repeat;
 		background-size: cover;
 	}
-
 	&__content-text {
 		font-size: 18px;
 		color: $grey;
 		padding-top: 37px;
 		max-width: 497px;
 	}
-
 	&__stats {
 		padding-top: 40px;
 	}
-
 	&__stats-inner {
 		@include flex-layout(center, space-between);
 		flex-wrap: wrap;
 	}
-
 	&__stats-items {
 		@include flex-layout(flex-start, space-between);
 		margin-right: 50px;
 		gap: 20px 80px;
 		flex-wrap: wrap;
 	}
-
 	&__stats-item {
 		max-width: 143px;
 		text-align: center;
 	}
-
 	&__stats-title {
 		@include prata-400;
 		font-size: 32px;
 		color: $accent;
 	}
-
 	&__stats-text {
 		color: $white;
 		font-size: 15px;
@@ -266,18 +232,15 @@
 	padding: 30px 10px;
 	background-color: $brown-bg;
 	color: $white;
-
 	&__list {
 		font-size: 16px;
 		@include flex-layout(flex-start, space-between);
 		flex-wrap: wrap;
 		gap: 0 74px;
 	}
-
 	&__list-item {
 		position: relative;
 	}
-
 	&__list-item::after {
 		content: '';
 		position: absolute;
@@ -295,30 +258,25 @@
 .expertise {
 	background-color: $dark-brown-bg;
 	padding: 100px 0;
-
 	&__inner {
 		@include flex-layout(flex-start, space-between);
 		flex-wrap: wrap;
 		margin-top: 80px;
 		gap: 0 20px;
 	}
-
 	&__item {
 		padding: 10px;
 		flex-basis: 280px;
 	}
-
 	&__item-img {
 		max-width: 60px;
 		width: 100%;
 		height: auto;
 	}
-
 	&__header-subtitle,
 	&__item-title {
 		color: $white;
 	}
-
 	&__item-title {
 		@include mont-800;
 		font-size: 32px;
@@ -326,7 +284,6 @@
 		max-width: 230px;
 		padding-top: 30px;
 	}
-
 	&__item-text {
 		color: $grey;
 		padding-top: 30px;
@@ -336,12 +293,10 @@
 // Who we serve
 .who-we-serve {
 	padding: 100px 0;
-
 	&__inner {
 		@include flex-layout(flex-start, space-between);
 		flex-wrap: wrap;
 	}
-
 	&__item {
 		flex-basis: 544px;
 	}
@@ -349,22 +304,18 @@
 		@include flex-layout(flex-start, space-between);
 		flex-direction: column;
 	}
-
 	&__subtitle {
 		margin-top: 16px;
 	}
-
 	&__img {
 		margin-top: 56px;
 		max-width: 480px;
 		width: 100%;
 	}
-
 	&__item {
 		@include flex-layout(flex-start, space-between);
 		flex-direction: column;
 	}
-
 	&__btn {
 		display: block;
 		max-width: 170px;
@@ -376,29 +327,24 @@
 // Services
 .services {
 	padding: 100px 0;
-
 	&__inner {
 		margin-top: 112px;
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 100px 70px;
 	}
-
 	&__item:nth-last-child(2),
 	&__item:nth-last-child(1) {
 		grid-column: span 1;
 		justify-self: start;
 	}
-
 	&__item-text {
 		color: $grey;
 	}
-
 	&__item-text,
 	&__item-btn {
 		margin-top: 30px;
 	}
-
 	&__cta {
 		margin-top: 100px;
 	}
@@ -411,23 +357,18 @@
 		@include flex-layout(center, space-between);
 		gap: 0 50px;
 	}
-
 	&__item:first-child {
 		flex-basis: 646px;
 	}
-
 	&__title {
 		max-width: 660px;
 	}
-
 	&__list {
 		margin-top: 40px;
 	}
-
 	&__btn {
 		margin-top: 50px;
 	}
-
 	&__img {
 		max-width: 100%;
 	}
@@ -436,33 +377,26 @@
 // Platform
 .platform {
 	padding: 100px 0;
-
 	&__inner {
 		@include flex-layout(center, space-between);
 		gap: 0 125px;
 	}
-
 	&__item:first-child {
 		flex-basis: 580px;
 	}
-
 	&__item:last-child {
 		flex-basis: 536px;
 	}
-
 	&__subtitle {
 		color: $white;
 	}
-
 	&__text {
 		color: $white;
 		margin-top: 60px;
 	}
-
 	&__btn {
 		margin-top: 40px;
 	}
-
 	&__img {
 		max-width: 100%;
 	}
@@ -471,32 +405,26 @@
 // Process
 .process {
 	padding: 100px 0;
-
 	&__inner {
 		@include flex-layout(flex-start, space-between);
 		gap: 0 100px;
 	}
-
 	&__item {
 		flex: 1;
 	}
-
 	&__img {
 		max-width: 480px;
 		width: 100%;
 		margin-top: 50px;
 	}
-
 	&__list-item + &__list-item {
 		margin-top: 40px;
 	}
-
 	&__list-item-title {
 		@include mont-800;
 		font-size: 24px;
 		line-height: 1.2;
 	}
-
 	&__list-item-text {
 		margin-top: 16px;
 	}
@@ -505,30 +433,25 @@
 // Benefits
 .benefits {
 	padding: 100px 0 430px;
-
 	&__inner {
 		@include flex-layout(flex-start, space-between);
 		flex-wrap: wrap;
 		margin-top: 80px;
 		gap: 0 20px;
 	}
-
 	&__item {
 		padding: 10px;
 		flex-basis: 280px;
 	}
-
 	&__item-img {
 		max-width: 60px;
 		width: 100%;
 		height: auto;
 	}
-
 	&__header-subtitle,
 	&__item-title {
 		color: $white;
 	}
-
 	&__item-title {
 		@include mont-800;
 		font-size: 32px;
@@ -536,7 +459,6 @@
 		max-width: 250px;
 		padding-top: 30px;
 	}
-
 	&__item-text {
 		color: $grey;
 		padding-top: 30px;
@@ -548,21 +470,17 @@
 	background-color: $light-grey;
 	position: relative;
 	padding: 450px 0 100px;
-
 	&__wrapper {
 		position: absolute;
 		top: -300px;
 	}
-
 	&__subtitle {
 		color: $white;
 	}
-
 	&__testimonials {
 		margin-top: 100px;
 		align-items: stretch;
 	}
-
 	&__testimonials-item {
 		max-width: 300px !important;
 		width: 100%;
@@ -575,45 +493,37 @@
 		height: 100%;
 		margin-right: 20px;
 	}
-
 	&__testimonials-quotes-img {
 		width: 40px;
 		height: auto;
 	}
-
 	&__testimonials-text {
 		padding-top: 20px;
 		font-size: 18px;
 	}
-
 	&__testimonials-user {
 		@include flex-layout(center, flex-start);
 		margin-top: 20px;
 		gap: 0 20px;
 	}
-
 	&__testimonials-avatar {
 		width: 68px;
 		height: 68px;
 		border-radius: 50%;
 		object-fit: cover;
 	}
-
 	&__testimonials-name {
 		font-size: 18px;
 	}
-
 	&__testimonials-name span {
 		font-weight: 700;
 		font-size: 20px;
 	}
-
 	&__testimonials-wrapper {
 		max-width: 1110px;
 		position: relative;
 		width: 100%;
 	}
-
 	&__bread-crumbs {
 		margin-top: 100px;
 	}
@@ -648,38 +558,30 @@
 .promo-about {
 	padding: 200px 0 100px;
 	position: relative;
-
 	&__top {
 		@include flex-layout(center, space-between);
 		gap: 0 125px;
 	}
-
 	&__top-subtitle {
 		color: $white;
 	}
-
 	&__top-text {
 		color: $grey;
 		padding-top: 32px;
 	}
-
 	&__top-item {
 		flex-basis: 550px;
 	}
-
 	&__top-item-img {
 		flex-basis: 500px;
 	}
-
 	&__top-img {
 		width: 100%;
 		object-fit: cover;
 	}
-
 	&__item-title {
 		max-width: 245px;
 	}
-
 	&__items {
 		@include flex-layout(flex-start, space-between);
 		gap: 0 80px;
@@ -695,33 +597,26 @@
 	padding: 100px 0;
 	background-color: $light-grey;
 	position: relative;
-
 	&__inner {
 		@include flex-layout(flex-start, space-between);
 		gap: 0 120px;
 	}
-
 	&__item {
 		flex-basis: 480px;
 	}
-
 	&__text {
 		margin-top: 30px;
 	}
-
 	&__cta-item-btn {
 		margin-top: 100px;
 	}
-
 	&__list-item + &__list-item {
 		margin-top: 50px;
 	}
-
 	&__list-item-title {
 		font-size: 32px;
 		font-weight: 800;
 	}
-
 	&__list-item-text {
 		padding-top: 20px;
 	}
@@ -731,26 +626,21 @@
 .awards {
 	background-color: $dark-brown-bg;
 	padding: 100px 0;
-
 	&__inner {
 		@include flex-layout(flex-start, space-between);
 	}
-
 	&__subtitle {
 		color: $white;
 	}
-
 	&__item {
 		flex-basis: 480px;
 	}
-
 	&__item-gallery {
 		flex-basis: 580px;
 		display: grid;
 		gap: 10px;
 		@include grid-layout(3, center, center);
 	}
-
 	&__item-img {
 		max-width: 170px;
 		width: 100%;
@@ -784,30 +674,25 @@
 .benefits-about {
 	background-color: $dark-brown-bg;
 	padding: 100px 0;
-
 	&__inner {
 		@include flex-layout(flex-start, space-between);
 		flex-wrap: wrap;
 		margin-top: 80px;
 		gap: 0 20px;
 	}
-
 	&__item {
 		padding: 10px;
 		flex-basis: 280px;
 	}
-
 	&__item-img {
 		max-width: 60px;
 		width: 100%;
 		height: auto;
 	}
-
 	&__header-subtitle,
 	&__item-title {
 		color: $white;
 	}
-
 	&__item-title {
 		@include mont-800;
 		font-size: 32px;
@@ -815,7 +700,6 @@
 		max-width: 260px;
 		padding-top: 30px;
 	}
-
 	&__item-text {
 		color: $grey;
 		padding-top: 30px;
@@ -1175,6 +1059,7 @@
 	}
 	&__item {
 		flex-basis: 580px;
+		padding: 10px;
 	}
 	&__item-subtitle {
 		font-size: 25px;
@@ -1217,6 +1102,7 @@
 	}
 	&__item {
 		flex-basis: 580px;
+		padding: 10px;
 	}
 	&__item-subtitle {
 		font-size: 25px;
@@ -1272,7 +1158,7 @@
 	}
 	&__inner {
 		@include flex-layout(stretch, space-between);
-		gap: 0 20px;
+		gap: 30px 20px;
 		max-width: 880px;
 		margin: 0 auto;
 		margin-top: 100px;
@@ -1323,6 +1209,7 @@
 	}
 	&__item {
 		flex-basis: 580px;
+		padding: 10px;
 	}
 	&__item-subtitle {
 		font-size: 25px;
@@ -1363,31 +1250,25 @@
 .fees {
 	padding: 100px 0 10px;
 	overflow: hidden;
-
 	&__header-inner {
 		@include flex-layout(flex-start, space-between);
 	}
-
 	&__header-item:first-child {
 		flex-basis: 500px;
 	}
-
 	&__header-subtitle {
 		font-size: 24px;
 		font-weight: 800;
 	}
-
 	&__header-title {
 		@include prata-400;
 		font-size: 46px;
 		color: $accent;
 		padding-top: 16px;
 	}
-
 	&__header-text {
 		padding-top: 30px;
 	}
-
 	&__content {
 		display: none;
 		opacity: 0;
@@ -1395,18 +1276,15 @@
 		margin-left: -10px;
 		margin-top: 70px;
 	}
-
 	&__content.active {
 		display: block;
 		opacity: 1;
 	}
-
 	&__header-btn-box {
 		border: 1px solid $default;
 		border-radius: 10px;
 		height: 50px;
 	}
-
 	&__button-group button {
 		padding: 10px 20px;
 		margin: 5px;
@@ -1414,17 +1292,14 @@
 		cursor: pointer;
 		border-radius: 5px;
 	}
-
 	&__button-group button.active {
 		background-color: $black;
 		color: $white;
 	}
-
 	&__note {
 		margin-top: 80px;
 		color: $grey;
 	}
-
 	&__bread-crumbs {
 		position: relative;
 	}
@@ -1480,65 +1355,52 @@ th:not(:first-child) {
 .promo-comp-reg {
 	padding: 200px 0 100px;
 	position: relative;
-
 	&__top {
 		@include flex-layout(center, space-between);
 		gap: 0 80px;
 	}
-
 	&__top-text {
 		color: $grey;
 		padding-top: 32px;
 		font-size: 18px;
 	}
-
 	&__btn {
 		margin-top: 40px;
 	}
-
 	&__top-item {
 		flex-basis: 550px;
 	}
-
 	&__top-item-img {
 		flex-basis: 700px;
 		margin-right: -200px;
 	}
-
 	&__top-img {
 		width: 100%;
 		object-fit: cover;
 	}
-
 	&__item-title {
 		max-width: 255px;
 	}
-
 	&__items {
 		@include flex-layout(flex-start, space-around);
 		gap: 0 50px;
 		margin-top: 100px;
 	}
-
 	&__item {
 		flex-basis: 280px;
 	}
-
 	&__item-text {
 		color: $white;
 		padding-bottom: 40px;
 	}
-
 	&__bottom-header {
 		margin-top: 100px;
 	}
-
 	&__bottom-subtitle {
 		font-size: 24px;
 		font-weight: 800;
 		color: $white;
 	}
-
 	&__cta {
 		margin-top: 80px;
 	}
@@ -1641,7 +1503,6 @@ th:not(:first-child) {
 		grid-template-columns: repeat(3, 1fr);
 		gap: 70px 60px;
 	}
-
 	&__item:nth-last-child(2),
 	&__item:nth-last-child(1) {
 		grid-column: span 1;
@@ -1716,7 +1577,6 @@ th:not(:first-child) {
 		top: -250px;
 		right: -200px;
 	}
-
 	&__top-title {
 		font-size: 48px;
 		font-weight: 700;
@@ -1944,7 +1804,6 @@ th:not(:first-child) {
 		position: relative;
 		z-index: 0;
 	}
-
 	&__decore-img {
 		position: absolute;
 	}
@@ -1962,22 +1821,18 @@ th:not(:first-child) {
 		max-width: 1200px;
 		width: 100%;
 	}
-
 	&__top-inner {
 		padding-top: 100px;
 		@include flex-layout(center, space-between);
 	}
-
 	&__top-item:first-child {
 		flex-basis: 525px;
 	}
-
 	&__top-item:last-child {
 		position: relative;
 		flex-basis: 708px;
 		height: auto;
 	}
-
 	&__top-img {
 		max-width: 100%;
 		position: absolute;
@@ -1985,23 +1840,19 @@ th:not(:first-child) {
 		top: -250px;
 		right: -200px;
 	}
-
 	&__top-title {
 		font-size: 48px;
 		font-weight: 700;
 		color: $white;
 		line-height: 1.4;
 	}
-
 	&__top-boxtext {
 		color: $grey;
 		padding-top: 40px;
 	}
-
 	&__top-text {
 		padding-bottom: 25px;
 	}
-
 	&__top-btn {
 		position: relative;
 		margin-top: 50px;
@@ -2020,18 +1871,15 @@ th:not(:first-child) {
 .license,
 .get-starter {
 	color: $white;
-
 	&__item-text {
 		color: $grey;
 		padding-top: 30px;
 		max-width: 480px;
 	}
-
 	&__inner {
 		@include flex-layout(flex-start, space-between);
 		gap: 0 50px;
 	}
-
 	&__item {
 		flex-basis: 570px;
 	}
@@ -2246,31 +2094,25 @@ th:not(:first-child) {
 .obtaining-license {
 	padding: 100px 0;
 	background-color: $light-grey;
-
 	&__inner {
 		@include flex-layout(flex-start, space-between);
 		gap: 0 100px;
 	}
-
 	&__item {
 		flex: 1;
 	}
-
 	&__img {
 		max-width: 480px;
 		width: 100%;
 		margin-top: 50px;
 	}
-
 	&__list-item + &__list-item {
 		margin-top: 40px;
 	}
-
 	&__list-item-title {
 		@include mont-800;
 		font-size: 24px;
 	}
-
 	&__list-item-text {
 		margin-top: 16px;
 	}
@@ -2484,11 +2326,9 @@ th:not(:first-child) {
 // IP protection
 .ip-protection {
 	padding: 100px 0;
-
 	&__inner {
 		@include flex-layout(flex-start, space-between);
 	}
-
 	&__item {
 		flex-basis: 544px;
 	}
@@ -2496,11 +2336,9 @@ th:not(:first-child) {
 		@include flex-layout(flex-start, space-between);
 		flex-direction: column;
 	}
-
 	&__subtitle {
 		margin-top: 16px;
 	}
-
 	&__img {
 		margin-top: 56px;
 		max-width: 480px;
@@ -2750,58 +2588,47 @@ th:not(:first-child) {
 	background-color: $default;
 	padding-top: 100px;
 	color: $medium-grey;
-
 	&__top-inner,
 	&__menu {
 		@include flex-layout(flex-start, space-between);
 		flex-wrap: wrap;
 	}
-
 	&__menu {
 		gap: 0 70px;
 	}
-
 	&__menu-item + &__menu-item {
 		margin-top: 20px;
 	}
-
 	&__top-item:first-child {
 		flex-basis: 350px;
 	}
-
 	&__top-item-contact {
 		padding-top: 30px;
 	}
-
 	&__top-item-contact span {
 		display: block;
 		padding-bottom: 20px;
 		font-size: 18px;
 	}
-
 	&__logo-img {
 		width: 200px;
 	}
-
 	&__top-item-social-list {
 		margin-top: 20px;
 		margin-left: -15px;
 		@include flex-layout(flex-start, flex-start);
 		gap: 20px 30px;
 	}
-
 	&__menu-item-title {
 		font-weight: 700;
 		color: $white;
 	}
-
 	&__menu-link {
 		position: relative;
 		padding: 0;
 		transition: color 0.3s ease;
 		font-size: 14px;
 	}
-
 	&__menu-link::before {
 		content: '';
 		position: absolute;
@@ -2812,17 +2639,14 @@ th:not(:first-child) {
 		background-color: $accent;
 		transition: width 0.3s ease;
 	}
-
 	&__menu-link:hover::before {
 		width: 100%;
 	}
-
 	&__copyright {
 		margin-top: 100px;
 		background-color: $black;
 		padding: 25px 0;
 	}
-
 	&__copyright-text {
 		color: $white;
 		text-align: center;
@@ -2831,7 +2655,7 @@ th:not(:first-child) {
 
 // ---- Styles for adaptive ---
 
-// .diplomas {
+// .fees {
 // 	display: none;
 // }
 
@@ -2955,10 +2779,19 @@ th:not(:first-child) {
 			margin-top: 30px;
 		}
 	}
+
+	.promo-banking {
+		&__top-subtitle,
+		&__top-title {
+			font-size: 48px;
+		}
+	}
+
 	.services-panel__list {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 	}
+
 	.section-bg,
 	.expertise,
 	.who-we-serve,
@@ -2967,8 +2800,19 @@ th:not(:first-child) {
 	.industries,
 	.awards,
 	.articles,
-	.diplomas {
+	.diplomas,
+	.privat-banking,
+	.business-escrow,
+	.banking-partner,
+	.fees {
 		padding: 40px 0;
+	}
+	.promo-banking {
+		padding-bottom: 0;
+	}
+	.acc-pay {
+		padding-top: 100px;
+		padding-bottom: 40px;
 	}
 	.diplomas {
 		padding-bottom: 100px;
@@ -3082,11 +2926,76 @@ th:not(:first-child) {
 	.articles__item + .articles__item {
 		margin-top: 40px;
 	}
+	.promo-banking {
+		&__top-inner {
+			flex-direction: column;
+		}
+		&__top-item:last-child {
+			order: -1;
+		}
+		&__bottom-items {
+			flex-wrap: wrap;
+			gap: 20px;
+		}
+		&__bottom-items {
+			position: relative;
+		}
+		&__btn {
+			margin-top: 40px;
+		}
+	}
+	.acc-pay {
+		&__items {
+			flex-direction: column;
+		}
+		&__item {
+			flex-basis: 100%;
+			margin-top: 20px;
+		}
+		&__item:first-child {
+			flex-basis: 200px;
+		}
+		&__payments {
+			margin-top: 40px;
+		}
+	}
+	.privat-banking {
+		&__items {
+			flex-direction: column;
+		}
+		&__item {
+			margin-top: 20px;
+		}
+		&__item:first-child {
+			flex-basis: 240px;
+		}
+		&__btn {
+			margin-top: 20px;
+		}
+	}
+	.promo-banking__top-img {
+		max-width: 500px;
+	}
+	.banking-partner__items {
+		flex-direction: column;
+	}
+	.fees__header-inner {
+		flex-direction: column;
+	}
+	.fees__header-item:first-child {
+		flex-basis: 100%;
+	}
+	.fees__header-btn-box {
+		margin-top: 30px;
+	}
 }
 
 @media (max-width: 850px) {
 	.promo-team__gallery {
 		grid-template-columns: repeat(3, 1fr);
+	}
+	.business-escrow__inner {
+		flex-direction: column;
 	}
 }
 
@@ -3102,8 +3011,12 @@ th:not(:first-child) {
 	}
 	.services__cta,
 	.reviews__cta,
-	.promo-about__cta {
+	.promo-about__cta,
+	.acc-pay__cta {
 		padding: 40px 20px;
+	}
+	.acc-pay__cta {
+		margin-top: 50px;
 	}
 	.banking {
 		&__inner {
@@ -3285,6 +3198,18 @@ th:not(:first-child) {
 	}
 }
 
+@media (max-width: 600px) {
+	td,
+	tr {
+		font-size: 14px;
+	}
+	.promo-banking {
+		&__bottom-item {
+			flex-basis: 100%;
+		}
+	}
+}
+
 @media (max-width: 560px) {
 	.promo-home__stats-inner {
 		justify-content: center;
@@ -3305,7 +3230,10 @@ th:not(:first-child) {
 	}
 
 	.services__cta,
-	.reviews__cta {
+	.reviews__cta,
+	.acc-pay__cta,
+	.privat-banking__btn,
+	.promo-banking__btn {
 		text-align: center;
 	}
 
@@ -3317,6 +3245,10 @@ th:not(:first-child) {
 		text-align: center;
 		max-width: 180px;
 		margin-top: 30px;
+	}
+
+	.acc-pay__cta-item-btn {
+		margin: 0 auto;
 	}
 
 	.cta-item-title {
@@ -3369,11 +3301,22 @@ th:not(:first-child) {
 	.industries__cta-item-btn {
 		text-align: center;
 	}
+	.business-escrow {
+		&__inner,
+		&__bottom {
+			margin-top: 40px;
+		}
+	}
+	.fees__note {
+		margin-top: 40px;
+	}
 }
 
 @media (max-width: 500px) {
-	.title {
+	.title,
+	.acc-pay__item-title {
 		font-size: 30px;
+		line-height: 1.2;
 	}
 	.subtitle {
 		font-size: 20px;
@@ -3383,7 +3326,16 @@ th:not(:first-child) {
 	.industries__list-item-title,
 	.benefits-about__item-title,
 	.about-me__item-title,
-	.about-me__aducation-title {
+	.about-me__aducation-title,
+	.promo-banking__bottom-title,
+	.acc-pay__list-title,
+	.privat-banking__item-title,
+	.privat-banking__list-title,
+	.business-escrow__header-title,
+	.business-escrow__item-title,
+	.banking-partner__item-title,
+	.banking-partner__list-title,
+	.fees__header-title {
 		font-size: 25px;
 	}
 	.services__item-title {
@@ -3437,9 +3389,30 @@ th:not(:first-child) {
 	.author-promo__wrapper {
 		top: 190px;
 	}
+	.promo-banking {
+		padding-bottom: 0;
+		&__top-item {
+			margin-top: 30px;
+		}
+	}
+	.acc-pay {
+		&__item:first-child {
+			flex-basis: 160px;
+		}
+		&__item {
+			margin-top: 30px;
+		}
+	}
+	.banking-partner__item:first-child {
+		flex-basis: 420px;
+	}
 }
 
 @media (max-width: 450px) {
+	td,
+	tr {
+		font-size: 11px;
+	}
 	.promo-home {
 		&__stats-inner {
 			flex-direction: column;
