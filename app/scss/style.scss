@@ -1411,6 +1411,9 @@ th:not(:first-child) {
 	padding: 100px 0;
 	background-color: $light-grey;
 	overflow: hidden;
+	&__header {
+		position: relative;
+	}
 	&__inner {
 		@include flex-layout(flex-start, space-between);
 		margin-top: 100px;
@@ -1470,6 +1473,7 @@ th:not(:first-child) {
 	}
 	&__item {
 		flex-basis: 580px;
+		padding: 10px;
 	}
 	&__subtitle,
 	&__list {
@@ -2655,7 +2659,7 @@ th:not(:first-child) {
 
 // ---- Styles for adaptive ---
 
-// .fees {
+// .comp-reg-process {
 // 	display: none;
 // }
 
@@ -2691,6 +2695,9 @@ th:not(:first-child) {
 		&__testimonials-wrapper {
 			max-width: 100%;
 		}
+	}
+	.promo-comp-reg__top-item-img {
+		margin-right: 0;
 	}
 }
 
@@ -2804,7 +2811,11 @@ th:not(:first-child) {
 	.privat-banking,
 	.business-escrow,
 	.banking-partner,
-	.fees {
+	.fees,
+	.countries,
+	.maintenance,
+	.comp-reg-services,
+	.comp-reg-process {
 		padding: 40px 0;
 	}
 	.promo-banking {
@@ -2988,6 +2999,33 @@ th:not(:first-child) {
 	.fees__header-btn-box {
 		margin-top: 30px;
 	}
+	.promo-comp-reg {
+		&__inner {
+			margin-top: 150px;
+		}
+		&__top {
+			flex-direction: column;
+		}
+		&__top-item-img {
+			order: -1;
+		}
+		&__top-item-img {
+			flex-basis: 100%;
+		}
+		&__bottom-header {
+			margin-top: 0;
+		}
+		&__items {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 20px;
+		}
+	}
+	.comp-reg-benefits__inner {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+	}
 }
 
 @media (max-width: 850px) {
@@ -2996,6 +3034,9 @@ th:not(:first-child) {
 	}
 	.business-escrow__inner {
 		flex-direction: column;
+	}
+	.comp-reg-benefits__inner {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
@@ -3012,7 +3053,8 @@ th:not(:first-child) {
 	.services__cta,
 	.reviews__cta,
 	.promo-about__cta,
-	.acc-pay__cta {
+	.acc-pay__cta,
+	.comp-reg-process__cta {
 		padding: 40px 20px;
 	}
 	.acc-pay__cta {
@@ -3090,6 +3132,35 @@ th:not(:first-child) {
 		&__list-item + &__list-item {
 			margin-top: 20px;
 		}
+	}
+	.promo-comp-reg {
+		&__items {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
+		}
+	}
+	.countries__inner {
+		flex-direction: column;
+		align-items: center;
+		margin-top: 40px;
+	}
+	.countries__item + .countries__item {
+		margin-top: 30px;
+	}
+	.comp-reg-services {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item {
+			flex-basis: 100%;
+		}
+	}
+	.comp-reg-benefits {
+		&__inner {
+			margin-top: 30px;
+		}
+		padding-top: 50px;
 	}
 }
 
@@ -3196,6 +3267,24 @@ th:not(:first-child) {
 	.diplomas__slider {
 		margin-top: 50px;
 	}
+
+	.maintenance {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item {
+			flex-basis: 100%;
+		}
+		&__item:last-child {
+			margin-top: 30px;
+		}
+		&__textbox {
+			margin-top: 20px;
+		}
+		&__btn {
+			text-align: center;
+		}
+	}
 }
 
 @media (max-width: 600px) {
@@ -3206,6 +3295,15 @@ th:not(:first-child) {
 	.promo-banking {
 		&__bottom-item {
 			flex-basis: 100%;
+		}
+	}
+	.comp-reg-benefits {
+		&__inner {
+			grid-template-columns: repeat(1, 1fr);
+		}
+		&__item {
+			padding: 20px;
+			text-align: center;
 		}
 	}
 }
@@ -3310,6 +3408,22 @@ th:not(:first-child) {
 	.fees__note {
 		margin-top: 40px;
 	}
+	.promo-comp-reg {
+		&__items {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			gap: 20px;
+		}
+	}
+	.promo-comp-reg__btn {
+		text-align: center;
+		margin-top: 30px;
+		margin-bottom: 10px;
+	}
+	.countries__inner {
+		align-items: flex-start;
+		padding: 15px;
+	}
 }
 
 @media (max-width: 500px) {
@@ -3335,7 +3449,8 @@ th:not(:first-child) {
 	.business-escrow__item-title,
 	.banking-partner__item-title,
 	.banking-partner__list-title,
-	.fees__header-title {
+	.fees__header-title,
+	.comp-reg-benefits__item-title {
 		font-size: 25px;
 	}
 	.services__item-title {
@@ -3405,6 +3520,18 @@ th:not(:first-child) {
 	}
 	.banking-partner__item:first-child {
 		flex-basis: 420px;
+	}
+	.comp-reg-benefits {
+		&__item-title,
+		&__item-text {
+			padding-top: 10px;
+		}
+		&__btn {
+			margin-top: 20px;
+		}
+		&__inner {
+			gap: 0;
+		}
 	}
 }
 
