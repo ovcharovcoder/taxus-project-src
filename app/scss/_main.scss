@@ -1,0 +1,2690 @@
+@use 'vars' as *;
+@use 'mixins' as *;
+
+.dropdown {
+	position: relative;
+}
+
+.dropdown::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: -20px;
+	transform: translateY(-50%);
+	width: 12px;
+	height: 12px;
+	background: url('../images/icons/arrow-down.svg') no-repeat;
+	background-size: contain;
+}
+
+// Header
+.header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	padding-right: 10px;
+	&__logo-img {
+		width: 160px;
+	}
+	&__inner {
+		position: relative;
+		@include flex-layout(center, space-between);
+		margin-top: 26px;
+		color: $white;
+		flex-wrap: wrap;
+	}
+	&__nav-menu {
+		@include flex-layout(center, space-between);
+	}
+	&__nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 50%;
+		max-width: 400px;
+		background-color: transparent;
+		transform: translateX(-100%);
+		transition: transform 0.3s ease-in-out;
+		z-index: 100;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	&__nav.active {
+		transform: translateX(0);
+	}
+	&__burger {
+		display: none;
+	}
+	&__nav-list {
+		@include flex-layout(center, space-between);
+		gap: 30px;
+	}
+	&__nav-link,
+	&__dropdown-menu li {
+		position: relative;
+		padding: 0;
+		transition: color 0.3s ease;
+	}
+	&__dropdown-menu {
+		max-height: 0;
+		overflow: hidden;
+		display: block;
+		position: absolute;
+		list-style: none;
+		background: $dark-brown-bg;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		padding: 0 10px;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.5s ease-out;
+		padding-left: 0;
+		margin: 0;
+		list-style: none;
+	}
+	&__dropdown-menu li {
+		margin: 5px 0;
+		border: none;
+		background-color: transparent;
+		font-size: 0.875rem;
+	}
+	&__dropdown-menu a {
+		text-decoration: none;
+		color: $white;
+		padding: 5px;
+		display: block;
+	}
+	&__nav-item {
+		position: relative;
+	}
+	&__nav-link {
+		display: block;
+		text-decoration: none;
+	}
+	&__dropdown > .header__nav-link:focus {
+		outline: none;
+	}
+
+	/* Animation when hovering over a menu item */
+	&__nav-link::before,
+	&__dropdown-menu li::before {
+		content: '';
+		position: absolute;
+		bottom: -2px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background-color: $accent;
+		transition: width 0.3s ease;
+	}
+	&__nav-link:hover::before,
+	&__dropdown-menu li:hover::before {
+		width: 100%;
+	}
+	&__dropdown.open > .header__nav-link::after {
+		transform: translateY(-50%) rotate(180deg);
+		transition: transform 0.3s ease;
+	}
+	&__lang:hover .header__dropdown-menu {
+		display: block;
+		max-height: 500px;
+	}
+	&__user-nav {
+		@include flex-layout(center, space-between);
+		margin-left: 5px;
+	}
+	&__search,
+	&__login,
+	&__lang {
+		margin-left: 30px;
+	}
+	&__search {
+		margin-right: 10px;
+	}
+	&__login-btn {
+		border: 1px solid $white;
+		border-radius: 5px;
+		padding: 7px 10px;
+	}
+}
+
+// --- Home page ---
+// Promo
+.promo-home {
+	padding: 100px 0;
+	&__content {
+		padding-top: 100px;
+	}
+	&__content-inner {
+		@include flex-layout(flex-start, space-between);
+	}
+	&__content-header {
+		max-width: 585px;
+		margin: 0;
+		text-align: left;
+	}
+	&__title {
+		@include prata-400;
+		font-size: 3.5rem;
+		color: $accent;
+	}
+	&__span {
+		position: relative;
+		@include mont-700;
+		color: $white;
+		font-size: 4.25rem;
+		padding-left: 100px;
+	}
+	&__span::after {
+		content: '';
+		position: absolute;
+		top: 16px;
+		left: 0;
+		width: 53px;
+		height: 55px;
+		background: url('../images/icons/span-decore.svg') no-repeat;
+		background-size: cover;
+	}
+	&__content-text {
+		font-size: 1.125rem;
+		color: $grey;
+		padding-top: 37px;
+		max-width: 497px;
+	}
+	&__stats {
+		padding-top: 40px;
+	}
+	&__stats-inner {
+		@include flex-layout(center, space-between);
+		flex-wrap: wrap;
+	}
+	&__stats-items {
+		@include flex-layout(flex-start, space-between);
+		margin-right: 50px;
+		gap: 20px 80px;
+		flex-wrap: wrap;
+	}
+	&__stats-item {
+		max-width: 143px;
+		text-align: center;
+	}
+	&__stats-title {
+		@include prata-400;
+		font-size: 32px;
+		color: $accent;
+	}
+	&__stats-text {
+		color: $white;
+		font-size: 0.9375rem;
+	}
+}
+
+// Services panel
+.services-panel {
+	padding: 30px 10px;
+	background-color: $brown-bg;
+	color: $white;
+	&__list {
+		font-size: 1rem;
+		@include flex-layout(flex-start, space-between);
+		flex-wrap: wrap;
+		gap: 0 74px;
+	}
+	&__list-item {
+		position: relative;
+	}
+	&__list-item::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: -44px;
+		width: 3px;
+		height: 3px;
+		background: url('../images/icons/ellipse.svg') no-repeat;
+		background-size: cover;
+	}
+}
+
+// Expertise
+.expertise {
+	background-color: $dark-brown-bg;
+	padding: 100px 0;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		flex-wrap: wrap;
+		margin-top: 80px;
+		gap: 0 20px;
+	}
+	&__item {
+		padding: 10px;
+		flex-basis: 280px;
+	}
+	&__item-img {
+		max-width: 60px;
+		width: 100%;
+		height: auto;
+	}
+	&__header-subtitle,
+	&__item-title {
+		color: $white;
+	}
+	&__item-title {
+		@include mont-800;
+		font-size: 2rem;
+		line-height: 1.2;
+		max-width: 230px;
+		padding-top: 30px;
+	}
+	&__item-text {
+		color: $grey;
+		padding-top: 30px;
+	}
+}
+
+// Who we serve
+.who-we-serve {
+	padding: 100px 0;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		flex-wrap: wrap;
+	}
+	&__item {
+		flex-basis: 544px;
+	}
+	&__item {
+		@include flex-layout(flex-start, space-between);
+		flex-direction: column;
+	}
+	&__subtitle {
+		margin-top: 16px;
+	}
+	&__img {
+		margin-top: 56px;
+		max-width: 480px;
+		width: 100%;
+	}
+	&__item {
+		@include flex-layout(flex-start, space-between);
+		flex-direction: column;
+	}
+	&__btn {
+		display: block;
+		max-width: 170px;
+		text-align: center;
+		margin-top: 120px;
+	}
+}
+
+// Services
+.services {
+	padding: 100px 0;
+	&__inner {
+		margin-top: 112px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 100px 70px;
+	}
+	&__item:nth-last-child(2),
+	&__item:nth-last-child(1) {
+		grid-column: span 1;
+		justify-self: start;
+	}
+	&__item-text {
+		color: $grey;
+	}
+	&__item-text,
+	&__item-btn {
+		margin-top: 30px;
+	}
+	&__cta {
+		margin-top: 100px;
+	}
+}
+
+// Banking
+.banking {
+	padding: 100px 0;
+	&__inner {
+		@include flex-layout(center, space-between);
+		gap: 0 50px;
+	}
+	&__item:first-child {
+		flex-basis: 646px;
+	}
+	&__title {
+		max-width: 660px;
+	}
+	&__list {
+		margin-top: 40px;
+	}
+	&__btn {
+		margin-top: 50px;
+	}
+	&__img {
+		max-width: 100%;
+	}
+}
+
+// Platform
+.platform {
+	padding: 100px 0;
+	&__inner {
+		@include flex-layout(center, space-between);
+		gap: 0 125px;
+	}
+	&__item:first-child {
+		flex-basis: 580px;
+	}
+	&__item:last-child {
+		flex-basis: 536px;
+	}
+	&__subtitle {
+		color: $white;
+	}
+	&__text {
+		color: $white;
+		margin-top: 60px;
+	}
+	&__btn {
+		margin-top: 40px;
+	}
+	&__img {
+		max-width: 100%;
+	}
+}
+
+// Process
+.process {
+	padding: 100px 0;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		gap: 0 100px;
+	}
+	&__item {
+		flex: 1;
+	}
+	&__img {
+		max-width: 480px;
+		width: 100%;
+		margin-top: 50px;
+	}
+	&__list-item + &__list-item {
+		margin-top: 40px;
+	}
+	&__list-item-title {
+		@include mont-800;
+		font-size: 1.5rem;
+		line-height: 1.2;
+	}
+	&__list-item-text {
+		margin-top: 16px;
+	}
+}
+
+// Benefits
+.benefits {
+	padding: 100px 0 430px;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		flex-wrap: wrap;
+		margin-top: 80px;
+		gap: 0 20px;
+	}
+	&__item {
+		padding: 10px;
+		flex-basis: 280px;
+	}
+	&__item-img {
+		max-width: 60px;
+		width: 100%;
+		height: auto;
+	}
+	&__header-subtitle,
+	&__item-title {
+		color: $white;
+	}
+	&__item-title {
+		@include mont-800;
+		font-size: 2rem;
+		line-height: 1.2;
+		max-width: 250px;
+		padding-top: 30px;
+	}
+	&__item-text {
+		color: $grey;
+		padding-top: 30px;
+	}
+}
+
+// Reviews
+.reviews {
+	background-color: $light-grey;
+	position: relative;
+	padding: 450px 0 100px;
+	&__wrapper {
+		position: absolute;
+		top: -300px;
+	}
+	&__subtitle {
+		color: $white;
+	}
+	&__testimonials {
+		margin-top: 100px;
+		align-items: stretch;
+	}
+	&__testimonials-item {
+		max-width: 300px !important;
+		width: 100%;
+		padding: 40px;
+		background-color: #fff;
+		border-radius: 5px;
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		margin-right: 20px;
+	}
+	&__testimonials-quotes-img {
+		width: 40px;
+		height: auto;
+	}
+	&__testimonials-text {
+		padding-top: 20px;
+		font-size: 1.125rem;
+	}
+	&__testimonials-user {
+		@include flex-layout(center, flex-start);
+		margin-top: 20px;
+		gap: 0 20px;
+	}
+	&__testimonials-avatar {
+		width: 68px;
+		height: 68px;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+	&__testimonials-name {
+		font-size: 1.125rem;
+	}
+	&__testimonials-name span {
+		font-weight: 700;
+		font-size: 1.25rem;
+	}
+	&__testimonials-wrapper {
+		max-width: 1110px;
+		position: relative;
+		width: 100%;
+	}
+	&__bread-crumbs {
+		margin-top: 100px;
+	}
+}
+
+// Testimonials slider
+.swiper {
+	padding-bottom: 20px !important;
+}
+
+// Arrows for slider
+.swiper-button-prev,
+.swiper-button-next {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	z-index: 1000;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.swiper-button-prev {
+	left: -80px;
+}
+
+.swiper-button-next {
+	right: -80px;
+}
+
+// --- About page ---
+// Promo
+.promo-about {
+	padding: 200px 0 100px;
+	position: relative;
+	&__top {
+		@include flex-layout(center, space-between);
+		gap: 0 125px;
+	}
+	&__top-subtitle {
+		color: $white;
+	}
+	&__top-text {
+		color: $grey;
+		padding-top: 32px;
+	}
+	&__top-item {
+		flex-basis: 550px;
+	}
+	&__top-item-img {
+		flex-basis: 500px;
+	}
+	&__top-img {
+		width: 100%;
+		object-fit: cover;
+	}
+	&__item-title {
+		max-width: 245px;
+	}
+	&__items {
+		@include flex-layout(flex-start, space-between);
+		gap: 0 80px;
+		margin-top: 100px;
+	}
+	&__cta {
+		margin-top: 80px;
+	}
+}
+
+// Industries
+.industries {
+	padding: 100px 0;
+	background-color: $light-grey;
+	position: relative;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		gap: 0 120px;
+	}
+	&__item {
+		flex-basis: 480px;
+	}
+	&__text {
+		margin-top: 30px;
+	}
+	&__cta-item-btn {
+		margin-top: 100px;
+	}
+	&__list-item + &__list-item {
+		margin-top: 50px;
+	}
+	&__list-item-title {
+		font-size: 2rem;
+		font-weight: 800;
+	}
+	&__list-item-text {
+		padding-top: 20px;
+	}
+}
+
+// Awards
+.awards {
+	background-color: $dark-brown-bg;
+	padding: 100px 0;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+	}
+	&__subtitle {
+		color: $white;
+	}
+	&__item {
+		flex-basis: 480px;
+	}
+	&__item-gallery {
+		flex-basis: 580px;
+		display: grid;
+		gap: 10px;
+		@include grid-layout(3, center, center);
+	}
+	&__item-img {
+		max-width: 170px;
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+		aspect-ratio: 1/1;
+	}
+}
+
+// History
+.history {
+	padding: 100px 0 500px;
+	&__top-subtitle {
+		color: $white;
+	}
+	&__top-content {
+		margin-top: 50px;
+	}
+	&__top-text {
+		color: $white;
+		text-align: left;
+		padding-top: 20px;
+		line-height: 1.6;
+	}
+	&__bottom {
+		padding-top: 200px;
+	}
+}
+
+// Benefits
+.benefits-about {
+	background-color: $dark-brown-bg;
+	padding: 100px 0;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		flex-wrap: wrap;
+		margin-top: 80px;
+		gap: 0 20px;
+	}
+	&__item {
+		padding: 10px;
+		flex-basis: 280px;
+	}
+	&__item-img {
+		max-width: 60px;
+		width: 100%;
+		height: auto;
+	}
+	&__header-subtitle,
+	&__item-title {
+		color: $white;
+	}
+	&__item-title {
+		@include mont-800;
+		font-size: 2rem;
+		line-height: 1.2;
+		max-width: 260px;
+		padding-top: 30px;
+	}
+	&__item-text {
+		color: $grey;
+		padding-top: 30px;
+	}
+	&__cta-item-btn {
+		margin-top: 50px;
+		text-align: center;
+	}
+}
+
+.about-reviews {
+	padding: 450px 0 10px;
+}
+
+// --- About team page ---
+// Promo
+.promo-team {
+	padding: 200px 0 10px;
+	position: relative;
+	overflow: hidden;
+	&__inner {
+		@include flex-layout(center, space-between);
+	}
+	&__item-header {
+		flex-basis: 590px;
+	}
+	&__item-text {
+		flex-basis: 482px;
+		text-align: right;
+	}
+	&__item-subtitle {
+		color: $white;
+	}
+	&__item-text {
+		color: $grey;
+	}
+	&__gallery {
+		margin-top: 100px;
+		margin-top: 112px;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 40px;
+		padding-bottom: 100px;
+	}
+	&__gallery-item {
+		max-width: 280px;
+		width: 100%;
+		position: relative;
+		cursor: pointer;
+		overflow: hidden;
+	}
+	&__gallery-item:nth-last-child(2),
+	&__item:nth-last-child(1) {
+		grid-column: span 1;
+		justify-self: start;
+	}
+
+	&__gallery-link {
+		display: block;
+		text-decoration: none;
+		height: 100%;
+		transition: transform 0.5s ease;
+	}
+
+	&__gallery-img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		transition: filter 0.5s ease;
+		border-radius: 10px;
+	}
+	&__gallery-about {
+		padding: 10px 10px 10px 20px;
+		position: absolute;
+		bottom: 20px;
+		left: 0;
+		right: 0;
+		z-index: 2;
+	}
+	&__gallery-name {
+		font-size: 1.5rem;
+		font-weight: 800;
+		padding-bottom: 5px;
+	}
+	&__gallery-name,
+	&__gallery-post {
+		color: $white;
+	}
+	&__gallery-name,
+	&__gallery-post {
+		color: $white;
+		transition: color 0.5s ease;
+	}
+
+	&__gallery-item:hover &__gallery-img {
+		filter: brightness(50%);
+	}
+
+	&__gallery-item:hover &__gallery-name {
+		color: $accent;
+	}
+	&__list-item {
+		color: $white;
+	}
+}
+
+// --- Author page ---
+// Promo
+.author-promo {
+	padding: 260px 0;
+	position: relative;
+	&__wrapper {
+		position: absolute;
+		top: 200px;
+	}
+	&__inner {
+		@include flex-layout(flex-start, flex-start);
+		gap: 0 80px;
+	}
+	&__about {
+		max-width: 320px;
+	}
+	&__name {
+		font-size: 2.875rem;
+		padding-bottom: 10px;
+	}
+	&__post {
+		color: $white;
+		font-size: 1.125rem;
+	}
+	&__img {
+		border-radius: 10px;
+		max-width: 320px;
+		width: 100%;
+		box-shadow: 0 7px 20px rgba(0, 0, 0, 0.5);
+	}
+	&__social-list {
+		margin-top: 50px;
+		margin-left: -15px;
+		@include flex-layout(flex-start, flex-start);
+		gap: 20px 30px;
+	}
+}
+
+// About me
+.about-me {
+	background-color: $white;
+	padding: 80px 0 100px;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+	}
+	&__item {
+		flex-basis: 780px;
+		padding-top: 35px;
+		padding-right: 20px;
+	}
+	&__item-aducation {
+		flex-basis: 380px;
+	}
+	&__aducation {
+		background-color: $light-grey;
+		padding: 40px 40px 100px 40px;
+		border-radius: 10px;
+	}
+	&__item-title,
+	&__aducation-title {
+		font-size: 32px;
+		font-weight: 800;
+	}
+	&__item-text {
+		padding-top: 16px;
+	}
+	&__item-subtitle {
+		font-weight: 700;
+		padding-top: 24px;
+	}
+	&__list {
+		padding-top: 16px;
+	}
+	&__item-aducation-list {
+		padding-top: 20px;
+	}
+}
+
+// Certificates and diplomas
+.diplomas {
+	background-color: $light-grey;
+	padding: 100px 0;
+	&__title {
+		font-size: 2rem;
+		font-weight: 800;
+		text-align: center;
+	}
+	&__slider {
+		margin-top: 80px;
+	}
+	&__slider-item {
+		max-width: 350px;
+		margin-right: 0;
+	}
+}
+
+// Articles section
+.articles {
+	padding: 100px 0 10px;
+	background: $brown-gradient;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		margin: 30px 0 100px;
+		gap: 0 20px;
+		align-items: stretch;
+	}
+	&__title {
+		color: $white;
+		font-size: 2rem;
+		font-weight: 800;
+	}
+	&__list-item {
+		color: $white;
+	}
+	&__item {
+		position: relative;
+		overflow: hidden;
+		background-color: $white;
+		max-width: 380px;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+	&__item-top {
+		@include flex-layout(flex-start, space-between);
+	}
+	&__item-content {
+		padding: 20px;
+	}
+	&__item-title {
+		padding-top: 30px;
+		font-size: 1.5rem;
+		font-weight: 800;
+	}
+	&__item-date {
+		position: relative;
+		padding-left: 35px;
+		font-size: 0.875rem;
+		color: $grey;
+	}
+	&__item-date::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		width: 20px;
+		height: 21px;
+		background: url('../images/icons/calendar.svg') no-repeat;
+		background-size: cover;
+	}
+	&__item-author {
+		font-size: 1rem;
+		font-weight: 600;
+		color: $accent;
+	}
+	&__item-img-container {
+		position: relative;
+		width: 100%;
+		height: 0;
+		padding-bottom: 66.66%;
+		overflow: hidden;
+	}
+	&__item-img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.3s ease-in-out;
+		transform-origin: center center;
+	}
+	&__item:hover .articles__item-img {
+		transform: scale(1.1);
+	}
+	&__item-link {
+		display: block;
+	}
+}
+
+// --- Banking page ---
+// Promo
+.promo-banking {
+	padding: 100px 0 230px;
+	position: relative;
+	&__top-inner {
+		@include flex-layout(flex-start, space-between);
+		padding-top: 100px;
+	}
+	&__top-item:first-child {
+		flex-basis: 500px;
+	}
+	&__top-subtitle {
+		@include prata-400;
+		color: $accent;
+		font-size: 3.5rem;
+	}
+	&__top-title {
+		@include mont-700;
+		color: $white;
+		font-size: 3.5rem;
+		line-height: 1.4;
+	}
+	&__top-text {
+		color: $white;
+		padding-top: 30px;
+	}
+	&__btn {
+		margin-top: 100px;
+	}
+	&__top-img {
+		max-width: 600px;
+		width: 100%;
+	}
+	&__bottom {
+		position: relative;
+	}
+	&__bottom-items {
+		@include flex-layout(stretch, space-between);
+		gap: 0 20px;
+		position: absolute;
+		top: 50px;
+		left: 0;
+		right: 0;
+	}
+	&__bottom-item {
+		@include flex-layout(center, space-between);
+		flex-basis: 280px;
+		text-align: center;
+		padding: 40px 30px;
+		background-color: $white;
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		border-radius: 10px;
+		flex-direction: column;
+		gap: 20px 0;
+		z-index: 100;
+	}
+	&__bottom-title {
+		font-size: 2rem;
+		font-weight: 800;
+		line-height: 1.2;
+	}
+	&__bottom-text {
+		padding-top: 20px;
+	}
+}
+
+// Account and Payments
+.acc-pay {
+	padding: 300px 0 100px;
+	&__items {
+		@include flex-layout(flex-start, space-between);
+	}
+	&__item:first-child {
+		flex-basis: 480px;
+	}
+	&__item {
+		flex-basis: 580px;
+		padding: 10px;
+	}
+	&__item-subtitle {
+		font-size: 1.5625rem;
+		font-weight: 800;
+	}
+	&__item-title {
+		@include prata-400;
+		font-size: 2.875rem;
+		line-height: 1.4;
+		color: $accent;
+		padding-top: 16px;
+	}
+	&__list-title {
+		font-size: 2rem;
+		font-weight: 800;
+	}
+	&__list {
+		padding-top: 30px;
+	}
+	&__list-item-title {
+		font-weight: 700;
+	}
+	&__payments {
+		margin-top: 100px;
+	}
+	&__cta {
+		margin-top: 100px;
+	}
+}
+
+// Private Banking
+.privat-banking {
+	padding: 100px 0;
+	background-color: $light-grey;
+	&__items {
+		@include flex-layout(flex-start, space-between);
+	}
+	&__item:first-child {
+		flex-basis: 480px;
+	}
+	&__item {
+		flex-basis: 580px;
+		padding: 10px;
+	}
+	&__item-subtitle {
+		font-size: 1.5625rem;
+		font-weight: 800;
+	}
+	&__item-title {
+		@include prata-400;
+		font-size: 2.875rem;
+		line-height: 1.4;
+		color: $accent;
+		padding-top: 16px;
+	}
+	&__item-text {
+		padding-top: 30px;
+	}
+	&__list-title {
+		font-size: 2rem;
+		font-weight: 800;
+		line-height: 1.2;
+	}
+	&__list {
+		padding-top: 30px;
+	}
+	&__list-item-title {
+		font-weight: 700;
+	}
+	&__btn {
+		margin-top: 80px;
+	}
+}
+
+// Business Escrow
+.business-escrow {
+	padding: 100px 0;
+	background-color: $default;
+	&__header {
+		max-width: 980px;
+	}
+	&__header-subtitle {
+		color: $white;
+		font-size: 1.5rem;
+		font-weight: 800;
+	}
+	&__header-title {
+		@include prata-400;
+		font-size: 2.875rem;
+		color: $accent;
+		padding-top: 16px;
+	}
+	&__header-text {
+		color: $grey;
+		padding-top: 30px;
+	}
+	&__inner {
+		@include flex-layout(stretch, space-between);
+		gap: 30px 20px;
+		max-width: 880px;
+		margin: 0 auto;
+		margin-top: 100px;
+	}
+	&__item {
+		@include flex-layout(center, space-between);
+		flex-basis: 280px;
+		text-align: center;
+		padding: 40px 30px;
+		background-color: $white;
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		border-radius: 10px;
+		flex-direction: column;
+		gap: 20px 0;
+		z-index: 100;
+	}
+	&__item-title {
+		font-size: 2rem;
+		font-weight: 800;
+		line-height: 1.2;
+	}
+	&__item-text {
+		padding-top: 20px;
+	}
+	&__bottom {
+		max-width: 600px;
+		margin: 0 auto;
+		text-align: center;
+		margin-top: 100px;
+	}
+	&__text {
+		color: $white;
+	}
+	&__btn {
+		margin-top: 50px;
+	}
+}
+
+// Your Streamlined Banking Partner
+.banking-partner {
+	padding: 100px 0;
+	background-color: $light-grey;
+	&__items {
+		@include flex-layout(flex-start, space-between);
+	}
+	&__item:first-child {
+		flex-basis: 480px;
+	}
+	&__item {
+		flex-basis: 580px;
+		padding: 10px;
+	}
+	&__item-subtitle {
+		font-size: 1.5625rem;
+		font-weight: 800;
+	}
+	&__item-title {
+		@include prata-400;
+		font-size: 2.875rem;
+		line-height: 1.4;
+		color: $accent;
+		padding-top: 16px;
+	}
+	&__item-img {
+		padding-top: 30px;
+		max-width: 483px;
+		width: 100%;
+	}
+	&__list-title {
+		font-size: 2rem;
+		font-weight: 800;
+		line-height: 1.2;
+	}
+	&__list {
+		padding-top: 30px;
+	}
+	&__list-item-title {
+		font-weight: 700;
+	}
+	&__cta {
+		margin-top: 100px;
+	}
+	&__btn {
+		margin-top: 80px;
+	}
+}
+
+// Clients Fees
+.fees {
+	padding: 100px 0 10px;
+	overflow: hidden;
+	&__header-inner {
+		@include flex-layout(flex-start, space-between);
+	}
+	&__header-item:first-child {
+		flex-basis: 500px;
+	}
+	&__header-subtitle {
+		font-size: 1.5rem;
+		font-weight: 800;
+	}
+	&__header-title {
+		@include prata-400;
+		font-size: 2.875rem;
+		color: $accent;
+		padding-top: 16px;
+	}
+	&__header-text {
+		padding-top: 30px;
+	}
+	&__content {
+		display: none;
+		opacity: 0;
+		transition: opacity 0.5s ease-in-out;
+		margin-left: -10px;
+		margin-top: 70px;
+	}
+	&__content.active {
+		display: block;
+		opacity: 1;
+	}
+	&__header-btn-box {
+		border: 1px solid $default;
+		border-radius: 10px;
+		height: 50px;
+	}
+	&__button-group button {
+		padding: 10px 20px;
+		margin: 5px;
+		border: none;
+		cursor: pointer;
+		border-radius: 5px;
+	}
+	&__button-group button.active {
+		background-color: $black;
+		color: $white;
+	}
+	&__note {
+		margin-top: 80px;
+		color: $grey;
+	}
+	&__bread-crumbs {
+		position: relative;
+	}
+
+	// Grey border line
+	&__bread-crumbs::after {
+		content: '';
+		position: absolute;
+		top: -10px;
+		left: -50vw;
+		right: -50vw;
+		width: auto;
+		height: 1px;
+		background-color: $grey;
+	}
+}
+
+// Table for 'Clients Fees' section
+table {
+	border-collapse: collapse;
+	width: 100%;
+	color: $default;
+}
+
+td {
+	background-color: $lighter-grey;
+	border: 10px solid $white;
+	padding: 10px;
+}
+
+th {
+	font-weight: 700;
+}
+
+th:first-child,
+td:first-child {
+	width: 402px;
+	text-align: left;
+}
+
+th:first-child {
+	padding-left: 10px;
+}
+
+td,
+th:not(:first-child) {
+	width: 150px;
+	text-align: center;
+}
+
+// --- Company registration page ---
+// Promo
+.promo-comp-reg {
+	padding: 200px 0 100px;
+	position: relative;
+	&__top {
+		@include flex-layout(center, space-between);
+		gap: 0 80px;
+	}
+	&__top-text {
+		color: $grey;
+		padding-top: 32px;
+		font-size: 1.125rem;
+	}
+	&__btn {
+		margin-top: 40px;
+	}
+	&__top-item {
+		flex-basis: 550px;
+	}
+	&__top-item-img {
+		flex-basis: 700px;
+		margin-right: -200px;
+	}
+	&__top-img {
+		width: 100%;
+		object-fit: cover;
+	}
+	&__item-title {
+		max-width: 255px;
+	}
+	&__items {
+		@include flex-layout(flex-start, space-around);
+		gap: 0 50px;
+		margin-top: 100px;
+	}
+	&__item {
+		flex-basis: 280px;
+	}
+	&__item-text {
+		color: $white;
+		padding-bottom: 40px;
+	}
+	&__bottom-header {
+		margin-top: 100px;
+	}
+	&__bottom-subtitle {
+		font-size: 1.5rem;
+		font-weight: 800;
+		color: $white;
+	}
+	&__cta {
+		margin-top: 80px;
+	}
+}
+
+// Company Registration
+.countries {
+	padding: 100px 0;
+	background-color: $light-grey;
+	overflow: hidden;
+	&__header {
+		position: relative;
+	}
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		margin-top: 100px;
+		z-index: 100;
+		position: relative;
+	}
+	&__list {
+		padding-top: 20px;
+	}
+	&__list-title {
+		font-weight: 700;
+		font-size: 1.125rem;
+	}
+	&__imgbox {
+		position: relative;
+	}
+	&__img {
+		position: absolute;
+		top: 120px;
+		right: -30%;
+		z-index: 0;
+	}
+}
+
+// Company Maintenance
+.maintenance {
+	padding: 100px 0;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		gap: 0 50px;
+	}
+	&__item {
+		flex-basis: 550px;
+	}
+	&__textbox {
+		margin-top: 40px;
+	}
+	&__text {
+		padding-bottom: 16px;
+	}
+	&__img {
+		max-width: 100%;
+	}
+	&__btn {
+		margin-top: 30px;
+	}
+}
+
+// Services
+.comp-reg-services {
+	padding: 100px 0;
+	background-color: $dark-brown-bg;
+	position: relative;
+	overflow: hidden;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+	}
+	&__item {
+		flex-basis: 580px;
+		padding: 10px;
+	}
+	&__subtitle,
+	&__list {
+		color: $white;
+	}
+	&__decore-img-top {
+		position: absolute;
+		top: -100px;
+		left: 0;
+		max-width: 400px;
+		width: 100%;
+	}
+	&__decore-img-bottom {
+		position: absolute;
+		top: 200px;
+		right: -350px;
+		max-width: 940px;
+		width: 100%;
+	}
+}
+
+// Section 'Benefits' for Company registration page
+.comp-reg-benefits {
+	padding-top: 300px;
+	&__subtitle {
+		color: $white;
+	}
+	&__inner {
+		margin-top: 112px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 70px 60px;
+	}
+	&__item:nth-last-child(2),
+	&__item:nth-last-child(1) {
+		grid-column: span 1;
+		justify-self: start;
+	}
+	&__item-title {
+		font-size: 2rem;
+		font-weight: 800;
+		color: $white;
+		padding-top: 30px;
+	}
+	&__item-text {
+		color: $grey;
+		padding-top: 30px;
+	}
+	&__btn {
+		margin-top: 100px;
+		text-align: center;
+	}
+}
+
+// Section 'Process' for Company registration page
+.comp-reg-process {
+	padding: 100px 0 10px;
+	background-color: $light-grey;
+	&__cta {
+		margin-top: 100px;
+	}
+}
+
+// --- Payment Solution page ---
+// Promo
+.promo-pay-sol {
+	padding: 100px 0 250px;
+	background-color: $dark-brown-bg;
+	overflow: hidden;
+	z-index: 10;
+	&__decore {
+		position: relative;
+	}
+	&__decore-img {
+		position: absolute;
+	}
+	// Elipse
+	&__decore-img-1 {
+		top: -200px;
+		left: 0;
+	}
+	// Rhombus
+	&__decore-img-2 {
+		top: -300px;
+		right: -18%;
+		max-width: 1066px;
+		width: 100%;
+	}
+	&__top-inner {
+		@include flex-layout(center, space-between);
+		padding-top: 100px;
+	}
+	&__top-item {
+		flex: 1;
+	}
+	&__top-item:last-child {
+		position: relative;
+		height: auto;
+	}
+	&__top-img {
+		max-width: 100%;
+		position: absolute;
+		height: auto;
+		top: -250px;
+		right: -200px;
+	}
+	&__top-title {
+		font-size: 3rem;
+		font-weight: 700;
+		color: $white;
+		line-height: 1.4;
+	}
+	&__top-boxtext {
+		color: $grey;
+		padding-top: 40px;
+	}
+	&__top-text {
+		padding-bottom: 25px;
+	}
+	&__top-btn {
+		position: relative;
+		margin-top: 40px;
+		z-index: 100;
+	}
+}
+
+// Logos of partner companies
+.partners {
+	padding: 100px 0 25px;
+	&__inner {
+		@include flex-layout(stretch, space-between);
+		flex-wrap: wrap;
+	}
+	&__top {
+		position: relative;
+		padding-top: 70px;
+	}
+	&__top-items {
+		display: flex;
+		justify-content: center;
+		gap: 20px;
+		position: absolute;
+		top: -250px;
+		left: 0;
+		right: 0;
+		z-index: 100;
+		flex-wrap: wrap;
+	}
+	&__top-item {
+		flex-basis: 280px;
+		text-align: center;
+		padding: 40px 30px;
+		background-color: $white;
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		border-radius: 10px;
+		@include flex-layout(center, space-between);
+		flex-direction: column;
+		gap: 20px 0;
+		z-index: 100;
+	}
+	&__top-title {
+		font-size: 2rem;
+		font-weight: 800;
+		line-height: 1.2;
+	}
+	&__top-text {
+		padding-top: 20px;
+	}
+}
+
+// Business account
+.business-account {
+	padding: 100px 0;
+	background-color: $light-grey;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		gap: 0 100px;
+	}
+	&__item:first-child {
+		flex-basis: 480px;
+	}
+	&__text {
+		padding-bottom: 25px;
+	}
+	&__img {
+		max-width: 100%;
+		margin-top: 50px;
+	}
+	&__item-text {
+		flex-basis: 580px;
+		padding: 10px;
+	}
+	&__top-btn {
+		margin-top: 66px;
+	}
+}
+
+// Merchant account
+.merchant-account {
+	padding: 100px 0;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		gap: 0 100px;
+	}
+	&__item:first-child {
+		flex-basis: 480px;
+	}
+	&__text {
+		padding-bottom: 25px;
+	}
+	&__img {
+		max-width: 100%;
+		margin-top: 50px;
+	}
+	&__item-text {
+		flex-basis: 580px;
+		padding: 10px;
+	}
+	&__top-btn {
+		margin-top: 66px;
+	}
+}
+
+// APM
+.apm {
+	padding: 100px 0;
+	background-color: $dark-brown-bg;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+	}
+	&__item:first-child {
+		flex-basis: 576px;
+	}
+	&__item:last-child {
+		flex-basis: 480px;
+	}
+	&__header-subtitle {
+		color: $white;
+	}
+	&__item-text {
+		color: $white;
+		padding: 10px;
+		padding-bottom: 29px;
+	}
+	&__item-img {
+		max-width: 100%;
+	}
+	&__item-text-box {
+		margin-top: 40px;
+	}
+	&__cta {
+		margin-top: 100px;
+	}
+}
+
+// Benefits
+.pay-sol-benefits {
+	padding: 100px 0;
+	overflow: hidden;
+	background-color: $dark-brown-bg;
+	&__inner {
+		margin-top: 112px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0 80px;
+	}
+	&__item-title {
+		font-size: 2rem;
+		font-weight: 800;
+		color: $white;
+		padding-top: 30px;
+	}
+	&__item-text {
+		color: $grey;
+		padding-top: 30px;
+	}
+	&__btn {
+		margin-top: 100px;
+		text-align: center;
+	}
+	&__header-subtitle {
+		color: $white;
+	}
+	&__decore {
+		position: relative;
+	}
+	&__decore-img {
+		position: absolute;
+	}
+	// Elipse
+	&__decore-img-1 {
+		top: -500px;
+		left: 0;
+	}
+	// Rhombus
+	&__decore-img-2 {
+		top: -500px;
+		right: -18%;
+		max-width: 1066px;
+		width: 100%;
+	}
+	&__btn {
+		margin-top: 80px;
+	}
+}
+
+// Process
+.pay-sol-process {
+	padding: 100px 0 10px;
+	&__list-item {
+		margin-top: 40px;
+	}
+
+	// Line
+	&__list-item::after {
+		content: '';
+		position: absolute;
+		left: 33px;
+		top: 27%;
+		transform: translateX(-50%);
+		width: 2px;
+		height: calc(100% + 30px);
+		background-color: $default;
+	}
+}
+
+// --- Gaming business page ---
+// Promo
+.gam-bus-promo {
+	padding: 100px 0;
+	background-color: $dark-brown-bg;
+	overflow: hidden;
+	z-index: 10;
+	&__decore {
+		position: relative;
+		z-index: 0;
+	}
+	&__decore-img {
+		position: absolute;
+	}
+
+	// Elipse
+	&__decore-img-1 {
+		top: -200px;
+		left: 0;
+	}
+
+	// Rhombus
+	&__decore-img-2 {
+		top: -300px;
+		right: -18%;
+		max-width: 1200px;
+		width: 100%;
+	}
+	&__top-inner {
+		padding-top: 100px;
+		@include flex-layout(center, space-between);
+	}
+	&__top-item:first-child {
+		flex-basis: 525px;
+		padding: 10px;
+	}
+	&__top-item:last-child {
+		position: relative;
+		flex-basis: 708px;
+		height: auto;
+	}
+	&__top-img {
+		max-width: 100%;
+		position: absolute;
+		height: auto;
+		top: -250px;
+		right: -200px;
+	}
+	&__top-title {
+		font-size: 3rem;
+		font-weight: 700;
+		color: $white;
+		line-height: 1.4;
+	}
+	&__top-boxtext {
+		color: $grey;
+		padding-top: 40px;
+	}
+	&__top-text {
+		padding-bottom: 25px;
+	}
+	&__top-btn {
+		position: relative;
+		margin-top: 50px;
+		z-index: 100;
+	}
+}
+
+.get-starter {
+	margin-top: 200px;
+}
+
+.license {
+	margin-top: 100px;
+}
+
+.license,
+.get-starter {
+	color: $white;
+	&__item-text {
+		color: $grey;
+		padding-top: 30px;
+		max-width: 480px;
+	}
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		gap: 0 50px;
+	}
+	&__item {
+		flex-basis: 570px;
+	}
+	&__list {
+		padding-top: 20px;
+	}
+	&__list-text {
+		padding-bottom: 20px;
+	}
+}
+
+// Laws and rules
+.laws-rules {
+	padding: 100px 0;
+	background-color: $light-grey;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		gap: 0 100px;
+		margin-top: 80px;
+	}
+	&__item:first-child {
+		flex-basis: 480px;
+	}
+	&__text {
+		padding-bottom: 25px;
+	}
+	&__img {
+		max-width: 100%;
+		margin-top: 50px;
+	}
+	&__item-text {
+		flex-basis: 580px;
+	}
+	&__top-btn {
+		margin-top: 66px;
+	}
+}
+
+// License selectors
+.lic-selectors {
+	padding: 100px 0;
+	background-color: $dark-brown-bg;
+	overflow: hidden;
+	&__subtitle {
+		color: $white;
+	}
+	&__header {
+		position: relative;
+	}
+	&__header-text {
+		color: $light-grey;
+		margin-top: 20px;
+	}
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		position: relative;
+		z-index: 100;
+		gap: 0 150px;
+		margin-top: 100px;
+	}
+
+	&__item:last-child {
+		flex-basis: 680px;
+	}
+	&__list {
+		color: $white;
+		padding-top: 20px;
+	}
+	&__list-item + &__list-item {
+		margin-top: 40px;
+	}
+	&__list-link {
+		position: relative;
+		font-size: 2rem;
+		font-weight: 800;
+		padding-left: 70px;
+	}
+	&__list-link::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 40px;
+		height: 40px;
+		background-size: contain !important;
+	}
+	&__list-link.active {
+		color: $accent;
+	}
+	&__item-content {
+		display: none;
+		opacity: 0;
+		transition: opacity 0.5s ease-in-out;
+	}
+	&__item-content.active {
+		display: block;
+		opacity: 1;
+	}
+	&__item-content {
+		position: relative;
+		background-color: $white;
+		padding: 45px;
+		border-radius: 10px;
+	}
+	&__item-content-list {
+		list-style: inherit;
+		margin-left: 30px;
+	}
+	&__item-content-title {
+		font-size: 1.5rem;
+		font-weight: 700;
+		padding-bottom: 30px;
+	}
+	&__item-content-text {
+		padding-bottom: 16px;
+	}
+
+	&__item-content::before {
+		content: '';
+		position: absolute;
+		left: -15px;
+		width: 0;
+		height: 0;
+		border-left: 15px solid $white;
+		border-top: 15px solid transparent;
+		border-bottom: 15px solid transparent;
+		transform: translateY(-50%) rotate(180deg);
+	}
+	// Content item 1
+	&__item-content:first-child::before {
+		top: 10%;
+	}
+	// Content item 2
+	&__item-content:nth-child(2)::before {
+		top: 30%;
+	}
+	// Content item 3
+	&__item-content:nth-child(3)::before {
+		top: 50%;
+	}
+	// Content item 4
+	&__item-content:last-child::before {
+		top: 70%;
+	}
+}
+
+// Requirements and Pricing
+.requirements-pricing {
+	padding: 100px 0;
+	&__cta {
+		background-color: $default;
+		margin-top: 100px;
+		color: $white;
+	}
+}
+.requirements,
+.pricing {
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		gap: 0 50px;
+	}
+	&__item {
+		flex-basis: 570px;
+	}
+	&__list {
+		padding-top: 20px;
+	}
+	&__text {
+		padding-top: 20px;
+		color: $grey;
+		max-width: 480px;
+	}
+}
+.pricing {
+	margin-top: 100px;
+}
+
+// Countries
+.countries-lic {
+	padding: 100px 0;
+	background-color: $dark-brown-bg;
+	&__header-subtitle,
+	&__content-item {
+		color: $white;
+	}
+	&__content {
+		margin-top: 100px;
+	}
+	&__content-inner {
+		@include flex-layout(center, space-between);
+		gap: 0 20px;
+	}
+	&__content-item:first-child {
+		flex-basis: 650px;
+	}
+	&__content-item:last-child {
+		flex-basis: 580px;
+	}
+	&__content-img {
+		max-width: 100%;
+	}
+	&__content-title {
+		font-size: 2rem;
+		font-weight: 800;
+	}
+	&__content__list,
+	&__content__btn {
+		margin-top: 30px;
+	}
+	&__content__btn-link {
+		padding: 10px 40px;
+	}
+	&__content-line {
+		background-color: #5a2200;
+		margin-top: 100px;
+	}
+}
+
+// The process of obtaining a license
+.obtaining-license {
+	padding: 100px 0;
+	background-color: $light-grey;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		gap: 0 100px;
+	}
+	&__item {
+		flex: 1;
+	}
+	&__img {
+		max-width: 480px;
+		width: 100%;
+		margin-top: 50px;
+	}
+	&__list-item + &__list-item {
+		margin-top: 40px;
+	}
+	&__list-item-title {
+		@include mont-800;
+		font-size: 1.5rem;
+	}
+	&__list-item-text {
+		margin-top: 16px;
+	}
+	&__sublist {
+		list-style: initial;
+		padding-left: 20px;
+	}
+	&__list-item::after {
+		top: 35%;
+	}
+	&__cta {
+		margin-top: 100px;
+	}
+}
+
+// Benefits for Gamming license page
+.gam-lic-benefits {
+	padding: 100px 0 500px;
+	background-color: $dark-brown-bg;
+	overflow: hidden;
+	&__header {
+		position: relative;
+	}
+	&__inner {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 70px;
+
+		padding-top: 70px;
+	}
+	&__item {
+		position: relative;
+		text-align: left;
+		padding: 20px 20px 20px 80px;
+	}
+	&__item::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		width: 60px;
+		height: 60px;
+		background-size: cover;
+	}
+	&__subtitle,
+	&__text {
+		color: $white;
+	}
+	&__btn {
+		position: relative;
+		z-index: 100;
+		margin-top: 200px;
+		text-align: center;
+	}
+	&__decore-img-1 {
+		top: -500px;
+		left: 0;
+	}
+}
+
+// Reviews for Gambling business
+.gam-lic-reviews {
+	background-color: $light-grey;
+	position: relative;
+	padding: 370px 0 10px;
+	&__wrapper {
+		top: -340px;
+	}
+}
+
+// --- Contract Drafting page ---
+// Promo
+.contract-draft-promo {
+	padding: 100px 0;
+	background-color: $dark-brown-bg;
+	overflow: hidden;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		margin-top: 100px;
+	}
+	&__item {
+		position: relative;
+		z-index: 100;
+	}
+	&__item:first-child {
+		flex-basis: 600px;
+	}
+	&__item:last-child {
+		flex-basis: 492px;
+	}
+	&__text-box {
+		margin-top: 40px;
+	}
+	&__text {
+		color: $white;
+		padding-bottom: 20px;
+	}
+	&__title {
+		font-size: 3rem;
+		color: $white;
+		line-height: 1.4;
+		font-weight: 700;
+	}
+}
+
+.contract-drart-services {
+	margin-top: 100px;
+	&__inner {
+		margin-top: 80px;
+		@include flex-layout(flex-start, space-between);
+		gap: 0 20px;
+	}
+	&__subtitle {
+		color: $white;
+	}
+	&__btn {
+		text-align: center;
+		margin-top: 80px;
+	}
+}
+// Promo end
+
+// Types of contracts we draft
+.contracts-draft {
+	padding: 100px 0;
+	background-color: $light-grey;
+	&__inner {
+		margin-top: 60px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 40px 100px;
+	}
+
+	&__item:nth-last-child(2),
+	&__item:nth-last-child(1) {
+		grid-column: span 1;
+		justify-self: start;
+	}
+	&__list {
+		margin-top: 20px;
+	}
+}
+
+// Benefits
+.cont-draft-benefits {
+	&__inner {
+		gap: 70px 50px;
+	}
+	&__decore-img-2 {
+		top: 100px;
+		right: -25%;
+		max-width: 1200px;
+		width: 100%;
+	}
+}
+
+.ip-protection__item:last-child {
+	padding: 20px;
+}
+
+// --- Team registration page ---
+// Promo
+.tm-reg-promo {
+	padding: 100px 0;
+	background-color: $dark-brown-bg;
+	overflow: hidden;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+		margin-top: 100px;
+	}
+	&__item {
+		position: relative;
+		z-index: 100;
+	}
+	&__item:first-child {
+		flex-basis: 600px;
+		margin-top: 30px;
+	}
+	&__item:last-child {
+		flex-basis: 492px;
+	}
+	&__text-box {
+		margin-top: 40px;
+	}
+	&__text {
+		color: $grey;
+		padding-bottom: 20px;
+	}
+	&__title {
+		font-size: 3rem;
+		color: $white;
+		line-height: 1.4;
+		font-weight: 700;
+	}
+	&__btn {
+		margin-top: 50px;
+	}
+}
+
+// Servises for Team registration page
+.tm-reg-services {
+	&__inner {
+		margin-top: 80px;
+		@include flex-layout(flex-start, space-between);
+		gap: 0 20px;
+	}
+	&__subtitle {
+		color: $white;
+	}
+	&__btn {
+		text-align: center;
+		margin-top: 80px;
+	}
+	&__item-title {
+		max-width: 250px;
+	}
+}
+
+// IP protection
+.ip-protection {
+	padding: 100px 0;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+	}
+	&__item {
+		flex-basis: 544px;
+	}
+	&__item {
+		@include flex-layout(flex-start, space-between);
+		flex-direction: column;
+	}
+	&__subtitle {
+		margin-top: 16px;
+	}
+	&__img {
+		margin-top: 56px;
+		max-width: 480px;
+		width: 100%;
+	}
+	&__item {
+		@include flex-layout(flex-start, space-between);
+		flex-direction: column;
+	}
+	&__item-text,
+	&__list-title {
+		padding-bottom: 20px;
+	}
+	&__btn {
+		display: block;
+		max-width: 170px;
+		text-align: center;
+		margin-top: 60px;
+	}
+}
+
+// Benefits for Team registration page
+.tm-reg-benefits {
+	padding: 100px 0;
+	overflow: hidden;
+	background-color: $dark-brown-bg;
+	&__inner {
+		margin-top: 112px;
+		@include flex-layout(flex-start, space-between);
+		gap: 0 60px;
+	}
+	&__item {
+		flex-basis: 280px;
+	}
+	&__item-title {
+		font-size: 2rem;
+		font-weight: 800;
+		color: $white;
+		padding-top: 30px;
+	}
+	&__item-text {
+		color: $grey;
+		padding-top: 30px;
+	}
+	&__btn {
+		margin-top: 100px;
+		text-align: center;
+	}
+	&__header-subtitle {
+		color: $white;
+	}
+	&__decore {
+		position: relative;
+	}
+	&__decore-img {
+		position: absolute;
+	}
+	// Elipse
+	&__decore-img-1 {
+		top: -500px;
+		left: 0;
+	}
+	// Rhombus
+	&__decore-img-2 {
+		top: -500px;
+		right: -18%;
+		max-width: 1066px;
+		width: 100%;
+	}
+	&__btn {
+		margin-top: 80px;
+	}
+}
+
+// Process for Team registration page
+.tm-reg-process {
+	padding-bottom: 10px;
+	background-color: $light-grey;
+}
+
+// --- Blog page ---
+// Promo
+.blog-promo {
+	padding: 100px 0 50px;
+	&__inner {
+		@include flex-layout(center, space-between);
+	}
+	&__subtitle {
+		color: $white;
+	}
+	&__text {
+		text-align: right;
+		color: $grey;
+	}
+}
+
+// Blog categories
+.blog-categories {
+	padding: 70px 0 10px;
+	background-color: $light-grey;
+	&__inner {
+		@include grid-layout(3, start, center);
+		gap: 30px;
+		margin-top: 50px;
+		align-items: stretch;
+	}
+	&__item {
+		color: $default;
+	}
+	&__bread-crumbs {
+		margin-top: 100px;
+	}
+	&__filter-inner {
+		@include flex-layout(center, flex-start);
+		gap: 0 10px;
+		margin-top: 20px;
+	}
+	&__top {
+		@include flex-layout(flex-end, space-between);
+	}
+}
+
+// Filter categories
+.filter-btn {
+	padding: 5px 10px;
+	background-color: $white;
+	border-radius: 5px;
+}
+.filter-btn.active {
+	background-color: $default;
+	color: white;
+}
+
+// Search Form
+.search-form {
+	@include flex-layout(center, space-between);
+}
+.search-form__btn {
+	background-color: $accent;
+	color: $white;
+	padding: 6px 20px;
+	border-radius: 5px;
+	margin-left: 10px;
+}
+.search-container {
+	position: relative;
+	width: 300px;
+}
+.search-input {
+	width: 100%;
+	padding: 0 10px;
+	height: 30px;
+	border: 1px solid $grey;
+	background-color: $white;
+	border-radius: 5px;
+	font-size: 0.875rem;
+}
+.search-label {
+	position: absolute;
+	left: 5px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 0.75rem;
+	color: $grey;
+}
+
+// --- Contact page ---
+// Promo
+.contact-promo {
+	background-color: $dark-brown-bg;
+	padding: 100px 0;
+	overflow: hidden;
+	&__inner {
+		margin-top: 125px;
+		@include flex-layout(flex-start, space-between);
+	}
+	&__item {
+		position: relative;
+		z-index: 100;
+		padding: 10px;
+	}
+	&__item:first-child {
+		flex-basis: 500px;
+	}
+	&__subtitle {
+		color: $white;
+	}
+	&__text {
+		color: $grey;
+		padding-top: 30px;
+		font-size: 1.125rem;
+	}
+}
+.contact-map {
+	overflow: hidden;
+	height: 450px;
+}
+.contact-map__img {
+	object-fit: cover;
+}
+
+// Contact form
+.contact-form {
+	background: white;
+	padding: 40px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	max-width: 400px;
+	width: 100%;
+	&__input,
+	&__textarea,
+	&__button {
+		width: 100%;
+		padding: 10px;
+		margin-bottom: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+	}
+	&__button {
+		background-color: $accent;
+		color: white;
+		border: none;
+		cursor: pointer;
+	}
+}
+
+.contact-info {
+	position: relative;
+	z-index: 100;
+	margin-top: 80px;
+	&__inner {
+		@include flex-layout(flex-start, space-between);
+	}
+	&__item {
+		padding: 10px;
+	}
+	&__title {
+		color: $white;
+	}
+	&__list-item {
+		color: $grey;
+	}
+	&__list-text span,
+	&__list-link {
+		color: $accent;
+	}
+	&__list-item + &__list-item {
+		margin-top: 6px;
+	}
+	&__list {
+		margin-top: 20px;
+	}
+}
+
+// Footer
+.footer {
+	background-color: $default;
+	padding-top: 100px;
+	color: $medium-grey;
+	&__top-inner,
+	&__menu {
+		@include flex-layout(flex-start, space-between);
+		flex-wrap: wrap;
+	}
+	&__menu {
+		gap: 0 70px;
+	}
+	&__menu-item + &__menu-item {
+		margin-top: 20px;
+	}
+	&__top-item:first-child {
+		flex-basis: 350px;
+	}
+	&__top-item-contact {
+		padding-top: 30px;
+	}
+	&__top-item-contact span {
+		display: block;
+		padding-bottom: 20px;
+		font-size: 1.125rem;
+	}
+	&__logo-img {
+		width: 200px;
+	}
+	&__top-item-social-list {
+		margin-top: 20px;
+		margin-left: -15px;
+		@include flex-layout(flex-start, flex-start);
+		gap: 20px 30px;
+	}
+	&__menu-item-title {
+		font-weight: 700;
+		color: $white;
+	}
+	&__menu-link {
+		position: relative;
+		padding: 0;
+		transition: color 0.3s ease;
+		font-size: 0.875rem;
+	}
+	&__menu-link::before {
+		content: '';
+		position: absolute;
+		bottom: -2px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background-color: $accent;
+		transition: width 0.3s ease;
+	}
+	&__menu-link:hover::before {
+		width: 100%;
+	}
+	&__copyright {
+		margin-top: 100px;
+		background-color: $black;
+		padding: 25px 0;
+	}
+	&__copyright-text {
+		color: $white;
+		text-align: center;
+	}
+}
