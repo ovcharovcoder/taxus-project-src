@@ -2469,6 +2469,7 @@ th:not(:first-child) {
 		@include grid-layout(3, start, center);
 		gap: 30px;
 		margin-top: 50px;
+		align-items: stretch;
 	}
 	&__item {
 		color: $default;
@@ -3036,6 +3037,9 @@ th:not(:first-child) {
 	.promo-banking__top-img {
 		max-width: 500px;
 	}
+	.promo-banking__top-item:last-child {
+		margin: 0 auto;
+	}
 	.banking-partner__items {
 		flex-direction: column;
 	}
@@ -3244,6 +3248,11 @@ th:not(:first-child) {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 	}
+	.blog-categories__top {
+		flex-direction: column;
+		gap: 30px;
+		align-items: flex-start;
+	}
 }
 
 @media (max-width: 850px) {
@@ -3261,6 +3270,9 @@ th:not(:first-child) {
 	}
 	.ip-protection__inner {
 		flex-direction: column;
+	}
+	.blog-categories__inner {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
@@ -3459,6 +3471,38 @@ th:not(:first-child) {
 	.tm-reg-benefits__inner {
 		grid-template-columns: repeat(2, 1fr);
 	}
+
+	.blog-promo {
+		&__inner {
+			flex-direction: column;
+			align-items: flex-start;
+			margin-top: 40px;
+		}
+		&__text {
+			text-align: left;
+		}
+	}
+
+	.tm-reg-promo {
+		&__item:first-child {
+			order: -1;
+		}
+		&__item:first-child,
+		&__item:last-child {
+			flex-basis: 100%;
+		}
+	}
+	.blog-promo {
+		padding-bottom: 40px;
+		&__inner {
+			text-align: center;
+			margin: 0 auto;
+			align-items: center;
+		}
+		&__title {
+			margin-bottom: 20px;
+		}
+	}
 }
 
 @media (max-width: 690px) {
@@ -3499,6 +3543,10 @@ th:not(:first-child) {
 			flex-basis: 100%;
 			margin-top: -160px;
 		}
+	}
+
+	.blog-promo__inner {
+		margin-top: 280px;
 	}
 }
 
@@ -3611,6 +3659,18 @@ th:not(:first-child) {
 	}
 	.pay-sol-benefits__btn {
 		margin-top: 30px;
+	}
+
+	.blog-categories__inner {
+		grid-template-columns: repeat(1, 1fr);
+		gap: 0;
+	}
+	.search-form {
+		max-width: 100%;
+	}
+	.blog-categories__filter-inner {
+		flex-wrap: wrap;
+		gap: 20px;
 	}
 }
 
@@ -3910,6 +3970,9 @@ th:not(:first-child) {
 	}
 	.lic-selectors__inner {
 		margin-top: 0;
+	}
+	.promo-banking__top-inner {
+		margin-top: 50px;
 	}
 }
 
