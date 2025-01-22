@@ -2009,29 +2009,29 @@ th:not(:first-child) {
 	&__item-content::before {
 		content: '';
 		position: absolute;
-		left: -15px; /* Відступ зліва для розташування трикутника */
+		left: -15px;
 		width: 0;
 		height: 0;
-		border-left: 15px solid $white; /* Білий трикутник */
+		border-left: 15px solid $white;
 		border-top: 15px solid transparent;
 		border-bottom: 15px solid transparent;
 		transform: translateY(-50%) rotate(180deg);
 	}
 	// Content item 1
 	&__item-content:first-child::before {
-		top: 10%; /* Вирівнювання по вертикалі */
+		top: 10%;
 	}
 	// Content item 2
 	&__item-content:nth-child(2)::before {
-		top: 30%; /* Вирівнювання по вертикалі */
+		top: 30%;
 	}
 	// Content item 3
 	&__item-content:nth-child(3)::before {
-		top: 50%; /* Вирівнювання по вертикалі */
+		top: 50%;
 	}
 	// Content item 4
 	&__item-content:last-child::before {
-		top: 70%; /* Вирівнювання по вертикалі */
+		top: 70%;
 	}
 }
 
@@ -2202,6 +2202,7 @@ th:not(:first-child) {
 }
 
 // --- Contract Drafting page ---
+// Promo
 .contract-draft-promo {
 	padding: 100px 0;
 	background-color: $dark-brown-bg;
@@ -2250,6 +2251,7 @@ th:not(:first-child) {
 		margin-top: 80px;
 	}
 }
+// Promo end
 
 // Types of contracts we draft
 .contracts-draft {
@@ -2854,7 +2856,8 @@ th:not(:first-child) {
 	.requirements-pricing,
 	.countries-lic,
 	.obtaining-license,
-	.gam-lic-benefits {
+	.gam-lic-benefits,
+	.contracts-draft {
 		padding: 40px 0;
 	}
 	.promo-banking {
@@ -3212,6 +3215,18 @@ th:not(:first-child) {
 			margin-top: 50px;
 		}
 	}
+	.contract-drart-services__inner {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px;
+		margin-top: 40px;
+	}
+	.contract-drart-services__btn {
+		margin-top: 40px;
+	}
+	.contract-draft-promo {
+		padding-bottom: 40px;
+	}
 }
 
 @media (max-width: 850px) {
@@ -3399,6 +3414,26 @@ th:not(:first-child) {
 	.gam-lic-benefits__inner {
 		grid-template-columns: repeat(2, 1fr);
 	}
+
+	.contract-draft-promo {
+		&__inner {
+			flex-direction: column;
+			margin-top: 30px;
+		}
+		&__item:first-child {
+			flex-basis: 100%;
+			margin-top: -100px;
+		}
+		&__item:last-child {
+			order: -1;
+			flex-basis: 100%;
+		}
+	}
+
+	.contract-drart-services__inner {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 @media (max-width: 690px) {
@@ -3418,6 +3453,10 @@ th:not(:first-child) {
 		&__gallery {
 			padding-bottom: 20px;
 		}
+	}
+	.contracts-draft__inner {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 40px;
 	}
 }
 
@@ -3554,6 +3593,12 @@ th:not(:first-child) {
 	}
 	.partners__inner {
 		flex-direction: column;
+	}
+	.contract-drart-services__inner {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.contract-drart-services {
+		margin-top: 50px;
 	}
 }
 
