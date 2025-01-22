@@ -1,18 +1,1369 @@
 @use 'vars' as *;
-// Styles for adaptive
 
-/* 
-This is a consistent responsive website model
-
-.section_1,
-.section_2,
-.section_3,  {
-   display: none;
-*/
-
-// 1300px
-/*
-@media (max-width: 1300px) {
-
+/* Min width: 950px */
+@media (min-width: 950px) {
+	.header__nav {
+		position: static;
+		transform: none;
+		height: auto;
+		width: auto;
+		max-width: none;
+		background-color: transparent;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+	}
 }
-*/
+
+/* Max width: 1350px */
+@media (max-width: 1350px) {
+	.reviews {
+		&__testimonials-wrapper {
+			max-width: 999px;
+		}
+		&__wrapper {
+			left: 10%;
+			right: 10%;
+		}
+		&__testimonials-wrapper {
+			max-width: 100%;
+		}
+	}
+	.promo-comp-reg__top-item-img {
+		margin-right: 0;
+	}
+	.promo-pay-sol {
+		&__top-img {
+			right: 0;
+		}
+		&__top-item {
+			padding: 10px;
+		}
+	}
+	.gam-bus-promo__top-img {
+		right: 0;
+	}
+}
+
+/* Max width: 1280px */
+@media (max-width: 1280px) {
+	.platform,
+	.process {
+		&__inner {
+			gap: 0 50px;
+		}
+	}
+}
+
+/* Max width: 1120px */
+@media (max-width: 1120px) {
+	.platform {
+		&__inner {
+			flex-wrap: wrap;
+		}
+		&__item:last-child {
+			order: -1;
+		}
+		&__item:first-child {
+			margin-top: 30px;
+			flex-basis: 100%;
+		}
+	}
+	.process {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item:last-child {
+			margin-top: 30px;
+		}
+	}
+}
+
+/* Max width: 950px */
+@media (max-width: 950px) {
+	.header {
+		&__nav {
+			background-color: rgba(25, 25, 25, 0.98);
+			width: 100%;
+			align-items: flex-start;
+			padding-left: 30px;
+			max-width: 320px;
+		}
+		&__nav-list {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		&__burger {
+			display: block;
+			cursor: pointer;
+		}
+		&__lang {
+			margin-right: 40px;
+		}
+		&__dropdown-menu {
+			left: 130px;
+			top: -9px;
+		}
+		&__dropdown-lang-menu {
+			top: 60px;
+			left: inherit;
+		}
+		&__dropdown.open > .header__nav-link::after {
+			transform: translateY(-50%) rotate(270deg);
+		}
+	}
+	.promo {
+		height: inherit;
+	}
+	.promo-home {
+		&__title {
+			font-size: 2.1875rem;
+		}
+		&__span {
+			font-size: 2.8125rem;
+			padding-left: 70px;
+		}
+		&__span::after {
+			width: 45px;
+			height: 43px;
+		}
+		&__stats-items {
+			margin-right: 0;
+			margin-top: 30px;
+		}
+	}
+
+	.promo-banking {
+		&__top-subtitle,
+		&__top-title {
+			font-size: 3rem;
+		}
+	}
+
+	.services-panel__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.section-bg,
+	.expertise,
+	.who-we-serve,
+	.banking,
+	.process,
+	.industries,
+	.awards,
+	.articles,
+	.diplomas,
+	.privat-banking,
+	.business-escrow,
+	.banking-partner,
+	.fees,
+	.countries,
+	.maintenance,
+	.comp-reg-services,
+	.comp-reg-process,
+	.merchant-account,
+	.apm,
+	.business-account,
+	.pay-sol-process,
+	.pay-sol-benefits,
+	.gam-bus-promo,
+	.laws-rules,
+	.lic-selectors,
+	.requirements-pricing,
+	.countries-lic,
+	.obtaining-license,
+	.gam-lic-benefits,
+	.contracts-draft,
+	.tm-reg-services,
+	.ip-protection,
+	.tm-reg-benefits {
+		padding: 40px 0;
+	}
+	.promo-banking {
+		padding-bottom: 0;
+	}
+	.acc-pay {
+		padding-top: 100px;
+		padding-bottom: 40px;
+	}
+	.diplomas {
+		padding-bottom: 100px;
+	}
+	.reviews {
+		padding-bottom: 40px;
+	}
+	.industries {
+		padding-top: 0;
+	}
+	.author-promo {
+		padding: 255px 0;
+	}
+	.footer {
+		padding-top: 40px;
+	}
+	.services__cta,
+	.promo-about__cta {
+		margin-top: 50px;
+	}
+
+	.who-we-serve {
+		&__list {
+			margin-top: 20px;
+		}
+		&__btn {
+			display: block;
+			max-width: 170px;
+			text-align: center;
+			margin-top: 50px;
+		}
+	}
+	.services__inner {
+		gap: 40px;
+		margin-top: 50px;
+	}
+	.reviews {
+		padding-top: 400px;
+		&__wrapper {
+			position: absolute;
+			top: -300px;
+		}
+		&__testimonials {
+			margin-top: 40px;
+		}
+		&__bread-crumbs {
+			margin-top: 50px;
+		}
+	}
+	.benefits {
+		padding-bottom: 400px;
+	}
+	.swiper {
+		&-button-next {
+			right: -70px;
+		}
+		&-button-prev {
+			left: -70px;
+		}
+	}
+	.promo-about {
+		&__top {
+			flex-direction: column;
+			margin-top: 180px;
+		}
+		&__top-item-img {
+			order: -1;
+		}
+		&__top-item-img {
+			max-width: 400px;
+		}
+		&__top-header {
+			margin-top: 30px;
+		}
+	}
+	.industries__inner {
+		gap: 0 40px;
+	}
+	.awards {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item {
+			flex-basis: 150px;
+		}
+		&__item-gallery {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		&__item-gallery {
+			margin: 0 auto;
+		}
+	}
+	.history {
+		padding-bottom: 360px;
+		&__bottom {
+			padding-top: 50px;
+		}
+	}
+	.promo-team {
+		&__inner {
+			padding-top: 170px;
+		}
+	}
+	.articles__inner {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.articles__item {
+		max-width: 100%;
+	}
+	.articles__item + .articles__item {
+		margin-top: 40px;
+	}
+	.promo-banking {
+		&__top-inner {
+			flex-direction: column;
+		}
+		&__top-item:last-child {
+			order: -1;
+		}
+		&__bottom-items {
+			flex-wrap: wrap;
+			gap: 20px;
+		}
+		&__bottom-items {
+			position: relative;
+		}
+		&__btn {
+			margin-top: 40px;
+		}
+	}
+	.acc-pay {
+		&__items {
+			flex-direction: column;
+		}
+		&__item {
+			flex-basis: 100%;
+			margin-top: 20px;
+		}
+		&__item:first-child {
+			flex-basis: 200px;
+		}
+		&__payments {
+			margin-top: 40px;
+		}
+	}
+	.privat-banking {
+		&__items {
+			flex-direction: column;
+		}
+		&__item {
+			margin-top: 20px;
+		}
+		&__item:first-child {
+			flex-basis: 240px;
+		}
+		&__btn {
+			margin-top: 20px;
+		}
+	}
+	.promo-banking__top-img {
+		max-width: 500px;
+	}
+	.promo-banking__top-item:last-child {
+		margin: 0 auto;
+	}
+	.banking-partner__items {
+		flex-direction: column;
+	}
+	.fees__header-inner {
+		flex-direction: column;
+	}
+	.fees__header-item:first-child {
+		flex-basis: 100%;
+	}
+	.fees__header-btn-box {
+		margin-top: 30px;
+	}
+	.promo-comp-reg {
+		&__inner {
+			margin-top: 150px;
+		}
+		&__top {
+			flex-direction: column;
+		}
+		&__top-item-img {
+			order: -1;
+		}
+		&__top-item-img {
+			flex-basis: 100%;
+		}
+		&__bottom-header {
+			margin-top: 0;
+		}
+		&__items {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 20px;
+		}
+	}
+	.comp-reg-benefits__inner {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+	}
+	.promo-pay-sol {
+		&__top-inner {
+			margin-top: 240px;
+			flex-direction: column;
+		}
+		&__top-item:first-child {
+			margin-top: -250px;
+		}
+		&__top-item:last-child {
+			order: -1;
+		}
+		&__top-img {
+			position: relative;
+		}
+	}
+	.partners__top-items {
+		position: relative;
+	}
+	.partners {
+		padding-top: 0;
+	}
+	.partners__inner {
+		margin-top: -200px;
+	}
+
+	.merchant-account {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item:first-child,
+		&__item-text {
+			flex-basis: 100%;
+		}
+		&__item-text {
+			margin-top: 20px;
+		}
+		&__top-btn {
+			margin-top: 30px;
+		}
+	}
+	.apm {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item:first-child {
+			flex-basis: 100%;
+			margin-top: 30px;
+		}
+		&__item:last-child {
+			flex-basis: 100%;
+			order: -1;
+		}
+		&__cta {
+			margin-top: 40px;
+		}
+	}
+	.business-account {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item:first-child,
+		&__item-text {
+			flex-basis: 100%;
+			padding: 10px;
+		}
+		&__item-text {
+			margin-top: 20px;
+		}
+		&__top-btn {
+			margin-top: 20px;
+			text-align: center;
+		}
+	}
+	.pay-sol-benefits {
+		&__inner {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		&__decore-img-2 {
+			top: -100px;
+		}
+	}
+	.gam-bus-promo {
+		&__top-inner {
+			flex-direction: column;
+		}
+		&__top-item:last-child {
+			flex-basis: 100%;
+			order: -1;
+		}
+		&__top-item:first-child {
+			flex-basis: 100%;
+		}
+		&__top-title {
+			margin-top: -300px;
+		}
+		&__top-img {
+			position: relative;
+		}
+		&__top-inner {
+			margin-top: 290px;
+		}
+	}
+	.get-starter,
+	.license {
+		margin-top: 30px;
+		&__inner {
+			flex-direction: column;
+		}
+		&__item {
+			flex-basis: 100%;
+			margin-top: 30px;
+		}
+	}
+	.laws-rules {
+		&__inner {
+			flex-direction: column;
+			gap: 0;
+			margin-top: -30px;
+		}
+		&__item:first-child {
+			flex-basis: 100%;
+		}
+		&__top-btn {
+			margin-top: 20px;
+		}
+		&__item-text {
+			flex-basis: 100%;
+		}
+	}
+	.lic-selectors__inner {
+		gap: 0 10px;
+	}
+	.obtaining-license {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item {
+			margin-top: 20px;
+		}
+	}
+
+	.gam-lic-benefits {
+		padding-bottom: 380px;
+		&__btn {
+			margin-top: 50px;
+		}
+	}
+	.contract-drart-services__inner {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px;
+		margin-top: 40px;
+	}
+	.contract-drart-services__btn {
+		margin-top: 40px;
+	}
+	.contract-draft-promo {
+		padding-bottom: 40px;
+	}
+	.tm-reg-services {
+		margin-top: 100px;
+	}
+	.ip-protection__item {
+		flex-basis: 100%;
+	}
+	.tm-reg-benefits__inner {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.blog-categories__top {
+		flex-direction: column;
+		gap: 30px;
+		align-items: flex-start;
+	}
+	.order-top {
+		order: -1;
+	}
+}
+
+@media (max-width: 850px) {
+	.promo-team__gallery {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.business-escrow__inner {
+		flex-direction: column;
+	}
+	.comp-reg-benefits__inner {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.lic-selectors__item:last-child {
+		flex-basis: 100%;
+	}
+	.ip-protection__inner {
+		flex-direction: column;
+	}
+	.blog-categories__inner {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 800px) {
+	.services {
+		&__inner {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		&__item {
+			flex-basis: 230px;
+			padding: 10px;
+		}
+	}
+	.services__cta,
+	.reviews__cta,
+	.promo-about__cta,
+	.acc-pay__cta,
+	.comp-reg-process__cta,
+	.apm__cta,
+	.requirements-pricing__cta,
+	.obtaining-license__cta {
+		padding: 40px 20px;
+	}
+	.acc-pay__cta,
+	.obtaining-license__cta {
+		margin-top: 50px;
+	}
+	.banking {
+		&__inner {
+			flex-wrap: wrap;
+		}
+		&__item:first-child {
+			flex-basis: 500px;
+		}
+		&__item:last-child {
+			margin-top: 40px;
+		}
+	}
+	.promo-about {
+		&__items {
+			gap: 0 40px;
+			margin-top: 10px;
+			flex-direction: column;
+		}
+		&__top-item {
+			flex-basis: 490px;
+		}
+	}
+	.promo-team {
+		&__inner {
+			flex-wrap: wrap;
+		}
+		&__item-text {
+			text-align: left;
+			padding-top: 20px;
+		}
+		&__gallery {
+			margin-top: 50px;
+		}
+	}
+	.author-promo__name {
+		font-size: 2.1875rem;
+	}
+	.author-promo__inner {
+		gap: 0 40px;
+	}
+	.footer {
+		&__top {
+			text-align: center;
+		}
+		&__top-inner {
+			justify-content: center;
+		}
+
+		&__top-item-social-list {
+			justify-content: center;
+		}
+		&__menu {
+			margin-top: 40px;
+			gap: 40px;
+		}
+	}
+	.industries {
+		&__inner {
+			flex-wrap: wrap;
+		}
+		&__cta-item-btn {
+			margin-top: 10px;
+		}
+		&__item {
+			flex-basis: 100%;
+			margin-top: 30px;
+		}
+		&__list-item-text {
+			padding-top: 10px;
+		}
+		&__list-item + &__list-item {
+			margin-top: 20px;
+		}
+	}
+	.promo-comp-reg {
+		&__items {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
+		}
+	}
+	.countries__inner {
+		flex-direction: column;
+		align-items: center;
+		margin-top: 40px;
+	}
+	.countries__item + .countries__item {
+		margin-top: 30px;
+	}
+	.comp-reg-services {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item {
+			flex-basis: 100%;
+		}
+	}
+	.comp-reg-benefits {
+		&__inner {
+			margin-top: 30px;
+		}
+		padding-top: 50px;
+	}
+
+	.lic-selectors {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item-content::before {
+			display: none;
+		}
+		&__item {
+			margin-top: 30px;
+		}
+	}
+
+	.pricing,
+	.requirements-pricing__cta {
+		margin-top: 40px;
+	}
+
+	.requirements,
+	.pricing {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item {
+			flex-basis: 100%;
+			margin-top: 20px;
+		}
+	}
+	.countries-lic {
+		&__content-inner {
+			flex-direction: column;
+		}
+		&__content {
+			margin-top: 20px;
+		}
+		&__content-item:first-child,
+		&__content-item:last-child {
+			flex-basis: 100%;
+			margin-top: 20px;
+		}
+	}
+	.gam-lic-benefits__inner {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.contract-draft-promo {
+		&__inner {
+			flex-direction: column;
+			margin-top: 70px;
+		}
+		&__item:first-child {
+			flex-basis: 100%;
+			margin-top: -100px;
+		}
+		&__item:last-child {
+			order: -1;
+			flex-basis: 100%;
+		}
+	}
+
+	.contract-drart-services__inner,
+	.tm-reg-services__inner {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.tm-reg-benefits__inner {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.blog-promo {
+		padding-bottom: 50px;
+		&__inner {
+			flex-direction: column;
+			margin-top: 40px;
+			text-align: center;
+			margin: 0 auto;
+			align-items: center;
+		}
+		&__title {
+			margin-bottom: 20px;
+		}
+		&__text {
+			text-align: left;
+		}
+	}
+
+	.tm-reg-promo {
+		&__item:first-child {
+			order: -1;
+		}
+		&__item:first-child,
+		&__item:last-child {
+			flex-basis: 100%;
+		}
+	}
+
+	.contact-promo {
+		&__inner {
+			flex-direction: column;
+		}
+		.contact-promo__item:first-child {
+			order: -1;
+			flex-basis: 100%;
+			text-align: center;
+			margin: 0 auto;
+		}
+	}
+
+	.contact-form {
+		max-width: 100%;
+		&__item {
+			margin-top: 40px;
+		}
+	}
+	.blog-promo__item:first-child {
+		order: -2;
+	}
+}
+
+@media (max-width: 690px) {
+	.promo-home {
+		&__stats-items {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	.services-panel__list {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.promo-team {
+		&__gallery {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		&__gallery {
+			padding-bottom: 20px;
+		}
+	}
+	.contracts-draft__inner {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 40px;
+	}
+	.tm-reg-promo {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item:last-child {
+			order: -2;
+			flex-basis: 100%;
+			margin: 0 auto;
+		}
+		&-img {
+			max-width: 400px;
+		}
+		&__item:first-child {
+			flex-basis: 100%;
+			margin-top: -160px;
+		}
+	}
+
+	.blog-promo__inner {
+		margin-top: 280px;
+	}
+}
+
+@media (max-width: 620px) {
+	img {
+		margin: 0 auto;
+	}
+	.reviews__testimonials-avatar {
+		margin: inherit;
+	}
+	.title,
+	.subtitle {
+		line-height: 1.2;
+		text-align: center;
+	}
+	.expertise {
+		&__inner {
+			margin-top: 40px;
+		}
+		&__item {
+			flex-basis: 100%;
+			text-align: center;
+		}
+		&__item + &__item {
+			margin-top: 30px;
+		}
+		&__item-title {
+			max-width: 100%;
+			padding-top: 10px;
+		}
+	}
+	.who-we-serve__btn {
+		margin: 0 auto;
+		margin-top: 50px;
+	}
+	.swiper-button-prev,
+	.swiper-button-next {
+		top: inherit;
+		bottom: -90px;
+	}
+	.swiper-button-prev {
+		left: 20px;
+	}
+	.swiper-button-next {
+		right: 20px;
+	}
+
+	.author-promo {
+		padding: 380px 0;
+		&__inner {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		&__wrapper {
+			top: 150px;
+		}
+		&__about {
+			text-align: center;
+		}
+		&__social-list {
+			justify-content: center;
+			margin-top: 30px;
+		}
+		&__name {
+			margin-top: 40px;
+		}
+	}
+	.about-me {
+		padding: 40px 0;
+		&__inner {
+			flex-wrap: wrap;
+		}
+		&__item {
+			padding-top: 0;
+		}
+		&__aducation {
+			margin-top: 30px;
+		}
+		&__item-aducation {
+			flex-basis: 100%;
+		}
+	}
+	.articles__inner {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.diplomas__slider {
+		margin-top: 50px;
+	}
+
+	.maintenance {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item {
+			flex-basis: 100%;
+		}
+		&__item:last-child {
+			margin-top: 30px;
+		}
+		&__textbox {
+			margin-top: 20px;
+		}
+		&__btn {
+			text-align: center;
+		}
+	}
+	.pay-sol-benefits__inner {
+		grid-template-columns: repeat(1, 1fr);
+		text-align: center;
+	}
+	.pay-sol-benefits__btn {
+		margin-top: 30px;
+	}
+
+	.blog-categories__inner {
+		grid-template-columns: repeat(1, 1fr);
+		gap: 0;
+	}
+	.search-form {
+		max-width: 100%;
+	}
+	.blog-categories__filter-inner {
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+}
+
+@media (max-width: 600px) {
+	td,
+	tr {
+		font-size: 0.875rem;
+	}
+	.promo-banking {
+		&__bottom-item {
+			flex-basis: 100%;
+		}
+	}
+	.comp-reg-benefits {
+		&__inner {
+			grid-template-columns: repeat(1, 1fr);
+		}
+		&__item {
+			padding: 20px;
+			text-align: center;
+		}
+	}
+	.partners__inner {
+		flex-direction: column;
+	}
+	.contract-drart-services__inner {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.contract-drart-services {
+		margin-top: 50px;
+	}
+
+	.tm-reg-services__inner {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+@media (max-width: 560px) {
+	.promo-home__stats-inner {
+		justify-content: center;
+	}
+	.services {
+		&__inner {
+			grid-template-columns: repeat(1, 1fr);
+		}
+		&__item-title {
+			max-width: 100%;
+		}
+		&__cta-item-btn {
+			margin: 0 auto;
+		}
+		&__item-btn {
+			max-width: 120px;
+		}
+	}
+
+	.services__cta,
+	.reviews__cta,
+	.acc-pay__cta,
+	.privat-banking__btn,
+	.promo-banking__btn,
+	.promo-pay-sol__top-btn,
+	.merchant-account__top-btn,
+	.gam-bus-promo__top-btn,
+	.laws-rules__top-btn,
+	.countries-lic__content__btn,
+	.tm-reg-promo__btn {
+		text-align: center;
+	}
+
+	.banking__btn,
+	.platform__btn,
+	.services__item-btn {
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		max-width: 180px;
+		margin-top: 30px;
+	}
+
+	.tm-reg-services,
+	.tm-reg-services__inner {
+		margin-top: 40px;
+	}
+
+	.acc-pay__cta-item-btn {
+		margin: 0 auto;
+	}
+
+	.cta-item-title {
+		font-size: 1.75rem;
+	}
+	.process {
+		&__list-item + &__list-item {
+			margin-top: 20px;
+		}
+	}
+
+	.benefits {
+		&__inner {
+			margin-top: 40px;
+			justify-content: center;
+			text-align: center;
+		}
+		&__item {
+			flex-basis: 100%;
+		}
+		&__item + &__item {
+			margin-top: 20px;
+		}
+		&__item-title {
+			font-size: 1.5625rem;
+			max-width: 100%;
+			padding-top: 10px;
+		}
+	}
+
+	.benefits-about {
+		&__item {
+			flex-basis: 100%;
+			text-align: center;
+		}
+		&__item + .benefits-about__item {
+			margin-top: 30px;
+		}
+		&__item-title {
+			max-width: 100%;
+		}
+		&__item-title {
+			margin-top: -20px;
+		}
+		&__inner {
+			margin-top: 40px;
+		}
+	}
+
+	.industries__cta-item-btn {
+		text-align: center;
+	}
+	.business-escrow {
+		&__inner,
+		&__bottom {
+			margin-top: 40px;
+		}
+	}
+	.fees__note {
+		margin-top: 40px;
+	}
+	.promo-comp-reg {
+		&__items {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			gap: 20px;
+		}
+	}
+	.promo-comp-reg__btn {
+		text-align: center;
+		margin-top: 30px;
+		margin-bottom: 10px;
+	}
+	.countries__inner {
+		align-items: flex-start;
+		padding: 15px;
+	}
+	.gam-lic-benefits__inner {
+		grid-template-columns: repeat(1, 1fr);
+		gap: 30px;
+	}
+
+	.tm-reg-benefits {
+		&__inner {
+			grid-template-columns: repeat(1, 1fr);
+			gap: 40px;
+			margin-top: 40px;
+		}
+		&__item {
+			text-align: center;
+		}
+		&__item-title {
+			padding-top: 10px;
+		}
+	}
+}
+
+@media (max-width: 500px) {
+	.title,
+	.acc-pay__item-title,
+	.promo-pay-sol__top-title,
+	.gam-bus-promo__top-title,
+	.tm-reg-promo__title,
+	.contract-draft-promo__title,
+	.promo-banking__top-title {
+		font-size: 1.875rem;
+		line-height: 1.2;
+	}
+	.subtitle {
+		font-size: 1.25rem;
+	}
+	.expertise__item-title,
+	.services__item-title,
+	.industries__list-item-title,
+	.benefits-about__item-title,
+	.about-me__item-title,
+	.about-me__aducation-title,
+	.promo-banking__bottom-title,
+	.acc-pay__list-title,
+	.privat-banking__item-title,
+	.privat-banking__list-title,
+	.business-escrow__header-title,
+	.business-escrow__item-title,
+	.banking-partner__item-title,
+	.banking-partner__list-title,
+	.fees__header-title,
+	.comp-reg-benefits__item-title,
+	.pay-sol-benefits__item-title,
+	.lic-selectors__list-link,
+	.tm-reg-benefits__item-title,
+	.promo-banking__top-subtitle,
+	.promo-about__top-subtitle {
+		font-size: 1.5625rem;
+	}
+	.services__item-title {
+		max-width: 100%;
+	}
+	.header {
+		&__inner {
+			justify-content: center;
+			margin-top: 20px;
+		}
+		&__nav-menu {
+			margin-top: 10px;
+		}
+		&__dropdown-menu {
+			top: -9px;
+		}
+		&__dropdown-lang-menu {
+			top: 120px;
+		}
+	}
+	.promo-home {
+		&__stats-inner {
+			justify-content: center;
+		}
+		&__content-text {
+			font-size: 1rem;
+		}
+		&__stats-inner {
+			margin-top: 20px;
+		}
+	}
+	.promo-about .services__item {
+		flex-basis: 180px;
+	}
+	.promo-about {
+		&__top-item {
+			flex-basis: 300px;
+		}
+		&__cta {
+			margin-top: 20px;
+		}
+	}
+	.history {
+		&__top-content {
+			margin-top: 20px;
+		}
+		&__top-text {
+			padding-top: 0;
+		}
+	}
+	.author-promo__wrapper {
+		top: 190px;
+	}
+	.promo-banking {
+		padding-bottom: 0;
+		&__top-item {
+			margin-top: 30px;
+		}
+	}
+	.acc-pay {
+		&__item:first-child {
+			flex-basis: 160px;
+		}
+		&__item {
+			margin-top: 30px;
+		}
+	}
+	.banking-partner__item:first-child {
+		flex-basis: 420px;
+	}
+	.comp-reg-benefits {
+		&__item-title,
+		&__item-text {
+			padding-top: 10px;
+		}
+		&__btn {
+			margin-top: 20px;
+		}
+		&__inner {
+			gap: 0;
+		}
+	}
+	.lic-selectors__inner {
+		margin-top: 0;
+	}
+	.promo-banking__top-inner {
+		margin-top: 50px;
+	}
+
+	.contact-info {
+		margin-top: 30px;
+		.contact-info__inner {
+			flex-direction: column;
+		}
+		&__item + &__item {
+			margin-top: 20px;
+		}
+	}
+	.contact-promo {
+		padding-bottom: 40px;
+	}
+	.promo-banking__top-item:first-child {
+		flex-basis: 100%;
+	}
+}
+
+@media (max-width: 450px) {
+	td,
+	tr {
+		font-size: 0.6875rem;
+	}
+	.promo-home {
+		&__stats-inner {
+			flex-direction: column;
+		}
+		&__stats-items {
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+	.services-panel__list {
+		grid-template-columns: repeat(1, 1fr);
+		text-align: center;
+	}
+	.promo-team {
+		&__gallery {
+			grid-template-columns: repeat(1, 1fr);
+			justify-content: center;
+			text-align: center;
+		}
+		&__gallery-item {
+			margin: 0 auto;
+		}
+	}
+	.footer {
+		&__copyright {
+			margin-top: 40px;
+		}
+		&__menu {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+}

@@ -1,6 +1,5 @@
 // Colors
 $accent: #c94d00;
-
 $white: #ffffff;
 $default: #1a1a1a;
 $black: #000000;
@@ -17,91 +16,3 @@ $brown-gradient: linear-gradient(
 	#25150a 50%,
 	#191919 100%
 );
-
-// Fonts
-@mixin mont-400 {
-	font-family: 'Montserrat', serif;
-	font-weight: 400;
-	font-optical-sizing: auto;
-	font-style: normal;
-}
-
-@mixin mont-500 {
-	font-family: 'Montserrat', serif;
-	font-weight: 500;
-	font-optical-sizing: auto;
-	font-style: normal;
-}
-
-@mixin mont-600 {
-	font-family: 'Montserrat', serif;
-	font-weight: 600;
-	font-optical-sizing: auto;
-	font-style: normal;
-}
-
-@mixin mont-700 {
-	font-family: 'Montserrat', serif;
-	font-weight: 700;
-	font-optical-sizing: auto;
-	font-style: normal;
-}
-
-@mixin mont-800 {
-	font-family: 'Montserrat', serif;
-	font-weight: 800;
-	font-optical-sizing: auto;
-	font-style: normal;
-}
-
-@mixin prata-400 {
-	font-family: 'Prata', serif;
-	font-weight: 400;
-	font-style: normal;
-}
-
-@mixin rlw-400 {
-	font-family: 'Raleway', serif;
-	font-optical-sizing: auto;
-	font-weight: 400;
-	font-style: normal;
-}
-
-@mixin rlw-700 {
-	font-family: 'Raleway', serif;
-	font-optical-sizing: auto;
-	font-weight: 700;
-	font-style: normal;
-}
-
-// Flex layout  and Grid layout
-/*
-@include flex-layout(flex-start, space-between); // align-items: flex-start; justify-content: space-between;
-@include flex-layout(center, space-between); 
-@include flex-layout(flex-end, space-between);
-@include flex-layout(stretch, space-between);
-@include flex-layout(flex-start, space-around);
-@include flex-layout(center, space-around); 
-@include flex-layout(flex-end, space-around);
-@include flex-layout(stretch, space-around);
-@include flex-layout(center, center);
-@include flex-layout(flex-start, flex-start);
-*/
-
-@mixin flex-layout($align: flex-start, $justify: space-between) {
-	display: flex;
-	justify-content: $justify;
-	align-items: $align;
-}
-
-/*
-	@include grid-layout(2, start, center); // grid-template-columns: repeat(2, 1fr); justify-items: start; align-items: center;
-  @include grid-layout(3, end, flex-start); // grid-template-columns: repeat(3, 1fr); justify-items: end; align-items: flex-start;
-  @include grid-layout(4, center, flex-end); // grid-template-columns: repeat(4, 1fr); justify-items: center; align-items: flex-end;
-	*/
-@mixin grid-layout($columns: 3, $justify: center, $align: center) {
-	display: grid;
-	grid-template-columns: repeat($columns, 1fr);
-	justify-items: $justify;
-	align-items: $align;
-}

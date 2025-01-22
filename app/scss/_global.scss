@@ -1,6 +1,5 @@
 @use 'vars' as *;
-
-// Global styles
+@use 'mixins' as *;
 
 // Glue footer to the bottom
 html,
@@ -17,7 +16,6 @@ body {
 .main {
 	flex-grow: 1;
 }
-
 // END/ Glue footer to the bottom
 
 body {
@@ -32,63 +30,6 @@ body {
 	max-width: 1210px;
 	margin: 0 auto;
 	padding: 0 0.9375rem; // 0 15px
-}
-
-// Button
-.btn {
-	border: none;
-	@include mont-500;
-	font-size: 1rem;
-	background-color: $accent;
-	color: $white;
-	padding: 15px 40px;
-	border-radius: 5px;
-	cursor: pointer;
-	margin-top: 20px;
-}
-
-.color-grey {
-	color: $grey !important;
-}
-
-.arrow-btn-black,
-.arrow-btn-white {
-	@include mont-500;
-	border: 1px solid $default;
-	font-size: 1rem;
-	padding: 10px 50px 10px 15px;
-	background-color: transparent;
-	color: $default;
-	border-radius: 25px;
-	cursor: pointer;
-	position: relative;
-	&::after {
-		content: '';
-		position: absolute;
-		top: 50%;
-		right: 18px;
-		transform: translateY(-50%);
-		width: 24px;
-		height: 13px;
-		background: url('../images/icons/arrow-right-black.svg') no-repeat;
-		background-size: cover;
-	}
-}
-
-.arrow-btn-white {
-	border: 1px solid $white;
-	color: $white;
-	&::after {
-		content: '';
-		position: absolute;
-		top: 50%;
-		right: 18px;
-		transform: translateY(-50%);
-		width: 24px;
-		height: 25px;
-		background: url('../images/icons/arrow-right-white.svg') no-repeat;
-		background-size: cover;
-	}
 }
 
 .promo,
@@ -108,153 +49,4 @@ body {
 	text-align: center;
 	max-width: 880px;
 	margin: 0 auto;
-}
-
-.mr-20 {
-	margin-right: 20px;
-}
-
-.title {
-	@include prata-400;
-	font-size: 46px;
-	color: $accent;
-	line-height: 1.4;
-	margin-top: 16px;
-}
-
-// Block witch orange line
-.subtitle {
-	@include mont-600;
-	font-size: 24px;
-	line-height: 1.4;
-}
-
-.services__item {
-	flex-basis: 380px;
-	padding: 10px;
-}
-
-.services__subtitle {
-	color: $white;
-}
-
-.services__item-title {
-	@include mont-800;
-	font-size: 32px;
-	line-height: 1.2;
-	max-width: 230px;
-	position: relative;
-	margin-bottom: 10px;
-	color: $white;
-}
-
-.services__item-title::after {
-	content: '';
-	display: block;
-	width: 50px;
-	height: 2px;
-	background-color: $accent;
-	margin-top: 30px;
-}
-
-// Call to actions
-.cta-white-bg,
-.cta-black-bg {
-	@include flex-layout(center, space-between);
-	padding: 80px;
-	background-color: $white;
-	border-radius: 20px;
-	color: $default;
-	flex-wrap: wrap;
-}
-
-.cta-black-bg {
-	background-color: $default;
-	color: $white;
-}
-
-.cta-item {
-	max-width: 700px;
-	width: 100%;
-}
-.cta-item-title {
-	@include mont-800;
-	font-size: 32px;
-	line-height: 1.2;
-}
-.cta-item-text {
-	padding-top: 30px;
-}
-
-// Orange rhombus icon item
-.orange-rhombus-item {
-	position: relative;
-	padding-left: 24px;
-}
-.orange-rhombus-item::before {
-	content: '';
-	position: absolute;
-	top: 8px;
-	left: 0;
-	width: 8px;
-	height: 8px;
-	background: url('../images/icons/orange-rhombus.svg') no-repeat;
-	background-size: cover;
-}
-
-.orange-rhombus-item + .orange-rhombus-item {
-	margin-top: 20px;
-}
-
-// List with number
-.number-list {
-	counter-reset: list-counter;
-	padding-left: 0;
-}
-
-.number-list-item {
-	position: relative;
-	padding-left: 100px;
-}
-
-.number-list-item::before {
-	content: counter(list-counter);
-	counter-increment: list-counter;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 66px;
-	height: 66px;
-	background-color: $default;
-	color: white;
-	font-size: 30px;
-	@include flex-layout(center, center);
-	border-radius: 10px;
-	@include mont-400;
-	z-index: 100;
-}
-
-.number-list-item::after {
-	content: '';
-	position: absolute;
-	left: 33px;
-	top: 40%;
-	transform: translateX(-50%);
-	width: 2px;
-	height: calc(100% + 30px);
-	background-color: $default;
-}
-
-.number-list-item:last-child::after {
-	display: none;
-}
-
-// Bread crumbs
-.bread-crumbs__list {
-	display: flex;
-	gap: 0 10px;
-}
-
-.bread-crumbs--active {
-	font-weight: 700;
 }
