@@ -2544,12 +2544,18 @@ th:not(:first-child) {
 	&__item {
 		position: relative;
 		z-index: 100;
+		padding: 10px;
+	}
+	&__item:first-child {
+		flex-basis: 500px;
 	}
 	&__subtitle {
 		color: $white;
 	}
 	&__text {
 		color: $grey;
+		padding-top: 30px;
+		font-size: 18px;
 	}
 }
 .contact-map {
@@ -2591,6 +2597,9 @@ th:not(:first-child) {
 	margin-top: 80px;
 	&__inner {
 		@include flex-layout(flex-start, space-between);
+	}
+	&__item {
+		padding: 10px;
 	}
 	&__title {
 		color: $white;
@@ -3503,6 +3512,24 @@ th:not(:first-child) {
 			margin-bottom: 20px;
 		}
 	}
+
+	.contact-promo {
+		&__inner {
+			flex-direction: column;
+		}
+		.contact-promo__item:first-child {
+			order: -1;
+			flex-basis: 100%;
+			text-align: center;
+			margin: 0 auto;
+		}
+	}
+	.contact-form__item {
+		margin-top: 40px;
+	}
+	.contact-form {
+		max-width: 100%;
+	}
 }
 
 @media (max-width: 690px) {
@@ -3973,6 +4000,19 @@ th:not(:first-child) {
 	}
 	.promo-banking__top-inner {
 		margin-top: 50px;
+	}
+
+	.contact-info {
+		margin-top: 30px;
+		.contact-info__inner {
+			flex-direction: column;
+		}
+		&__item + &__item {
+			margin-top: 20px;
+		}
+	}
+	.contact-promo {
+		padding-bottom: 40px;
 	}
 }
 
