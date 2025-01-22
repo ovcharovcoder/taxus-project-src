@@ -2287,6 +2287,10 @@ th:not(:first-child) {
 	}
 }
 
+.ip-protection__item:last-child {
+	padding: 20px;
+}
+
 // --- Team registration page ---
 // Promo
 .tm-reg-promo {
@@ -2857,7 +2861,10 @@ th:not(:first-child) {
 	.countries-lic,
 	.obtaining-license,
 	.gam-lic-benefits,
-	.contracts-draft {
+	.contracts-draft,
+	.tm-reg-services,
+	.ip-protection,
+	.tm-reg-benefits {
 		padding: 40px 0;
 	}
 	.promo-banking {
@@ -3227,6 +3234,16 @@ th:not(:first-child) {
 	.contract-draft-promo {
 		padding-bottom: 40px;
 	}
+	.tm-reg-services {
+		margin-top: 100px;
+	}
+	.ip-protection__item {
+		flex-basis: 100%;
+	}
+	.tm-reg-benefits__inner {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
 
 @media (max-width: 850px) {
@@ -3241,6 +3258,9 @@ th:not(:first-child) {
 	}
 	.lic-selectors__item:last-child {
 		flex-basis: 100%;
+	}
+	.ip-protection__inner {
+		flex-direction: column;
 	}
 }
 
@@ -3430,8 +3450,13 @@ th:not(:first-child) {
 		}
 	}
 
-	.contract-drart-services__inner {
+	.contract-drart-services__inner,
+	.tm-reg-services__inner {
 		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.tm-reg-benefits__inner {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
@@ -3457,6 +3482,23 @@ th:not(:first-child) {
 	.contracts-draft__inner {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 40px;
+	}
+	.tm-reg-promo {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item:last-child {
+			order: -1;
+			flex-basis: 100%;
+			margin: 0 auto;
+		}
+		&-img {
+			max-width: 400px;
+		}
+		&__item:first-child {
+			flex-basis: 100%;
+			margin-top: -160px;
+		}
 	}
 }
 
@@ -3600,6 +3642,10 @@ th:not(:first-child) {
 	.contract-drart-services {
 		margin-top: 50px;
 	}
+
+	.tm-reg-services__inner {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
 @media (max-width: 560px) {
@@ -3630,7 +3676,8 @@ th:not(:first-child) {
 	.merchant-account__top-btn,
 	.gam-bus-promo__top-btn,
 	.laws-rules__top-btn,
-	.countries-lic__content__btn {
+	.countries-lic__content__btn,
+	.tm-reg-promo__btn {
 		text-align: center;
 	}
 
@@ -3642,6 +3689,11 @@ th:not(:first-child) {
 		text-align: center;
 		max-width: 180px;
 		margin-top: 30px;
+	}
+
+	.tm-reg-services,
+	.tm-reg-services__inner {
+		margin-top: 40px;
 	}
 
 	.acc-pay__cta-item-btn {
@@ -3727,13 +3779,28 @@ th:not(:first-child) {
 		grid-template-columns: repeat(1, 1fr);
 		gap: 30px;
 	}
+
+	.tm-reg-benefits {
+		&__inner {
+			grid-template-columns: repeat(1, 1fr);
+			gap: 40px;
+			margin-top: 40px;
+		}
+		&__item {
+			text-align: center;
+		}
+		&__item-title {
+			padding-top: 10px;
+		}
+	}
 }
 
 @media (max-width: 500px) {
 	.title,
 	.acc-pay__item-title,
 	.promo-pay-sol__top-title,
-	.gam-bus-promo__top-title {
+	.gam-bus-promo__top-title,
+	.tm-reg-promo__title {
 		font-size: 30px;
 		line-height: 1.2;
 	}
@@ -3757,7 +3824,8 @@ th:not(:first-child) {
 	.fees__header-title,
 	.comp-reg-benefits__item-title,
 	.pay-sol-benefits__item-title,
-	.lic-selectors__list-link {
+	.lic-selectors__list-link,
+	.tm-reg-benefits__item-title {
 		font-size: 25px;
 	}
 	.services__item-title {
