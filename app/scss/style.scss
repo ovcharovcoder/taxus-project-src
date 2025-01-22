@@ -1569,12 +1569,8 @@ th:not(:first-child) {
 	&__top-item {
 		flex: 1;
 	}
-	&__top-item:first-child {
-		// flex-basis: 708px;
-	}
 	&__top-item:last-child {
 		position: relative;
-		// flex-basis: 708px;
 		height: auto;
 	}
 	&__top-img {
@@ -1804,7 +1800,7 @@ th:not(:first-child) {
 	}
 }
 
-// --- Gambling business page ---
+// --- Gaming business page ---
 // Promo
 .gam-bus-promo {
 	padding: 100px 0;
@@ -1838,6 +1834,7 @@ th:not(:first-child) {
 	}
 	&__top-item:first-child {
 		flex-basis: 525px;
+		padding: 10px;
 	}
 	&__top-item:last-child {
 		position: relative;
@@ -1937,12 +1934,21 @@ th:not(:first-child) {
 	&__subtitle {
 		color: $white;
 	}
+	&__header {
+		position: relative;
+	}
+	&__header-text {
+		color: $light-grey;
+		margin-top: 20px;
+	}
 	&__inner {
 		@include flex-layout(flex-start, space-between);
 		position: relative;
 		z-index: 100;
 		gap: 0 150px;
+		margin-top: 100px;
 	}
+
 	&__item:last-child {
 		flex-basis: 680px;
 	}
@@ -2144,6 +2150,9 @@ th:not(:first-child) {
 	padding: 100px 0 500px;
 	background-color: $dark-brown-bg;
 	overflow: hidden;
+	&__header {
+		position: relative;
+	}
 	&__inner {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
@@ -2154,7 +2163,7 @@ th:not(:first-child) {
 	&__item {
 		position: relative;
 		text-align: left;
-		padding-left: 80px;
+		padding: 20px 20px 20px 80px;
 	}
 	&__item::before {
 		content: '';
@@ -2714,6 +2723,9 @@ th:not(:first-child) {
 			padding: 10px;
 		}
 	}
+	.gam-bus-promo__top-img {
+		right: 0;
+	}
 }
 
 @media (max-width: 1280px) {
@@ -2835,7 +2847,14 @@ th:not(:first-child) {
 	.apm,
 	.business-account,
 	.pay-sol-process,
-	.pay-sol-benefits {
+	.pay-sol-benefits,
+	.gam-bus-promo,
+	.laws-rules,
+	.lic-selectors,
+	.requirements-pricing,
+	.countries-lic,
+	.obtaining-license,
+	.gam-lic-benefits {
 		padding: 40px 0;
 	}
 	.promo-banking {
@@ -3127,6 +3146,72 @@ th:not(:first-child) {
 			top: -100px;
 		}
 	}
+	.gam-bus-promo {
+		&__top-inner {
+			flex-direction: column;
+		}
+		&__top-item:last-child {
+			flex-basis: 100%;
+			order: -1;
+		}
+		&__top-item:first-child {
+			flex-basis: 100%;
+		}
+		&__top-title {
+			margin-top: -300px;
+		}
+		&__top-img {
+			position: relative;
+		}
+		&__top-inner {
+			margin-top: 290px;
+		}
+	}
+	.get-starter,
+	.license {
+		margin-top: 30px;
+		&__inner {
+			flex-direction: column;
+		}
+		&__item {
+			flex-basis: 100%;
+			margin-top: 30px;
+		}
+	}
+	.laws-rules {
+		&__inner {
+			flex-direction: column;
+			gap: 0;
+			margin-top: -30px;
+		}
+		&__item:first-child {
+			flex-basis: 100%;
+		}
+		&__top-btn {
+			margin-top: 20px;
+		}
+		&__item-text {
+			flex-basis: 100%;
+		}
+	}
+	.lic-selectors__inner {
+		gap: 0 10px;
+	}
+	.obtaining-license {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item {
+			margin-top: 20px;
+		}
+	}
+
+	.gam-lic-benefits {
+		padding-bottom: 380px;
+		&__btn {
+			margin-top: 50px;
+		}
+	}
 }
 
 @media (max-width: 850px) {
@@ -3138,6 +3223,9 @@ th:not(:first-child) {
 	}
 	.comp-reg-benefits__inner {
 		grid-template-columns: repeat(2, 1fr);
+	}
+	.lic-selectors__item:last-child {
+		flex-basis: 100%;
 	}
 }
 
@@ -3156,10 +3244,13 @@ th:not(:first-child) {
 	.promo-about__cta,
 	.acc-pay__cta,
 	.comp-reg-process__cta,
-	.apm__cta {
+	.apm__cta,
+	.requirements-pricing__cta,
+	.obtaining-license__cta {
 		padding: 40px 20px;
 	}
-	.acc-pay__cta {
+	.acc-pay__cta,
+	.obtaining-license__cta {
 		margin-top: 50px;
 	}
 	.banking {
@@ -3263,6 +3354,50 @@ th:not(:first-child) {
 			margin-top: 30px;
 		}
 		padding-top: 50px;
+	}
+
+	.lic-selectors {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item-content::before {
+			display: none;
+		}
+		&__item {
+			margin-top: 30px;
+		}
+	}
+
+	.pricing,
+	.requirements-pricing__cta {
+		margin-top: 40px;
+	}
+
+	.requirements,
+	.pricing {
+		&__inner {
+			flex-direction: column;
+		}
+		&__item {
+			flex-basis: 100%;
+			margin-top: 20px;
+		}
+	}
+	.countries-lic {
+		&__content-inner {
+			flex-direction: column;
+		}
+		&__content {
+			margin-top: 20px;
+		}
+		&__content-item:first-child,
+		&__content-item:last-child {
+			flex-basis: 100%;
+			margin-top: 20px;
+		}
+	}
+	.gam-lic-benefits__inner {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
@@ -3447,7 +3582,10 @@ th:not(:first-child) {
 	.privat-banking__btn,
 	.promo-banking__btn,
 	.promo-pay-sol__top-btn,
-	.merchant-account__top-btn {
+	.merchant-account__top-btn,
+	.gam-bus-promo__top-btn,
+	.laws-rules__top-btn,
+	.countries-lic__content__btn {
 		text-align: center;
 	}
 
@@ -3540,12 +3678,17 @@ th:not(:first-child) {
 		align-items: flex-start;
 		padding: 15px;
 	}
+	.gam-lic-benefits__inner {
+		grid-template-columns: repeat(1, 1fr);
+		gap: 30px;
+	}
 }
 
 @media (max-width: 500px) {
 	.title,
 	.acc-pay__item-title,
-	.promo-pay-sol__top-title {
+	.promo-pay-sol__top-title,
+	.gam-bus-promo__top-title {
 		font-size: 30px;
 		line-height: 1.2;
 	}
@@ -3568,7 +3711,8 @@ th:not(:first-child) {
 	.banking-partner__list-title,
 	.fees__header-title,
 	.comp-reg-benefits__item-title,
-	.pay-sol-benefits__item-title {
+	.pay-sol-benefits__item-title,
+	.lic-selectors__list-link {
 		font-size: 25px;
 	}
 	.services__item-title {
@@ -3650,6 +3794,9 @@ th:not(:first-child) {
 		&__inner {
 			gap: 0;
 		}
+	}
+	.lic-selectors__inner {
+		margin-top: 0;
 	}
 }
 
