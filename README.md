@@ -1,4 +1,4 @@
-# taxus-project-src
+<h1>Open Source for Taxus Project</h1>
 <h2>Project Description</h2>
 <b>Development Date: 22.01.2025</b>
 <h3>Brief description:</h3>
